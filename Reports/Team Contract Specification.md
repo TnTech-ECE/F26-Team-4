@@ -1,6 +1,7 @@
 # **Teamwork Contract**
 
-**Team 4**  
+**Team 4** 
+
 **Team Members:** Jocelyn Lee, Everett Patterson, Merric Anderson, Jonathan Salvato & Jack Fennell   
 *Electrical and Computer Engineering Department*  
 *Tennessee Technological University*
@@ -37,13 +38,13 @@ Project responsibilities may be divided according to the needs of the project an
 
 ### **3. Communication**
 
-- **Expectation:** Team communication should be:
+**Expectation:** Team communication should be:
   - Professional, respectful, and considerate.
   - Conducted through agreed-upon channels (e.g., email, Slack, Microsoft Teams).
   - Responsive within 24 hours, and available Monday through Friday, 8:00am – 5:00pm.
   - Clear regarding deadlines, responsibilities, and project concerns.
   - Team members should not allow communication issues to prevent the team from making progress.
-  - 
+    
 ### **4. Meetings**
 
 **Expectation:** Regarding team meetings:
@@ -57,7 +58,7 @@ Project responsibilities may be divided according to the needs of the project an
 
 ### **5. Conduct**
 
-- **Expectation:** Team members will:
+**Expectation:** Team members will:
   - Treat each other with respect and professionalism.
   - Listen to other team members' ideas and opinions.
   - Allow others to express their ideas without unnecessary interruption.
@@ -75,7 +76,7 @@ Project responsibilities may be divided according to the needs of the project an
 
 - The following process will be used if it is personnel conflicts within the team:
     - Those involved in conflict within the team should first attempt to resolve their issues privately and professionally when possible. If it does not get resolved, then the order of resolution follows:
-    ### Team Lead → Capstone Advisor → Capstone Instructor
+         ####    Team Lead → Capstone Advisor → Capstone Instructor
   
 ### **7. Deadlines**
 
@@ -135,50 +136,43 @@ The team has three permanent organizational roles. Other project responsibilitie
 ## **Additional Agreements**
 
 1. Weekly Check-Ins
-   a. The team will complete the required weekly check-ins. The team will designate a member to submit the team's weekly check-in when necessary.
+    - The team will complete the required weekly check-ins. The team will designate a member to submit the team's weekly check-in when necessary.
 
 2. AI Use
-   a. AI will not be used for official Capstone work unless its use is explicitly permitted by the team or requested by the clients.
-   b. Obvious or inappropriate use of AI in violation of these requirements may be addressed through the team's strike system. 
+    - AI will not be used for official Capstone work unless its use is explicitly permitted by the team or requested by the clients.
+    - Obvious or inappropriate use of AI in violation of these requirements may be addressed through the team's strike system. 
 
 3. Strike System
-   a. The team will use a three-strike system to address repeated or significant failures to meet the expectations established in this contract. 
-   b. Minor offenses may result in a written warning without immediately counting as a strike based on the decision of the team. 
+     - The team will use a three-strike system to address repeated or significant failures to meet the expectations established in this contract.
+     - Minor offenses may result in a written warning without immediately counting as a strike based on the decision of the team.
+     
+     - Strike 1 — Warning
+       -   The first strike serves as a formal warning. The issue will be discussed with the team member by the Team Lead, and expectations for correcting the issue will be established.
+     - Strike 2 — Team Meeting
+       - The second strike will result in the issue being brought before the entire team. The team will discuss the issue and determine an appropriate plan for correcting the problem.
+     - Strike 3 — Meeting with Dr. Storm 
+       - If a team member reaches a third strike, the issue will be brought to Dr. Storm, the Capstone professor, for assistance and resolution. 
 
-Strike 1 — Warning 
- - The first strike serves as a formal warning. The issue will be discussed with the team member by the Team Lead, and expectations for correcting the issue will be established. 
 
-Strike 2 — Team Meeting 
-- The second strike will result in the issue being brought before the entire team. The team will discuss the issue and determine an appropriate plan for correcting the problem. 
+    - *Examples of Actions That May Result in a Strike*
+      - No call/no show for a required meeting.
+      - Being three or more days past a deadline without communicating with the team.
+      - Repeatedly failing to complete assigned responsibilities.
+      - Obvious or inappropriate use of AI in official capstone work.
+      - Repeated failure to communicate about absences, delays, or other significant issues.  
 
-Strike 3 — Meeting with Dr. Storm 
-- If a team member reaches a third strike, the issue will be brought to Dr. Storm, the Capstone professor, for assistance and resolution. 
-
-Examples of Actions That May Result in a Strike 
-1. No call/no show for a required meeting.
-2. Being three or more days past a deadline without communicating with the team.
-3. Repeatedly failing to complete assigned responsibilities.
-4. Obvious or inappropriate use of AI in official capstone work.
-5. Repeated failure to communicate about absences, delays, or other significant issues.  
 
 4. Changes to the Contract 
-- This contract may be modified if the team agrees that a change is necessary. Any significant changes should be discussed by the entire team, passed by majority vote, and documented so that all members are aware of the updated agreement. 
+    - This contract may be modified if the team agrees that a change is necessary. Any significant changes should be discussed by the entire team, passed by majority vote, and documented so that all members are aware of the updated agreement. 
 
 
 ## **Team Member Signatures**
 
 By typing our names below, we acknowledge that we have read, understand, and agree to abide by the terms of this Teamwork Contract.
-
-
-Team Member           Role                Signature                Date 
-
-Jocelyn Lee        Project Lead _______________________________  __________ 
-
-Everett Patterson  Secretary    _______________________________  __________ 
-
-Merric Anderson    Communicator _______________________________  __________ 
-
-Jonathan Salvato   Team Member  _______________________________  __________ 
-
-Jack Fennell       Team Member  _______________________________  __________ 
-
+|     Team Member   |     Role     |           Signature              |    Date    |
+|:-----------------:|:------------:|:--------------------------------:|:----------:|
+| Jocelyn Lee       | Project Lead |                                  |            |
+| Everett Patterson | Secretary    |                                  |            |
+| Merric Anderson   | Communicator |                                  |            |
+| Jonathan Salvato  | Team Member  |                                  |            |
+| Jack Fennell      | Team Member  |                                  |            |
