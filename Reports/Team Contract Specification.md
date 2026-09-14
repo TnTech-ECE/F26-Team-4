@@ -172,7 +172,7 @@ By typing our names below, we acknowledge that we have read, understand, and agr
 |     Team Member   |     Role     |           Signature              |    Date    |
 |:-----------------:|:------------:|:--------------------------------:|:----------:|
 | Jocelyn Lee       | Project Lead |         *Jocelyn Lee*            | 9/13/2026  |
-| Everett Patterson | Secretary    |           *Merric Anderson*                       |            |
-| Merric Anderson   | Communicator |                                  |            |
+| Everett Patterson | Secretary    |                                  |            |
+| Merric Anderson   | Communicator |         Merric Anderson          | 9/13/2026  |
 | Jonathan Salvato  | Team Member  |                                  |            |
 | Jack Fennell      | Team Member  |                                  |            |
