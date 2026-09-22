@@ -1,0 +1,63 @@
+  Project Meeting Minutes
+
+Attendance: All members present
+Start Time: 3:52 PM
+End Time: 4:58 PM
+
+Research and Initial Findings:
+
+Research was presented by the group, and a reference sheet was created. Several relevant resources, such as studies and 
+papers, were provided by Everett and Johnathan into the reference sheet.
+Merric created a written research report.
+Jack and Johnathan presented general research findings.
+Jocelyn served as the meeting leader and moderator.
+
+Client Meeting:
+
+Initial contact with Dr. Austen was established and meeting scheduled.
+Date: Thursday, September 17
+Time: 4:30 PM
+
+Questions for Dr. Austen:
+    What is the intended application of the project?
+    What are the primary constraints of the project?
+    What are the target accuracy, precision, and resiliency requirements?
+    What is the available project budget?
+    Which portions of the system should be custom-designed versus commercially available/off-the-shelf components?
+
+
+
+The group discussed a basic system architecture divided into software and hardware components.
+Software:
+  Server
+  NTP
+  NTS
+
+Hardware:
+  GPS:
+    Antenna
+    Receiver: PPS signal (timing reference) NMEA data
+  Controller:
+    Oscillator
+    Power system
+      Smooth failover
+
+
+
+Potential technologies and approaches discussed include:
+    Chrony
+    FPGA
+    Raspberry Pi
+    Off-the-shelf components
+
+The following areas were identified for continued research:
+    GPS receiver modules
+    Risk profile and failure modes
+    NTP software, including Chrony
+    Oscillator technologies and options
+    Microcontrollers
+    FPGA-based implementations
+    Raspberry Pi-based implementations
+
+Next Steps:
+The group will continue researching the identified technologies and use the initial customer meeting with Dr. Austen to establish the project's requirements, constraints, budget, and intended application.
