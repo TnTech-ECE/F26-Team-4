@@ -1,1 +1,55 @@
+GPS Module Overview
+
+Use to determine the geographic velocity, position, and time of receiver by using information from multiple satellites[1].
+This system uses a method called trilateration, it uses the time traveled to be able to calculate all three spatial dimensions, and the time dimension.
+The actual system is made up of three components: space component, control component, and user component.  
+Satellites are situated 20Km above the earth.
+Receivers need the view of at least four satellites to perform the calculations.
+However, this portion of the GPS is not important currently, what matters if the performance of the receiver, and whether or not it meets the criteria we need.
+
+Pulled from the Spirent GNSS Manuel, it defines these five criteria as most important:
+
+Cold Start TTFF: Time taken by a receiver to
+acquire the signals and perform the position fix
+(time, position and ephemeris parameters are all
+unknown). This is an important metric to ensure that
+a vehicle is operational quickly after a long parking
+time or after towing.
+• Hot Start TTFF: Same as cold start but the DUT
+already knows position (within 100km of last fix),
+time, ephemeris and almanac. Short hot start TTFF
+allows a vehicle to become operational quickly after
+shorter-term parking.
+• Horizontal Position Accuracy (HPA)—CEP50: 50% of
+measured horizontal position values located inside
+a circle of radius equal to the CEP value. It should
+be noted that RMS can be considered to hold
+greater scientific insights into performance as it is
+more stringent and can consider ground truth data,
+but within this paper CEP50 is measured to allow
+for comparability with the published specifications.
+• Acquisition Sensitivity: Minimum received power
+level at which a ‘First Fix’ can occur. A good
+acquisition sensitivity supports the fast picking up of
+GNSS signals after the vehicle exits a GNSS denied
+environment such as a tunnel.
+• Tracking Sensitivity: Minimum power level at which
+a DUT can maintain lock. Good performance on
+tracking sensitivity allows a vehicle to maintain
+accurate positioning even in challenging
+environments (e.g. obstructed signals).
+
+However, these are more for the spatial components regarding gps, these are secondary to our objective of timer transfer.
+
+According to NIST (National Institute of Standards and Technology), these criteria are more important:
+
+•	Propagation Delay: It takes time for a signal to travel from the satellite and the receiver, so that must be accounted for. This is further exacerbated by atmospheric conditions, multipathing, and hardware delays.
+
+From these two sources, I can converge on these criteria to be most important for our capstone:
+•	Accuracy: Difference between the source clock (obviously)
+•	Timing for synchronization: How long does the system take for the clock to achieve synchronization.
+•	Drift: How much does the clock drift when it loses connection with the GPS
+•	GPS Lock: How much time does the GPS provide useful data
+•	Signal Acquisition Time: How long it takes for the module to acquire a signal after start or loss\
+
 
