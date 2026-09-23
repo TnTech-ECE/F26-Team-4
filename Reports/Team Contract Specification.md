@@ -41,7 +41,7 @@ Project responsibilities may be divided according to the needs of the project an
 **Expectation:** Team communication should be:
   - Professional, respectful, and considerate.
   - Conducted through agreed-upon channels (e.g., email, Slack, Microsoft Teams).
-  - Responsive within 24 hours, and available Monday through Friday, 8:00am – 5:00pm.
+  - Responsive within 24 hours, and available Monday through Friday, 8:00am – 5:00pm meaning members are not expected to respond outside of these times.
   - Clear regarding deadlines, responsibilities, and project concerns.
   - Team members should not allow communication issues to prevent the team from making progress.
     
