@@ -20,7 +20,7 @@ already knows position (within 100km of last fix),
 time, ephemeris and almanac. Short hot start TTFF
 allows a vehicle to become operational quickly after
 shorter-term parking.
-• Horizontal Position Accuracy (HPA)—CEP50: 50% of
+• Horizontal Position Accuracy (HPA)—: 50% of
 measured horizontal position values located inside
 a circle of radius equal to the CEP value. It should
 be noted that RMS can be considered to hold
