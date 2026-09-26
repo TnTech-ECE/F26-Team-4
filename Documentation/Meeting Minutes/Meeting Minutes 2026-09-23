@@ -1,0 +1,40 @@
+Meeting 9/23/2026
+
+All Members Present
+
+Start Time: 3:49
+End Time: 5:10
+
+	Decision 1:
+
+The meeting began with a discussion of the critique left on our team contract.  Owen was contacted for clarification on his precise issue.  
+All members voted in favor of the first amendment to the contract. 
+
+	Research Presentation:
+
+The meeting then moved on to a presentation by each member regarding their research for the week.  The work had been divided thus: Jack and Johnathan researched and argued their respective cases for why we aught to use an SOC or a Microcontroller.  Everett and Jocelyn each researched the failure points our system could encounter.  And Merric researched GPS Modules.
+
+	Jack vs Johnathan
+
+Jack began by arguing in favor of using an SOC.  He argued that, while the cost would be greater, it would likely not be prohibitively so.  
+He also argued that SOCs, such as a Raspberry Pi, are greatly beneficial by being able to run the open source software Chrony.  
+Chrony has many important features built in to it, including many NTP and security systems.  He also argued from its wide adoption, including by the Department of Defense, and thus it may be assumed reliable.
+
+Johnathan then argued the merits of using a microcontroller.  His points included significantly reduced cost, and less "wasted space", IE, a device like a Raspberry Pi is capable of far more than we need.  However, he granted that many of the NTP/NTS systems that Chrony possesses by default would need to be implemented from the ground up. Though there do exist GitHub repos related to NTP for several Microcontrollers he suggested.
+
+	Decision 2:
+The team held a vote based upon the given arguments, and it was decided 4-1 that the team will move forward with the SOC and more specifically Chrony.  
+
+	Jocelyn and Everett
+Jocelyn then presented what she found regarding failure states, including spoofing attacks, environmental factors such as cloud coverage or atmospheric ionization, signal holdovers, oscillator drift, backup swap delay, etc.
+
+Everett concurred with Jocelyn's research, then explained what he gathered from Matthew Billings, a TTU professor. Particularly, the potential ways to help authenticate or time signal, including GNSS, NIST, and radio time signals.
+
+	Merric
+Merric spent his time detailing the qualities that will be important for a GPS module, these include: Cold/Hot start time (or, how long it takes the module to acquire a signal when stating), acquisition sensitivity, tracking sensitivity, propagation delay, and the time to shift to a new source after signal loss. 
+
+After each presentation, a time for clarifying questions was held
+
+	Decision 3:
+It was decided that the team should focus their efforts on the following for the next week:  Begin work on proper documentation, including the GitHub ReadMe and the Design Document.
+Roles were assigned to each member for further research and work. 
