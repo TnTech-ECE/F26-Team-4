@@ -1,0 +1,34 @@
+Meeting 09-30-2026
+
+All Present
+
+Start Time: 4:05
+End Time: 5:25
+
+Everett began by detailing his prior meeting with Professor Matthew Billings.  He presented on the principles of authentication, emphasizing that we need to be able to stratify the different sources of time that we receive into varying levels of trust, so each may be emphasized differently as circumstances require.
+
+
+Then, Jack explained the Chrony software, including its two parts: the daemon and the console. The former is inaccessible and runs in the background, while the latter is what the user interfaces with. He also explained Clock Synchronization (that which synchronizes data from multiple sources), and client communications (which send a signal to the client), and the security concerns for each.
+
+Jonathan then explained a few examples of preexisting solutions, including time servers and a secure NTP time source.
+
+Merric shared a document detailing various GPS modules that he feels will be best for our project, though no decision was made concerning how much money we are willing to allocate towards them. Debate was also had as to whether or not we should include multiple. 
+
+Jocelyn then shared several standards that she found, including: RFC8915 (NTP cryptography), RFC5905 (NTP clock synchronization), NISTIR8323 (cybersecurity for GPS based times systems), NISTTN2187 (for resilient and reliable time distribution), and IEC62443-4-2 (defines the requirements for a component to be included in a controls system). No decisions were reached about which standards, if any, of these we would choose to adhere to. 
+
+The rest of the meeting was spent working on diving the work for the Midterm Design Document.  The following breakdown and deadlines were agreed upon:
+
+The Proposal is to be finished by the 9th of October.
+
+The Conceptual Design is to be finished by the 19th of October.
+
+All will be required to work on: Personnel, References, and Statement of Contribution.
+
+Jonathan: Constraints and Exiting Solutions
+Merric:  Background and Measures of Success
+Jack: Resources and Budget
+Jocelyn: Timeline (including Gant Chart) and Specific implications, as well as final proof reading. 
+Everett: Introduction and Broader Implications.
+
+
+
