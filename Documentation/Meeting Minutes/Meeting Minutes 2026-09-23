@@ -14,13 +14,13 @@ All members voted in favor of the first amendment to the contract.
 
 The meeting then moved on to a presentation by each member regarding their research for the week.  The work had been divided thus: Jack and Johnathan researched and argued their respective cases for why we aught to use an SOC or a Microcontroller.  Everett and Jocelyn each researched the failure points our system could encounter.  And Merric researched GPS Modules.
 
-	Jack vs Johnathan
+	Jack vs Jonathan
 
 Jack began by arguing in favor of using an SOC.  He argued that, while the cost would be greater, it would likely not be prohibitively so.  
 He also argued that SOCs, such as a Raspberry Pi, are greatly beneficial by being able to run the open source software Chrony.  
 Chrony has many important features built in to it, including many NTP and security systems.  He also argued from its wide adoption, including by the Department of Defense, and thus it may be assumed reliable.
 
-Johnathan then argued the merits of using a microcontroller.  His points included significantly reduced cost, and less "wasted space", IE, a device like a Raspberry Pi is capable of far more than we need.  However, he granted that many of the NTP/NTS systems that Chrony possesses by default would need to be implemented from the ground up. Though there do exist GitHub repos related to NTP for several Microcontrollers he suggested.
+Jonnathan then argued the merits of using a microcontroller.  His points included significantly reduced cost, and less "wasted space", IE, a device like a Raspberry Pi is capable of far more than we need.  However, he granted that many of the NTP/NTS systems that Chrony possesses by default would need to be implemented from the ground up. Though there do exist GitHub repos related to NTP for several Microcontrollers he suggested.
 
 	Decision 2:
 The team held a vote based upon the given arguments, and it was decided 4-1 that the team will move forward with the SOC and more specifically Chrony.  
