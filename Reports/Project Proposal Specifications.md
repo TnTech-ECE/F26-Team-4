@@ -45,9 +45,27 @@ Specifications and constraints define the system's requirements. They can be pos
 
 #### Specifications
 
-Specifications are requirements imposed by **stakeholders** to meet their needs. If a specification seems unattainable, it is necessary to discuss and negotiate with the stakeholders.
-
+The GPS regulated Secure Network Time Server (SNTS) will:
+1. Keep and Broadcast the current time:
+	-The server shall keep time within an accuracy of ## (ms, us, ns?) 
+	-The server shall obtain the time from multiple sources including:
+		-GPS
+		-An Internal Oscillator
+		-Radio time such as WWVB
+		-Network sources such as NIST
+	-The server shall communicate the current time data through the NTPv4 standard
+2. Maintain Security:
+	-The server shall maintain a secure connection to clients connected through NTS
+	-The server shall be resilient to external attacks, such as:
+		-GPS Spoofing
+		-DOS/DDOS attacks
+		-The loss of any one time source
+3. Be open source and accessible to a hobbyist:
+	-The server shall have components and build instructions that are clear and easy to follow
+	-The server's cost needs to be accessible (***maybe mention an actual cost***)
+	-The server's Licenses for software must be compatible or adaptable
 #### Constraints
+
 
 Constraints often stem from governing bodies, standards organizations, and broader considerations beyond the requirements set by stakeholders.
 
@@ -105,5 +123,8 @@ All sources used in the project proposal that are not common knowledge must be c
 
 
 ## Statement of Contributions
+
+Specifications and Constraints - Jonathan Salvato
+
 
 Each team member must contribute meaningfully to the project proposal. In this section, each team member is required to document their individual contributions to the report. One team member may not record another member's contributions on their behalf. By submitting, the team certifies that each member's statement of contributions is accurate.
