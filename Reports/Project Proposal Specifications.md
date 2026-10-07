@@ -41,18 +41,16 @@ Provide context and details necessary to define the problem clearly and delineat
 
 ### Specifications and Constraints
 
-Specifications and constraints define the system's requirements. They can be positive (do this) or negative (don't do that). They can be mandatory (shall or must) or optional (may). They can cover performance, accuracy, interfaces, or limitations. Regardless of their origin, they must be unambiguous and impose measurable requirements.
-
 #### Specifications
 
 The GPS regulated Secure Network Time Server will:
 1. Keep and Broadcast the current time:
 	-The server shall keep time within an accuracy of ## (ms, us, ns?) to UTC with an internal holdover of ## s/day
 	-The server shall obtain the time from multiple sources including:
-		-GPS
+		-GPS such as GNSS
 		-An Internal Oscillator
-		-Radio time such as WWVB
 		-Network sources such as NIST
+		-*If time allows, radio time such as WWVB*
 	-The server shall communicate the current time data through the NTPv4 standard
 2. Maintain Security:
 	-The server shall maintain a secure connection to clients connected through NTS
@@ -63,7 +61,7 @@ The GPS regulated Secure Network Time Server will:
 3. Be open source and accessible to a hobbyist:
 	-The server shall have components and build instructions that are clear and easy to follow
 	-The server's cost needs to be accessible (***maybe mention an actual cost***)
-	-The server's Licenses for software must be compatible or adaptable
+	-The server's Licenses for software must be compatible and open source
 #### Constraints
 
 The GPS Regulated Secure Network Time Server will adhere to:
@@ -92,7 +90,7 @@ Many GPS governed NTP servers already exist on the market today. Many of these s
 
 For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day. It's a great time server, but costs ~$1595.00, which makes it inadequate for hobbyist use.
 
-For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of less than a microsecond per day. The standard drift without the atomic clock is around 400 us per day. This absolute beauty of an NTP server hovers around $5000-11000 making this an extreme example of high cost.
+For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day. This NTP server hovers around $5000-11000 making this an extreme example of high cost.
 
 Of course, there are more accessible options on the market, but most of these come with tradeoffs of precision, security, or relative cost.
 
