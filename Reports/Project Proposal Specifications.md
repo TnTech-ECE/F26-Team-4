@@ -45,9 +45,9 @@ Specifications and constraints define the system's requirements. They can be pos
 
 #### Specifications
 
-The GPS regulated Secure Network Time Server (SNTS) will:
+The GPS regulated Secure Network Time Server will:
 1. Keep and Broadcast the current time:
-	-The server shall keep time within an accuracy of ## (ms, us, ns?) 
+	-The server shall keep time within an accuracy of ## (ms, us, ns?) to UTC with an internal holdover of ## s/day
 	-The server shall obtain the time from multiple sources including:
 		-GPS
 		-An Internal Oscillator
@@ -66,6 +66,14 @@ The GPS regulated Secure Network Time Server (SNTS) will:
 	-The server's Licenses for software must be compatible or adaptable
 #### Constraints
 
+The GPS Regulated Secure Network Time Server will adhere to:
+1. Regulations and standards
+	-~~are there any gps standards we need to follow?~~
+	-The server shall be compliant with the rfc9505 NTPv4 network protocol
+	-~~are there any radio standards we need to follow?~~
+I have no idea what to put here rn
+
+
 
 Constraints often stem from governing bodies, standards organizations, and broader considerations beyond the requirements set by stakeholders.
 
@@ -78,7 +86,19 @@ Questions to consider:
 
 ## Survey of Existing Solutions
 
-Research existing solutions, whether in literature, on the market, or within the industry. Present these findings in a coherent, organized manner. Remember to cite all information that is not common knowledge.
+**I forgot to add citations**
+
+Many GPS governed NTP servers already exist on the market today. Many of these solutions, however, are for an industrial scale which makes them bulky, incredibly high in cost, and generally inaccessible.
+
+For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day. It's a great time server, but costs ~$1595.00, which makes it inadequate for hobbyist use.
+
+For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of less than a microsecond per day. The standard drift without the atomic clock is around 400 us per day. This absolute beauty of an NTP server hovers around $5000-11000 making this an extreme example of high cost.
+
+Of course, there are more accessible options on the market, but most of these come with tradeoffs of precision, security, or relative cost.
+
+For a lower cost, Time Machines Corp. has a fleet of NTP time servers: The TM1000A ($349.99), TM2000B ($549.99), TM2500C ($799.99), and TM3000A ($999.99). All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source. While these servers will work, they're either expensive or lacking in security features.
+
+As can be seen, there is no shortage in available time server solutions, however many of these solutions are expensive and/or lacking in available security or timekeeping measures. With this project we hope to offer a solution with a low cost, secure, and accurate time server.
 
 
 ## Measures of Success
@@ -125,6 +145,6 @@ All sources used in the project proposal that are not common knowledge must be c
 ## Statement of Contributions
 
 Specifications and Constraints - Jonathan Salvato
-
+Existing Solutions - Jonathan Salvato  
 
 Each team member must contribute meaningfully to the project proposal. In this section, each team member is required to document their individual contributions to the report. One team member may not record another member's contributions on their behalf. By submitting, the team certifies that each member's statement of contributions is accurate.
