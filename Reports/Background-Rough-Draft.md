@@ -8,8 +8,8 @@ can track a position accurately, otherwise the target will drift off course[1]. 
 more accurate time increases, the need for more reliable time distribution has become 
 increasingly important.
 
-Network Timer Servers (NTS) solve this by obtaining accurate time from a trusted sources such as:
-satellite constellations, local atomic clocks. Then, it is distributed downstream 
+Network Timer Servers (NTS) solve this by obtaining accurate time from trusted sources such as:
+satellite constellations and local atomic clocks. Then, it is distributed downstream 
 to clients via the Network Time Protocol[2]. In a typical system, the server receives a reference 
 time, disciplines a local oscillator to maintain reference time, and distributes that time to clients.
 
@@ -22,5 +22,5 @@ time for logging, authentication, and decision-making, a compromised time source
 consequences that can cause immense damage[In-person testimony?].
 
 Therefore, creating a secure and resilient time source is of extraordinary importance to the 
-functioning of society. It must be secure from attempts from malicious entities, and from damage 
+functioning of society. It must be secure from attempts from malicious entities to subvert the system, and from damage 
 from outside sources to ensure functioning even in extreme and hostile situations.
