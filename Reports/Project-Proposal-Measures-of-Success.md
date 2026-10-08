@@ -1,8 +1,8 @@
-Measures Of Success
+#  Measures Of Success
 
 The success of this project will be based on the time source's ability to provide reliable time in hostile and normal conditions. The following Key Performance Indicators (KPIs) will be used to determine whether the system meets the technical, timing, and security requirements.
 
-1. Timing and Synchronization Accuracy
+***1. Timing and Synchronization Accuracy***
 
 Objective: Verify that the system can maintain accurate time reference using external sources while delivering it to clients.
 
@@ -14,7 +14,7 @@ Methodology:
 - Longterm stability: Operate the system over a period of time to determine whether the system can maintain synchronicity.
 - Time Verification: Determine whether clients downstream are receiving the correct time, and is stable.
 
-1. GPS Reliability
+***2. GPS Reliability***
 
 Objective: Verify whether the system can reliably acquire signals and accurately acquire timestamps.
 
@@ -27,7 +27,7 @@ Methodology:
 - Restart Testing: Test whether the system can cycle power and acquire a signal and gain synchronization.
 - Antenna Testing: Determine whether the antenna and cabling can provide a quality signal over a period of time.
 
-1. Holdover Performance
+***3. Holdover Performance***
 
 Objective: Verify the signal can provide accurate timestamps without a time source
 
@@ -39,7 +39,7 @@ Methodology:
 - Recovery Testing: Provide a valid time reference and measure whether the synchronization is correct quickly so not to produce time discontinuation.
 - Repeated Time Source Interruption: Repeatedly disconnect and reconnect a signal and verify consistency.
 
-1. Network Time Distribution
+***4. Network Time Distribution***
 
 Objective: Verify that a externally disciplined time source can accurately distribute timestamps to clients.
 
@@ -51,7 +51,7 @@ Methodology:
 - Timestamp Accuracy: Compare timestamps received by timestamps against a valid reference to determine timing error.
 - Continuous Operation: Observe timestamps transmission over a period of time to determine synchronization remains accurate.
 
-1. Security and Robustness
+***5. Security and Robustness***
 
 Objective: Verify that the time source is robust against external attacks such as spoofing and DOS attacks, as well as attacks like jamming.
 
@@ -64,7 +64,7 @@ Methodology:
 - Event Logging: Verify that significant events including time source loss, synchronization changes, configuration changes, and system failures are logged for future analysis.
 - Failure Response: When the integrity of the external time sources cannot be verified, ensure the system enters a safe operating mode.
 
-1. Power Efficiency and Reliability
+***6. Power Efficiency and Reliability***
 
 Objective: Verify that the time source can operate while maintaining safe electrical and thermal performance.
 
