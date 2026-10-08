@@ -1,0 +1,31 @@
+***Background***
+	
+
+Secure and accurate timing is paramount in most modern systems in a multitude of industries. 
+Examples include power generation, where plants need accurate time to log errors and 
+synchronize generators, the finance industry needs accurate timestamps to track transactions to 
+prevent theft and fraud, and modern navigation systems, like GPS, needs perfect timing so that it 
+can track a position accurately, otherwise the target will drift off course[1]. As the dependence on 
+more accurate time increases, the need for more reliable time distribution has become 
+increasingly important.
+
+	
+Network Timer Servers (NTS) solve this by obtaining accurate time from a trusted sources such as:
+satellite constellations, local atomic clocks. Then, it is distributed downstream 
+to clients via the Network Time Protocol[2]. In a typical system, the server receives a reference 
+time, disciplines a local oscillator to maintain reference time, and distributes that time to clients.
+
+	
+While this system is effective and efficient at distributing time, it has several security 
+vulnerabilities. The system is reliant on external time sources, which can be interrupted and 
+subverted by an attacker. Attacks such as spoofing, where an attacker can disguise themselves as 
+a time signal, and jamming, where signals are interrupted, can cause the server to lose its 
+synchronization with the correct time. Since many systems rely on having access to this absolute 
+time for logging, authentication, and decision-making, a compromised time source can have 
+consequences that can cause immense damage[In-person testimony?].
+
+
+
+Therefore, creating a secure and resilient time source is of extraordinary importance to the 
+functioning of society. It must be secure from attempts from malicious entities, and from damage 
+from outside sources to ensure functioning even in extreme and hostile situations.
