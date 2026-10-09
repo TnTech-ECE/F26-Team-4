@@ -24,3 +24,4 @@ consequences that can cause immense damage[In-person testimony?].
 Therefore, creating a secure and resilient time source is of extraordinary importance to the 
 functioning of society. It must be secure from attempts from malicious entities to subvert the system, and from damage 
 from outside sources to ensure functioning even in extreme and hostile situations.
+
