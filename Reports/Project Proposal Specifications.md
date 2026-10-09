@@ -65,36 +65,27 @@ The GPS regulated Secure Network Time Server will:
 #### Constraints
 
 The GPS Regulated Secure Network Time Server will adhere to:
-1. Regulations and standards
-	-~~are there any gps standards we need to follow?~~
-	-The server shall be compliant with the rfc9505 NTPv4 network protocol
-	-~~are there any radio standards we need to follow?~~
-I have no idea what to put here rn
-
-
-
-Constraints often stem from governing bodies, standards organizations, and broader considerations beyond the requirements set by stakeholders.
-
-Questions to consider:
-- Do governing bodies regulate the solution in any way?
-- Are there industrial standards that need to be considered and followed?
-- What impact will the engineering, manufacturing, or final product have on public health, safety, and welfare?
-- Are there global, cultural, social, environmental, or economic factors that must be considered?
-
+1. Server Standards and regulations
+	-The server shall be compliant with the RFC 5905 Network Time Protocol Version 4
+	
+	-The server shall follow the guidelines set by the NISTTN2187 for resilient architecture
+	
+2. Wireless Receiver and processing Standards and reguations
+	-The server shall be compliant with the ANSI C63.10 Compliance Testing of Unlicensed Wireless Devices
+	
+	-The server shall be compliant with the Title 47 CFR Part 15 regulation for Radio Frequency Devices
 
 ## Survey of Existing Solutions
 
-**I forgot to add citations**
-
 Many GPS governed NTP servers already exist on the market today. Many of these solutions, however, are for an industrial scale which makes them bulky, incredibly high in cost, and generally inaccessible.
 
-For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day. It's a great time server, but costs ~$1595.00, which makes it inadequate for hobbyist use.
+For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[^1] It's a great time server, but costs ~$1595.00[^2], which makes it inadequate for hobbyist use.
 
-For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day. This NTP server hovers around $5000-11000 making this an extreme example of high cost.
+For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day[^3]. This NTP server hovers around $5000-11000[^4][^5] making this an extreme example of high cost.
 
 Of course, there are more accessible options on the market, but most of these come with tradeoffs of precision, security, or relative cost.
 
-For a lower cost, Time Machines Corp. has a fleet of NTP time servers: The TM1000A ($349.99), TM2000B ($549.99), TM2500C ($799.99), and TM3000A ($999.99). All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source. While these servers will work, they're either expensive or lacking in security features.
+For a lower cost, Time Machines Corp. has a fleet of NTP time servers[^6]: The TM1000A ($349.99)[^6], TM2000B ($549.99)[^6], TM2500C ($799.99)[^6], and TM3000A ($999.99)[^6]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[^7]. While these servers will work, they're either expensive or lacking in security features.
 
 As can be seen, there is no shortage in available time server solutions, however many of these solutions are expensive and/or lacking in available security or timekeeping measures. With this project we hope to offer a solution with a low cost, secure, and accurate time server.
 
@@ -113,6 +104,7 @@ Each project proposal must include a comprehensive description of the necessary 
 Provide a budget proposal with justifications for expenses such as software, equipment, components, testing machinery, and prototyping costs. This should be an estimate, not a detailed bill of materials.
 
 ### Personel
+
 
 Identify the skills present in the team and compare them to those required to complete the project. Address any skill gaps with a plan to acquire the necessary knowledge.
 
@@ -136,8 +128,13 @@ Consider the project’s broader impacts in global, economic, environmental, and
 
 
 ## References
-
-All sources used in the project proposal that are not common knowledge must be cited. Multiple references are required.
+[^1]:  “GMR1000 Compact GPS Master Clock & NTP Server | Masterclock,” _Masterclock.com_, 2026. https://www.masterclock.com/masterclock-gmr-1000.html (accessed Oct. 09, 2026).
+[^2]: “Masterclock GMR1000 Master Clock,” _Broadcasters General Store_, 2026. https://bgs.cc/masterclock-gmr1000/ (accessed Oct. 09, 2026).
+[^3]: “SyncServer® S600 NTP/PTP Time Server,” _Microchip.com_, 2026. https://www.microchip.com/en-us/products/clock-and-timing/systems/enterprise-network-time-servers/syncserver-s600 (accessed Oct. 09, 2026).
+[^4]: “Microchip SyncServer S600 - network time server - 090-15200-601 - Network Management Devices - CDW.com,” _CDW.com_, 2026. https://www.cdw.com/product/microchip-syncserver-s600-network-time-server/3984841 (accessed Oct. 09, 2026).
+[^5]: “Microchip SyncServer S600 - network time server - with Rubidium Atomic Oscillator - 090-15200-606 - Network Management Devices - CDW.com,” _CDW.com_, 2026. https://www.cdw.com/product/microchip-syncserver-s600-network-time-server-with-rubidium-atomic-osci/4354775 (accessed Oct. 09, 2026).
+[^6]: “Shop GPS Time Servers + Accessories | TimeMachines,” _TimeMachines Inc._, Dec. 11, 2025. https://timemachinescorp.com/gps-time-servers-accessories/ (accessed Oct. 09, 2026).
+[^7]:  “Shop GNSS Network Time Server | TimeMachines,” _TimeMachines Inc._, Mar. 05, 2026. https://timemachinescorp.com/product/tm3000/ (accessed Oct. 09, 2026).
 
 
 ## Statement of Contributions
