@@ -3,7 +3,7 @@
 Secure and accurate timing is paramount in most modern systems in a multitude of industries. 
 Examples include power generation, where plants need accurate time to log errors and 
 synchronize generators, the finance industry needs accurate timestamps to track transactions to 
-prevent theft and fraud, and modern navigation systems, like GPS, needs perfect timing so that it 
+prevent theft and fraud, and modern navigation systems, like GPS, needs perfect(better phrasing) timing so that it 
 can track a position accurately, otherwise the target will drift off course[1]. As the dependence on 
 more accurate time increases, the need for more reliable time distribution has become 
 increasingly important.
