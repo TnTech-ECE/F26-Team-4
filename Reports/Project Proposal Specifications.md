@@ -268,21 +268,20 @@ This project will expand on the security and accuracy of currently available tim
 Additionally, the design and dissemination of this project will contribute to greater time server independence, meaning that this project will likely provide timing more precise and resilient than standard, default internet based timing, while also no longer being so overly reliant on the internet. 
 Finally, the project will be released publicly, thus reducing the barriers for any who may be interested in following this design. This improves accessibility and inclusivity of the project.
 
-###Potential Negatives:
 ### Risk to Network Security
-	This project will involve network connections from various sources, including international sources. These, along with communications between the server and the client, leave the potential open for malicious activity. 
+This project will involve network connections from various sources, including international sources. These, along with communications between the server and the client, leave the potential open for malicious activity. 
 	Mitigation: We plan to make the signal communications secure via systems like NTS, and quarantine the signals to only what they are needed for, thus keeping any malicious activity reasonably contained.
  
 ### False sense of security
-	This project, as it is designed for improving the security of time servers, may give the user an overconfidence in this design, such that they may imagine hat they will have no risk of tampering or failure.  This is not the case, even the completed design will not be immune to all issues, and theoretically a sufficiently skilled malicious actor could still disrupt the design.
+This project, as it is designed for improving the security of time servers, may give the user an overconfidence in this design, such that they may imagine hat they will have no risk of tampering or failure.  This is not the case, even the completed design will not be immune to all issues, and theoretically a sufficiently skilled malicious actor could still disrupt the design.
 	Mitigation: In order to solve this issue, we intend to have clear documentation on each part of the project, clearly specifying exactly what capabilities the design possesses, so that there may be no confusion or estimation as to what the project may do.
 
 ### Environmental Impacts
-	This project may impact the environment due to waste products, especially if the design is imprecise or cumbersome to follow.
+This project may impact the environment due to waste products, especially if the design is imprecise or cumbersome to follow.
 	Mitigation: We plan to mitigate this issue by having precise documentation, thus allowing any who come after us to create this design without wasting or destroying any components. 
 
 ### Cost and Skill to implement
-	This project, despite its reduced cost compared to the current market, may still be prohibitively expensive for those creating it, or too challenging to implement.  
+This project, despite its reduced cost compared to the current market, may still be prohibitively expensive for those creating it, or too challenging to implement.  
 	Mitigation:  While there is only so much that may be done for the cost of this project, we intend to reduce necessary costs as much as reasonably possible, thus making the design as accessible as can be helped.  Additionally, we may mitigate the skill requirement by being precise and explanatory in our design documents so that the skill requirements may be as low as reasonably possible.
 
 ## Ethics:
