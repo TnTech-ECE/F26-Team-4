@@ -1,23 +1,5 @@
 # Project Proposal
 
-This document provides a comprehensive explanation of what a project proposal should encompass. The content here is detailed and is intended to highlight the guiding principles rather than merely listing expectations. The sections that follow contain all the necessary information to understand the requirements for creating a project proposal.
-
-
-## General Requirements for the Document
-- All submissions must be composed in markdown format.
-- All sources must be cited unless the information is common knowledge for the target audience.
-- The document must be written in third person.
-- The document must identify all stakeholders including the instuctor, supervisor, and customer.
-- The problem must be clearly defined using "shall" statements.
-- Existing solutions or technologies that enable novel solutions must be identified.
-- Success criteria must be explicitly stated.
-- An estimate of required skills, costs, and time to implement the solution must be provided.
-- The document must explain how the customer will benefit from the solution.
-- Broader implications, including ethical considerations and responsibilities as engineers, must be explored.
-- A list of references must be included.
-- A statement detailing the contributions of each team member must be provided.
-
-
 ## Introduction
 
 The introduction must be the opening section of the proposal. It acts as the "elevator pitch" of the project, briefly introducing the objective, its importance, and the proposed solution. Because readers may only read this section, it should effectively capture their attention and encourage them to read further.
@@ -91,7 +73,19 @@ Provide a detailed timeline, including all major deadlines and tasks. This shoul
 
 ## Specific Implications
 
-Explain the implications of solving the problem for the customer. After reading this section, the reader should understand the tangible benefits and the worthiness of the proposed work.
+Implementing the Resilient and Secure Network Time Server (NTS) that was proposed will provide many solutions to our customer's issues: secure, resilient, and affordable network time synchronization.
+
+By using the Network Time Security (NTS) protocol, the system will give a cryptographic authentication of timing information shared back and forth from the server and client. Through this, the risk of malicious sources providing false information can be reduced, creating a more secure alternative to traditional NTP \[1],\[2]. Timestamps that have been authenticated and proven reliable not only improve the trustworthiness of systems logs to many other network operations as well.
+
+Even when primary GPS timing sources become unavailable, this system will be designed to maintain a usable time reference. GPS and other PNT services (positioning, navigation, and timing) are commonly affected by power outages, interference, and other disruptions such as GPS jamming \[3]. By incorporating backups we can reduce the system's dependence on GPS allowing clients to continue receiving data during disruptions \[4].
+
+The Network Time Security protocol will protect the system from being manipulated by people with malicious intents. With the ability to establish cryptographic keys and authenticate traffic, NTS allows clients to verify that time information has not been tampered with \[2]. This provides confidence to the customer as the time distributed by the system is protected.
+
+One of the primary objectives of the project is to achieve high end security and resilience through the use of common, inexpensive hardware. Ideally, hobbyist, students, and small organizations with limited budgets will be able to use the proposed system as it avoids the use of expensive commercial equipment. This provides protected time outputs to those who might not have the necessary infrastructure to use current NTS technology. Our team's GitHub Repository will also be available distribution as source of information on how to build their own NTS.
+
+The simplicity of the system will provide a platform for experimentation, education, and future development. With a modular design, individual components like timing sources, networking hardware, and backup oscillators can be interchanged for testing and optimization. When designed like this, a single customer can build a system that is not limited to just one application, but many as this system can serve as the foundation for future resilient time projects. 
+
+Combining aspects like secure network communication, GPS disciplined timing, and resistance to individual failures, a system can have a massive reduction to the operational and cybersecurity risks that plague conventional services. Along with this, maintaining a low total hardware cost reduces the financial challenges of implementing such a system. The final design would provide both incredible security and affordability to clients.
 
 
 ## Broader Implications, Ethics, and Responsibility as Engineers
