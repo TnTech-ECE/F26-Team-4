@@ -245,6 +245,8 @@ State who your instrucotr is and what role you expect them to play in the projec
 
 Provide a detailed timeline, including all major deadlines and tasks. This should be illustrated with a professional Gantt chart.
 
+<iframe src="https://tennesseetechuniversity-my.sharepoint.com/:x:/g/personal/jalee45_tntech_edu/IQDv3cOURWYWR5PHDW48w3dxAb2TmZNduaKVtZd6UTf7gK4?e=pBDkYa&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMH0"></iframe>
+
 
 ## Specific Implications
 
