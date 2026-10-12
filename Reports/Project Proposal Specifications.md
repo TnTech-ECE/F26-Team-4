@@ -40,43 +40,41 @@ Questions to consider:
 Provide context and details necessary to define the problem clearly and delineate its boundaries.
 
 ### Specifications and Constraints
-
 #### Specifications
-
 The GPS regulated Secure Network Time Server will:
 1. Keep and Broadcast the current time:
 	-The server shall keep time within an accuracy of ## (ms, us, ns?) to UTC with an internal holdover of ## s/day
 	-The server shall obtain the time from multiple sources including:
-		-GPS such as GNSS
+		-GNSS sources such as GPS
 		-An Internal Oscillator
-		-Network sources such as NIST
+		-Network sources such as NIST Internet time servers
 		-*If time allows, radio time such as WWVB*
 	-The server shall communicate the current time data through the NTPv4 standard
 2. Maintain Security:
 	-The server shall maintain a secure connection to clients connected through NTS
 	-The server shall be resilient to external attacks, such as:
-		-GPS Spoofing
+		-GPS Spoofing or Jamming
 		-DOS/DDOS attacks
 		-The loss of any one time source
+		-Power Loss
 3. Be open source and accessible to a hobbyist:
+	-The server's design and details shall be published to the public
 	-The server shall have components and build instructions that are clear and easy to follow
-	-The server's cost needs to be accessible (***maybe mention an actual cost***)
+	-The server's cost needs to be minimized 
 	-The server's Licenses for software must be compatible and open source
 #### Constraints
-
 The GPS Regulated Secure Network Time Server will adhere to:
 1. Server Standards and regulations
 	-The server shall be compliant with the RFC 5905 Network Time Protocol Version 4
 	
 	-The server shall follow the guidelines set by the NISTTN2187 for resilient architecture
 	
-2. Wireless Receiver and processing Standards and reguations
+2. Wireless Receiver and device Standards and regulations
 	-The server shall be compliant with the ANSI C63.10 Compliance Testing of Unlicensed Wireless Devices
 	
 	-The server shall be compliant with the Title 47 CFR Part 15 regulation for Radio Frequency Devices
 
 ## Survey of Existing Solutions
-
 Many GPS governed NTP servers already exist on the market today. Many of these solutions, however, are for an industrial scale which makes them bulky, incredibly high in cost, and generally inaccessible.
 
 For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[^1] It's a great time server, but costs ~$1595.00[^2], which makes it inadequate for hobbyist use.
