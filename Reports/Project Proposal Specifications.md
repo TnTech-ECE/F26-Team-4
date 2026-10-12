@@ -302,4 +302,5 @@ The engineers involved must hold themselves to the IEEE Code of Ethics. [citatio
 ## Statement of Contributions
 
 Specifications and Constraints - Jonathan Salvato
-Existing Solutions - Jonathan Salvato  
+Existing Solutions - Jonathan Salvato
+Background and Measures of Success - Merric Anderson
