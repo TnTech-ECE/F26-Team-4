@@ -286,12 +286,12 @@ This project, despite its reduced cost compared to the current market, may still
 
 ## Ethics:
 While this project is designed for the individual to have a secure time server, this does not come without ethical considerations.  First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is.  Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them.  We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
-The engineers involved must hold themselves to the IEEE Code of Ethics. [citation]
+The engineers involved must hold themselves to the IEEE Code of Ethics. [^15]
 
 
 ## References
-[^1]:
-[^2]:
+[^1]:B. Telford, “What Is NTP? A Beginner’s Guide to Network Time Protocol,” Galleon Systems, Mar. 11, 2019. https://www.galsys.co.uk/news/what-is-ntp-a-beginners-guide-to-network-time-protocol/ (accessed Oct. 12, 2026).
+[^2]:“NIST Authenticated NTP Service | NIST,” NIST, Feb. 10, 2010. https://www.nist.gov/pml/time-and-frequency-division/time-services/nist-authenticated-ntp-service (accessed Oct. 12, 2026).
 [^3]:  “GMR1000 Compact GPS Master Clock & NTP Server | Masterclock,” _Masterclock.com_, 2026. https://www.masterclock.com/masterclock-gmr-1000.html (accessed Oct. 09, 2026).
 [^4]: “Masterclock GMR1000 Master Clock,” _Broadcasters General Store_, 2026. https://bgs.cc/masterclock-gmr1000/ (accessed Oct. 09, 2026).
 [^5]: “SyncServer® S600 NTP/PTP Time Server,” _Microchip.com_, 2026. https://www.microchip.com/en-us/products/clock-and-timing/systems/enterprise-network-time-servers/syncserver-s600 (accessed Oct. 09, 2026).
@@ -300,8 +300,11 @@ The engineers involved must hold themselves to the IEEE Code of Ethics. [citatio
 [^8]: “Shop GPS Time Servers + Accessories | TimeMachines,” _TimeMachines Inc._, Dec. 11, 2025. https://timemachinescorp.com/gps-time-servers-accessories/ (accessed Oct. 09, 2026).
 [^9]:  “Shop GNSS Network Time Server | TimeMachines,” _TimeMachines Inc._, Mar. 05, 2026. https://timemachinescorp.com/product/tm3000/ (accessed Oct. 09, 2026).
 [^10]: “Chrony – Introduction,” _chrony-project.org_. https://chrony-project.org/ (accessed Oct. 12, 2026).
-[^11]:
-[^12]:
+[^11]:D. L. Mills, J. Martin, J. Burbank, and W. Kasch, “Network Time Protocol Version 4: Protocol and Algorithms Specification,” RFC 5905, Internet Engineering Task Force, Jun. 2010.
+[^12]:D. Franke, D. Sibold, K. Teichel, M. Dansarie, and R. Sundblad, “Network Time Security for the Network Time Protocol,” RFC 8915, Internet Engineering Task Force, Sep. 2020
+[^13]:J. McCarthy, Y.-S. Li-Baboud, J. Brule, and K. Meldorf, “Foundational PNT Profile: Applying the Cybersecurity Framework for the Responsible Use of Positioning, Navigation, and Timing (PNT) Services,” NIST Interagency/Internal Report 8323 Rev. 1, National Institute of Standards and Technology, Jan. 2023.
+[^14]:J. Sherman, L. Arissian, R. Brown, M. J. Deutch, E. Donley, V. Gerginov, J. Levine, G. Nelson, A. Novick, B. Patla, T. Parker, B. Stuhl, J. Yao, W. Yates, M. A. Lombardi, V. Zhang, and D. Sutton, “A Resilient Architecture for the Realization and Distribution of Coordinated Universal Time to Critical Infrastructure Systems in the United States: Methodologies and Recommendations from the National Institute of Standards and Technology,” NIST Technical Note 2187, National Institute of Standards and Technology, Nov. 2021.
+[^15]:IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. [https://www.ieee.org/about/corporate/governance/p7-8](https://www.ieee.org/about/corporate/governance/p7-8) (accessed Oct. 12, 2026).
 ## Statement of Contributions
 
 Specifications and Constraints - Jonathan Salvato
