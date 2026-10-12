@@ -40,27 +40,52 @@ Questions to consider:
 Provide context and details necessary to define the problem clearly and delineate its boundaries.
 
 ### Specifications and Constraints
-
-Specifications and constraints define the system's requirements. They can be positive (do this) or negative (don't do that). They can be mandatory (shall or must) or optional (may). They can cover performance, accuracy, interfaces, or limitations. Regardless of their origin, they must be unambiguous and impose measurable requirements.
-
 #### Specifications
-
-Specifications are requirements imposed by **stakeholders** to meet their needs. If a specification seems unattainable, it is necessary to discuss and negotiate with the stakeholders.
-
+The GPS regulated Secure Network Time Server will:
+1. Keep and Broadcast the current time:
+	-The server shall keep time within an accuracy of ## (ms, us, ns?) to UTC with an internal holdover of ## s/day
+	-The server shall obtain the time from multiple sources including:
+		-GNSS sources such as GPS
+		-An Internal Oscillator
+		-Network sources such as NIST Internet time servers
+		-*If time allows, radio time such as WWVB*
+	-The server shall communicate the current time data through the NTPv4 standard
+2. Maintain Security:
+	-The server shall maintain a secure connection to clients connected through NTS
+	-The server shall be resilient to external attacks, such as:
+		-GPS Spoofing or Jamming
+		-DOS/DDOS attacks
+		-The loss of any one time source
+		-Power Loss
+3. Be open source and accessible to a hobbyist:
+	-The server's design and details shall be published to the public
+	-The server shall have components and build instructions that are clear and easy to follow
+	-The server's cost needs to be minimized 
+	-The server's Licenses for software must be compatible and open source
 #### Constraints
-
-Constraints often stem from governing bodies, standards organizations, and broader considerations beyond the requirements set by stakeholders.
-
-Questions to consider:
-- Do governing bodies regulate the solution in any way?
-- Are there industrial standards that need to be considered and followed?
-- What impact will the engineering, manufacturing, or final product have on public health, safety, and welfare?
-- Are there global, cultural, social, environmental, or economic factors that must be considered?
-
+The GPS Regulated Secure Network Time Server will adhere to:
+1. Server Standards and regulations
+	-The server shall be compliant with the RFC 5905 Network Time Protocol Version 4
+	
+	-The server shall follow the guidelines set by the NISTTN2187 for resilient architecture
+	
+2. Wireless Receiver and device Standards and regulations
+	-The server shall be compliant with the ANSI C63.10 Compliance Testing of Unlicensed Wireless Devices
+	
+	-The server shall be compliant with the Title 47 CFR Part 15 regulation for Radio Frequency Devices
 
 ## Survey of Existing Solutions
+Many GPS governed NTP servers already exist on the market today. Many of these solutions, however, are for an industrial scale which makes them bulky, incredibly high in cost, and generally inaccessible.
 
-Research existing solutions, whether in literature, on the market, or within the industry. Present these findings in a coherent, organized manner. Remember to cite all information that is not common knowledge.
+For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[^1] It's a great time server, but costs ~$1595.00[^2], which makes it inadequate for hobbyist use.
+
+For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day[^3]. This NTP server hovers around $5000-11000[^4][^5] making this an extreme example of high cost.
+
+Of course, there are more accessible options on the market, but most of these come with tradeoffs of precision, security, or relative cost.
+
+For a lower cost, Time Machines Corp. has a fleet of NTP time servers[^6]: The TM1000A ($349.99)[^6], TM2000B ($549.99)[^6], TM2500C ($799.99)[^6], and TM3000A ($999.99)[^6]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[^7]. While these servers will work, they're either expensive or lacking in security features.
+
+As can be seen, there is no shortage in available time server solutions, however many of these solutions are expensive and/or lacking in available security or timekeeping measures. With this project we hope to offer a solution with a low cost, secure, and accurate time server.
 
 
 ## Measures of Success
@@ -77,6 +102,7 @@ Each project proposal must include a comprehensive description of the necessary 
 Provide a budget proposal with justifications for expenses such as software, equipment, components, testing machinery, and prototyping costs. This should be an estimate, not a detailed bill of materials.
 
 ### Personel
+
 
 Identify the skills present in the team and compare them to those required to complete the project. Address any skill gaps with a plan to acquire the necessary knowledge.
 
@@ -100,10 +126,18 @@ Consider the project’s broader impacts in global, economic, environmental, and
 
 
 ## References
-
-All sources used in the project proposal that are not common knowledge must be cited. Multiple references are required.
+[^1]:  “GMR1000 Compact GPS Master Clock & NTP Server | Masterclock,” _Masterclock.com_, 2026. https://www.masterclock.com/masterclock-gmr-1000.html (accessed Oct. 09, 2026).
+[^2]: “Masterclock GMR1000 Master Clock,” _Broadcasters General Store_, 2026. https://bgs.cc/masterclock-gmr1000/ (accessed Oct. 09, 2026).
+[^3]: “SyncServer® S600 NTP/PTP Time Server,” _Microchip.com_, 2026. https://www.microchip.com/en-us/products/clock-and-timing/systems/enterprise-network-time-servers/syncserver-s600 (accessed Oct. 09, 2026).
+[^4]: “Microchip SyncServer S600 - network time server - 090-15200-601 - Network Management Devices - CDW.com,” _CDW.com_, 2026. https://www.cdw.com/product/microchip-syncserver-s600-network-time-server/3984841 (accessed Oct. 09, 2026).
+[^5]: “Microchip SyncServer S600 - network time server - with Rubidium Atomic Oscillator - 090-15200-606 - Network Management Devices - CDW.com,” _CDW.com_, 2026. https://www.cdw.com/product/microchip-syncserver-s600-network-time-server-with-rubidium-atomic-osci/4354775 (accessed Oct. 09, 2026).
+[^6]: “Shop GPS Time Servers + Accessories | TimeMachines,” _TimeMachines Inc._, Dec. 11, 2025. https://timemachinescorp.com/gps-time-servers-accessories/ (accessed Oct. 09, 2026).
+[^7]:  “Shop GNSS Network Time Server | TimeMachines,” _TimeMachines Inc._, Mar. 05, 2026. https://timemachinescorp.com/product/tm3000/ (accessed Oct. 09, 2026).
 
 
 ## Statement of Contributions
+
+Specifications and Constraints - Jonathan Salvato
+Existing Solutions - Jonathan Salvato  
 
 Each team member must contribute meaningfully to the project proposal. In this section, each team member is required to document their individual contributions to the report. One team member may not record another member's contributions on their behalf. By submitting, the team certifies that each member's statement of contributions is accurate.
