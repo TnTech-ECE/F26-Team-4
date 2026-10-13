@@ -38,15 +38,11 @@ This proposal will cover the following:
 
 
 
-## Formulating the Problem
+## Fully Formulated Problem
 
-Formulating the problem or objective involves clearly defining it through background information, specifications, and constraints. Think of it as "fencing in" the objective to make it unambiguously clear what is and is not being addressed and why.
+The Primary objective of this project is to build a low cost, accessible, and effective Network Timer Server that provides accurate timestamps by using time references like satellite constellations and online servers. The system shall also be secure from attempts to subvert it from attacks like jamming, DOS, Man in the Middle attacks, and general attacks.
 
-Questions to consider:
-- Who does the problem affect (i.e. who is your customer)?
-- Why do we need this solution?
-- What challenges necessitate a dedicated, multi-person engineering team?
-- Why aren’t off-the-shelf solutions sufficient?
+The system shall be able to be constructed easily and inexpensively for use by the general public. In doing so, individuals and organizations will have access to extraordinarily accurate and secure time to ensure proper operation of their systems.
 
 ### Background
 Secure and accurate timing is paramount in most modern systems in a multitude of industries. 
