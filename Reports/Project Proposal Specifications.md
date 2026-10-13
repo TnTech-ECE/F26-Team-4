@@ -48,7 +48,7 @@ The system shall be able to be constructed easily and inexpensively for use by t
 Secure and accurate timing is paramount in most modern systems in a multitude of industries. 
 Examples include power generation, where plants need accurate time to log errors and 
 synchronize generators, the finance industry needs accurate timestamps to track transactions to 
-prevent theft and fraud, and modern navigation systems, like GPS, needs perfect(better phrasing) timing so that it 
+prevent theft and fraud, and modern navigation systems, like GPS, needs precise timing so that it 
 can track a position accurately, otherwise the target will drift off course[^1]. As the dependence on 
 more accurate time increases, the need for more reliable time distribution has become 
 increasingly important.
@@ -64,7 +64,7 @@ subverted by an attacker. Attacks such as spoofing, where an attacker can disgui
 a time signal, and jamming, where signals are interrupted, can cause the server to lose its 
 synchronization with the correct time. Since many systems rely on having access to this absolute 
 time for logging, authentication, and decision-making, a compromised time source can have 
-consequences that can cause immense damage[In-person testimony?].
+consequences that can cause immense damage.
 
 Therefore, creating a secure and resilient time source is of extraordinary importance to the 
 functioning of society. It must be secure from attempts from malicious entities to subvert the system, and from damage 
