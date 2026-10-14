@@ -308,3 +308,4 @@ The engineers involved must hold themselves to the IEEE Code of Ethics. [^15]
 Specifications and Constraints - Jonathan Salvato
 Existing Solutions - Jonathan Salvato
 Background, Measures of Success, and Formulation of the Problem - Merric Anderson
+Resources and Budget - Jack Fennell
