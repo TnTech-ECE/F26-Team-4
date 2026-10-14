@@ -305,7 +305,7 @@ The engineers involved must hold themselves to the IEEE Code of Ethics. [^15]
 [^15]:IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. [https://www.ieee.org/about/corporate/governance/p7-8](https://www.ieee.org/about/corporate/governance/p7-8) (accessed Oct. 12, 2026).
 ## Statement of Contributions
 
-Specifications and Constraints - Jonathan Salvato
-Existing Solutions - Jonathan Salvato
-Background, Measures of Success, and Formulation of the Problem - Merric Anderson
-Resources and Budget - Jack Fennell
+Specifications and Constraints - Jonathan Salvato  
+Existing Solutions - Jonathan Salvato  
+Background, Measures of Success, and Formulation of the Problem - Merric Anderson  
+Resources and Budget - Jack Fennell  
