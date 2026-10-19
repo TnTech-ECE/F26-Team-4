@@ -246,8 +246,8 @@ Jack Fennell
 - Skills to Learn:
 
 Jocelyn Lee
-- Current Skills:
-- Skills to Learn:
+- Current Skills: Power Systems, Digital Systems, LTSpice, 3D Printing
+- Skills to Learn: Linux, Cybersecurity, Telecommunications
 
 Everett Patterson
 - Current Skills:
@@ -258,8 +258,7 @@ Jonathan Salvato
 - Skills to Learn:
 
 Supervisor:
-
-Instructor:
+Instructor: Dr. Storm
 
 ### Timeline
 <img width="809" height="394" alt="image" src="https://github.com/user-attachments/assets/68267c23-0450-48cd-8e97-922e97e770c6" />
