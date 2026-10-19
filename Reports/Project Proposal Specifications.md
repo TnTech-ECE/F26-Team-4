@@ -228,21 +228,41 @@ The below table breaks down the total recources and estimated cost of each item 
 | GNSS + Radio     | AM Radio Reciever              | The antenna and reciever for the   60kHz WWVB  radio time source         | Needed as an additional time   source to ensure accuracy between sources                                            | 1        | $15           | $15                   |
 | | | | | |**Total :** |**$895**|
 
-### Personel
+### Personnel
+Required Skills
+Software & Programming: Linux, MATLAB, Python, KiCAD, Cybersecurity
+Hardware & Systems: Power Systems, Digital Systems, Timing Systems, Knowledge of SoCs, Telecommunications
+Design & Simulation Tools: LTspice, 3D Printing, PCB Design
+Theory & Analysis: Signal Processing, Control Systems
 
+Team Skills
 
-Identify the skills present in the team and compare them to those required to complete the project. Address any skill gaps with a plan to acquire the necessary knowledge.
+Merric Anderson
+- Current Skills:
+- Skills to Learn:
 
-Besides the team, also state who you choose to be you supervisor and why.
+Jack Fennell
+- Current Skills:
+- Skills to Learn:
 
-State who your instrucotr is and what role you expect them to play in the project.
+Jocelyn Lee
+- Current Skills:
+- Skills to Learn:
+
+Everett Patterson
+- Current Skills:
+- Skills to Learn:
+
+Jonathan Salvato
+- Current Skills:
+- Skills to Learn:
+
+Supervisor:
+
+Instructor:
 
 ### Timeline
-
-Provide a detailed timeline, including all major deadlines and tasks. This should be illustrated with a professional Gantt chart.
-
-<iframe src="https://tennesseetechuniversity-my.sharepoint.com/:x:/g/personal/jalee45_tntech_edu/IQDv3cOURWYWR5PHDW48w3dxAb2TmZNduaKVtZd6UTf7gK4?e=pBDkYa&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMH0"></iframe>
-
+<img width="809" height="394" alt="image" src="https://github.com/user-attachments/assets/68267c23-0450-48cd-8e97-922e97e770c6" />
 
 ## Specific Implications
 
@@ -286,6 +306,13 @@ This project, despite its reduced cost compared to the current market, may still
 While this project is designed for the individual to have a secure time server, this does not come without ethical considerations.  First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is.  Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them.  We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
 The engineers involved must hold themselves to the IEEE Code of Ethics. [^15]
 
+## Statement of Contributions
+
+Specifications and Constraints - Jonathan Salvato  
+Existing Solutions - Jonathan Salvato  
+Background, Measures of Success, and Formulation of the Problem - Merric Anderson  
+Resources and Budget - Jack Fennell  
+Timeline and Specific Implications - Jocelyn Lee
 
 ## References
 [^1]:B. Telford, “What Is NTP? A Beginner’s Guide to Network Time Protocol,” Galleon Systems, Mar. 11, 2019. https://www.galsys.co.uk/news/what-is-ntp-a-beginners-guide-to-network-time-protocol/ (accessed Oct. 12, 2026).
@@ -303,9 +330,3 @@ The engineers involved must hold themselves to the IEEE Code of Ethics. [^15]
 [^13]:J. McCarthy, Y.-S. Li-Baboud, J. Brule, and K. Meldorf, “Foundational PNT Profile: Applying the Cybersecurity Framework for the Responsible Use of Positioning, Navigation, and Timing (PNT) Services,” NIST Interagency/Internal Report 8323 Rev. 1, National Institute of Standards and Technology, Jan. 2023.
 [^14]:J. Sherman, L. Arissian, R. Brown, M. J. Deutch, E. Donley, V. Gerginov, J. Levine, G. Nelson, A. Novick, B. Patla, T. Parker, B. Stuhl, J. Yao, W. Yates, M. A. Lombardi, V. Zhang, and D. Sutton, “A Resilient Architecture for the Realization and Distribution of Coordinated Universal Time to Critical Infrastructure Systems in the United States: Methodologies and Recommendations from the National Institute of Standards and Technology,” NIST Technical Note 2187, National Institute of Standards and Technology, Nov. 2021.
 [^15]:IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. [https://www.ieee.org/about/corporate/governance/p7-8](https://www.ieee.org/about/corporate/governance/p7-8) (accessed Oct. 12, 2026).
-## Statement of Contributions
-
-Specifications and Constraints - Jonathan Salvato  
-Existing Solutions - Jonathan Salvato  
-Background, Measures of Success, and Formulation of the Problem - Merric Anderson  
-Resources and Budget - Jack Fennell  
