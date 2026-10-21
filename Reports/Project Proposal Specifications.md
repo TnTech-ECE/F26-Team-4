@@ -250,8 +250,8 @@ Jocelyn Lee
 - Skills to Learn: Linux, Cybersecurity, Telecommunications
 
 Everett Patterson
-- Current Skills:
-- Skills to Learn:
+- Current Skills: Digital Systems, /hardware Security, SoCs
+- Skills to Learn: Linux, Cybersecurity, Signal Processing
 
 Jonathan Salvato
 - Current Skills: Control Systems, MATLAB, LTSpice, 3D Modeling/Printing, PCB Design
@@ -312,6 +312,7 @@ Existing Solutions - Jonathan Salvato
 Background, Measures of Success, and Formulation of the Problem - Merric Anderson  
 Resources and Budget - Jack Fennell  
 Timeline and Specific Implications - Jocelyn Lee
+Introduction and Broader Impacts/Ethics - Everett Patterson 
 
 ## References
 [^1]:B. Telford, “What Is NTP? A Beginner’s Guide to Network Time Protocol,” Galleon Systems, Mar. 11, 2019. https://www.galsys.co.uk/news/what-is-ntp-a-beginners-guide-to-network-time-protocol/ (accessed Oct. 12, 2026).
