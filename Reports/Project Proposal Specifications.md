@@ -254,8 +254,8 @@ Everett Patterson
 - Skills to Learn:
 
 Jonathan Salvato
-- Current Skills:
-- Skills to Learn:
+- Current Skills: Control Systems, MATLAB, LTSpice, 3D Modeling/Printing, PCB Design
+- Skills to Learn: Linux, Telecommunications, Timing Systems
 
 Supervisor:
 Instructor: Dr. Storm
