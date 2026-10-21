@@ -231,7 +231,7 @@ The below table breaks down the total recources and estimated cost of each item 
 ### Personnel
 Required Skills
 Software & Programming: Linux, MATLAB, Python, KiCAD, Cybersecurity
-Hardware & Systems: Power Systems, Digital Systems, Timing Systems, Knowledge of SoCs, Telecommunications
+Hardware & Systems: Power Systems, Digital Systems, Timing Systems, Knowledge of SoCs, Telecommunications, Networking
 Design & Simulation Tools: LTspice, 3D Printing, PCB Design
 Theory & Analysis: Signal Processing, Control Systems
 
@@ -242,8 +242,8 @@ Merric Anderson
 - Skills to Learn:
 
 Jack Fennell
-- Current Skills:
-- Skills to Learn:
+- Current Skills: Python, Telecommunications, Control Systems, Knowledge of SoCs
+- Skills to Learn: Cybersecurity, Power Systems, Networking
 
 Jocelyn Lee
 - Current Skills: Power Systems, Digital Systems, LTSpice, 3D Printing
