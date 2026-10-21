@@ -238,8 +238,8 @@ Theory & Analysis: Signal Processing, Control Systems
 Team Skills
 
 Merric Anderson
-- Current Skills:
-- Skills to Learn:
+- Current Skills: Digital System Processing, Control Systems, Python, MATLAB, Digital Systems, Telecommunications
+- Skills to Learn: kiCAD, Power Systems, Knowledge of SoCs, Linux 
 
 Jack Fennell
 - Current Skills: Python, Telecommunications, Control Systems, Knowledge of SoCs
