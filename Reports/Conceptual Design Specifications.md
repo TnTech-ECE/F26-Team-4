@@ -120,7 +120,29 @@ In the project proposal, each team must evaluate the broader impacts of the proj
 
 You have already estimated the resources needed to complete the solution. Now, let's refine those estimates.
 
-### Budget
+## Budget
+### SoC
+| Item         | Description                              | Quanity | Cost (Estimate) |
+|--------------|------------------------------------------|---------|-----------------|
+| Computer     | A small computer to run the Linux server | 1       | $100            |
+| 32Gb SD Card | Small resiliant storage                  | 1       | $30             |
+|              |                                          | Total:  | $130            |  
+
+### GNSS + Radio
+| GNSS Satelite Antenna/Reciever | The antenna and reciever for the GPS system                    | 1      | $300  |
+|--------------------------------|----------------------------------------------------------------|--------|-------|
+| PPS Wire                       | A wire for the PPS singal to connect to a I/O port on the SOC  | 1      | $5    |
+| AM Radio Reciever              | The antenna and reciever for the 60kHz WWVB  radio time source | 1      | $15   |
+|                                |                                                                | Total: | $320  |
+
+
+### Enclosure
+| Enclosure   | Enclosure to store all components in a way that is neat and orderly    | 1      | $100  |
+|-------------|------------------------------------------------------------------------|--------|-------|
+| Mounting    | Mounting for the SOC and other ports                                   | 1      | $30   |
+| Cooling     | Possible internal fans and cooling methods                             | 1      | $30   |
+| misc wiring | The remaining physical connectors we may need (Ethernet, Jumper, etc.) | 5      | $30   |
+|             |                                                                        | Total: | $190  |
 
 Develop a budget proposal with justifications for expenses associated with each subsystem. Note that the total of this budget proposal can also serve as a specification for each subsystem. After creating the budgets for individual subsystems, merge them to create a comprehensive budget for the entire solution.
 
