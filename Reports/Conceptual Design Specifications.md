@@ -57,6 +57,9 @@ The end result should present a comprehensive view of a well-defined system, del
 
 ### Operational Flow Chart
 
+<img src="Reports/Operational_Flowchart.svg" width="600">
+
+
 Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.
 
 
