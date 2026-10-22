@@ -59,11 +59,42 @@ The end result should present a comprehensive view of a well-defined system, del
 
 <img src="Operational_Flowchart.svg" width="600">
 
+  The NTP server is designed to operate autonomously after the initial admin configuration. During normal operation the server receives data from upstream time sources and uses them to discipline its own system clock. Upon request from a client the server will relay its system time to allow the client to sync its own clock with the NTP server. Users will primarily be interacting with the server during the initial install and subsequent maintenance and troubleshooting. The operational flowchart showcases the normal operating behavior of the server. 
 
-Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.
+
+### Atomic Subsystem Specifications
 
 
-## Atomic Subsystem Specifications
+## Client Communication  
+Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
+
+Functions: 
+- Supply accurate NTP data to the clients on its network  
+- Maintain high levels of security using NTS to ensure the accuracy of the data  
+
+Inputs:  
+- Clock disciplined system time determined by the clock synchronization system.   
+
+Outputs:  
+- NTP signals, secured by NTS, carrying the data to clients  
+
+
+
+## Device Security  
+Device security encapsulates the measures needed to protect the server from cybersecurity threats beyond incorrect timing data. It will allow our device to be safe from bad actors on its network. To ensure a secure server, we will implement a firewall to lock down the ports and allow only the ones needed for basic server function. This includes port 123 for NTP, port 4460 for NTS and port 22 for SSH [1][2]. To allow for secure administrator control SSH key authentication will be implemented to prevent potentially faulty passwords that can be compromised[4]. We will restrict Chrony to a non-root user to ensure that if Chrony is compromised, the attacker cannot gain access to the entire server[3]. Monitoring will also be used to ensure important configuration files are secure and unchanged and noting any NTP synchronization anomalies[3].  
+
+Functions:  
+- Protect the NTP server from unauthorized access and attempted compromise.
+- Safely monitor the NTP server to allow for secure admin access.
+- Log suspicious activity for administrator review.
+
+Inputs: 
+- All incoming internet communication.
+
+Outputs: 
+- Validated inputs to be passed onto the Clock Synchronization subsystem
+
+
 
 Based on the high-level design, provide a comprehensive description of the functions each subsection will perform.
 
