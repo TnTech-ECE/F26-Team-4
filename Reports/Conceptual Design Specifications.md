@@ -57,7 +57,7 @@ The end result should present a comprehensive view of a well-defined system, del
 
 ### Operational Flow Chart
 
-<img src="Operational_Flowchart.svg" width="600">
+<img src="Operational_Flowchartv2.drawio.svg" alt = "Operational Flowchart" width="600">
 
   The NTP server is designed to operate autonomously after the initial admin configuration. During normal operation the server receives data from upstream time sources and uses them to discipline its own system clock. Upon request from a client the server will relay its system time to allow the client to sync its own clock with the NTP server. Users will primarily be interacting with the server during the initial install and subsequent maintenance and troubleshooting. The operational flowchart showcases the normal operating behavior of the server. 
 
