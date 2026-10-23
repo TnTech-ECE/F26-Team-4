@@ -20,7 +20,7 @@ or a hot start is attempted. Lastly it will transmitt the timestamp to the main 
   Interfaces:
       - Settings Control from processor 
       - Data echange with processor
-      -Power from power supply
+      - Power from power supply
 
   High-Level Requirements:
       - Shall Retrieve accurate timestamps
