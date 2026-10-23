@@ -8,9 +8,6 @@ This project aims to provide a solution to this issue, via a more secure and rob
 
 Off-the-shelf solutions, while available, do not provide the same functionality relative to our expected cost, often featuring less robust servers or being prohibitively expensive. Additionally, due to our design being intended to be disseminated to the public, there will theoretically exist space within the project for the individual to make changes, and add or remove elements as they need. 
 
-This document will cover the following:
-
-  Table of Contents (wip)
   
 ## Fully Formulated Problem
 The Primary objective of this project is to build a low cost, accessible, and effective Network Timer Server that provides accurate timestamps by using time references like satellite constellations and online servers. The system shall also be secure from attempts to subvert it from attacks like jamming, DOS, Man in the Middle attacks, and general attacks.
@@ -160,45 +157,50 @@ High-Level Requirements:
 - The system shall provide secure access for administrators using SSH.
 
 ## Clock Synchronization
-c) https://www.innovationwireless.com/blog/ntp-configuration-a-practical-guide-to-clock-synchronization.html 
-d) https://www.geeksforgeeks.org/distributed-systems/clock-synchronization-in-distributed-system/ 
-a) https://chrony-project.org/faq.html#_an_unreachable_source_is_selected
-b) https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd
 
-a) source fails/goes down
-b) using gps w/ chrony
-c, d) general clock systems
-
-need to insert sources
-
-The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground.  The first signal set to be used after GPS will be the alternate constellations, such as Galileo or BeiDou.  After that, the Internet sources (NIST) will be taken.  Finally, the WWVB Radio signal will be taken.  (a)   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
+The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [B]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [A]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
 The output will be the time code received of the most reliable signal. 
 
-Should a jump in real-time output occur, the output will be slewed into accuracy.
+Should a jump in real-time output occur, the output will be slewed into accuracy.  Slewing is the process by which a clock, rather than skipping ahead in time, alters its speed to gradually match the correct time.
 
-The reliability check will work as such:  Each received signal will be taken, with an expected tolerance (transmission/propagation delay, jitter, etc), and compared against each other and the oscillator, weighted in terms of priority.  If a signal is an outlier, it will be momentarily flagged until it comes back into agreement.
+The reliability check will work as such: each received signal will be taken, with an expected tolerance (transmission/propagation delay, jitter, etc), and compared against each other and the oscillator, weighted in terms of priority.  If a signal is an outlier, it will be momentarily flagged until it comes back into agreement. 
 
 Purpose:
-Validate received time signals and determine output signal.
+- Validate the accuracy of received time signals and determine output signal.
 
-input:
-Oscillator and PPS
-GPS + GNSS
-WWVB Radio
+Input:
+- Internet Sources
+- Oscillator and PPS
+- GPS + GNSS
+- WWVB Radio
 
 Output:
-Accurate time signal upon client request.
+- Accurate time signal upon client request
 
-High Level Requirements:
-The system shall receive multiple signal inputs
-The system shall validate the received inputs and disregard those declared invalid.
-The system shall output a valid time signal. 
-
+High Level
+- The system shall receive multiple signal inputs.
+- The system shall validate the received inputs and disregard those declared invalid.
+- The system shall output a valid time signal. 
 
 
 
 
 ## Enclosure
+
+The enclosure subsystem pertains to the elements physically holding the entire project together. 
+
+The specific dimensions of the outer shell will be determined at a later date when exact hardware is chosen. It will provide physical protection to the systems inside from tampering and physical damage. Mounts will be used to hold the components securely inside of the enclosure. These will ensure that the pieces remain where they are intended to be. Depending on the overall wattage and temperature produced, a cooling device may be needed to maintain a certain internal temperature, so that the hardware's function will not be affected. An internal fan will likely be used for this purpose.  
+
+Additionally, ports are to be included so that the power supply and any other exterior components may interface with the internal components.
+
+Finally, our electrical systems need to be connected with wiring to facilitate the needed communication between systems.
+
+Purpose:
+- House the electrical and internal components securely.
+
+High Level:
+- The system shall regulate the design's temperature.
+- The system shall maintain the device's integrity.
 
 
 
@@ -303,9 +305,17 @@ First, conduct a thorough analysis of the skills currently available within the 
 ## References
 All sources utilized in the conceptual design that are not considered common knowledge must be properly cited. Multiple references should be included.
 
+clock synch
+a) https://chrony-project.org/faq.html#_an_unreachable_source_is_selected
+b) https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd
+
 
 ## Statement of Contributions
 Block Diagram - Jonathan Salvato
 Comparative Analysis - Jonathan Salvato
 Timeline - Jocelyn Lee
 Power System - Jocelyn Lee
+Introduction - Everett Patterson
+Clock Synchronization - Everett Patterson
+Ethics - Everett Patterson
+Enclosure - Everett Patterson & 
