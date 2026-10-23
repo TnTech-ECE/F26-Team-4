@@ -55,8 +55,30 @@ The system shall be able to be constructed easily and inexpensively for use by t
 
 
 ## Comparative Analysis of Potential Solutions
+The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare metal implementation. There are advantages and disadvantages for each approach that will be discussed further in this section.
 
-In this section, various potential solutions are hypothesized, design considerations are discussed, and factors influencing the selection of a solution are outlined. The chosen solution is then identified with justifications for its selection.
+### SoC Implementation 
+#### Pros:
+- Ease of implementation
+- Built-in NTS and other security protocols
+- Simple Multiple Time Source integration
+- Easy time source metric tracking, such as drift of individual sources
+- Simpler Networking capabilities
+#### Cons:
+- May increase the total cost of the project
+
+### Microcontroller Implementation
+#### Pros:
+- Lower Cost
+- More Compact
+#### Cons:
+- Harder overall implementation
+- Requires more time to develop
+-  Potentially less secure
+
+Given the options proposed, we decided that the lower cost wasn't worth the difficulties of a bare metal integration. Additionally, the SoC implementation offers better security and time source integration. As such we decided the best solution was the SoC 
+
+Once we decided our system type, the next item of consideration was our time sources. Our client specifications required a GPS source, so that made it non-negotiable. The additional sources we consider adding are to improve the robustness of the system.
 
 
 ## High-Level Solution
@@ -64,13 +86,7 @@ In this section, various potential solutions are hypothesized, design considerat
 The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,the design will achieve accurate timestamps even in hostile enviorments.
 
 ### Hardware Block Diagram
-
-Block diagrams are an excellent way to provide an overarching understanding of a system and the relationships among its individual components. Generally, block diagrams draw from visual modeling languages like the Universal Modeling Language (UML). Each block represents a subsystem, and each connection indicates a relationship between the connected blocks. Typically, the relationship in a system diagram denotes an input-output interaction.
-
-In the block diagram, each subsystem should be depicted by a single block. For each block, there should be a brief explanation of its functional expectations and associated constraints. Similarly, each connection should have a concise description of the relationship it represents, including the nature of the connection (such as power, analog signal, serial communication, or wireless communication) and any relevant constraints.
-
-The end result should present a comprehensive view of a well-defined system, delegating all atomic responsibilities necessary to accomplish the project scope to their respective subsystems.
-
+<img src="figures/Hardware Diagram.svg" alt = "Hardware Diagram" width="600">
 
 ### Operational Flow Chart
 
@@ -334,6 +350,8 @@ All sources utilized in the conceptual design that are not considered common kno
 
 
 ## Statement of Contributions
+Block Diagram - Jonathan Salvato
+Comparative Analysis - Jonathan Salvato
 
 Each team member is required to make a meaningful contribution to the project proposal. In this section, each team member is required to document their individual contributions to the report. One team member may not record another member's contributions on their behalf. By submitting, the team certifies that each member's statement of contributions is accurate.
 
