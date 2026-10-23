@@ -76,7 +76,12 @@ Inputs:
 - Clock disciplined system time determined by the clock synchronization system.   
 
 Outputs:  
-- NTP signals, secured by NTS, carrying the data to clients  
+- NTP signals, secured by NTS, carrying the data to clients
+
+High-Level Requirements:
+- The system shall relay secure NTS protected signals  
+- The system shall relay accurate information to connected clients
+
 
 
 
@@ -93,6 +98,12 @@ Inputs:
 
 Outputs: 
 - Validated inputs to be passed onto the Clock Synchronization subsystem
+
+High-Level Requirements:
+- The system shall remain secure and protected from intentional interference using firewalls and software quarantining. 
+- The system shall block all incoming signals except those needed for device functionaility. 
+- The system will provide secure access for administrators using SSH.
+
 
 
 
