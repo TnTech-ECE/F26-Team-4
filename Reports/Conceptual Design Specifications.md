@@ -28,7 +28,20 @@ With these guidelines, each team is expected to create a suitable document to ac
 
 ## Introduction
 
-The introduction is intended to reintroduce the fully formulated problem. 
+
+Precise, accurate, and secure timing is critical for many applications, from banking networks to national security, however, in certain cases, the individual, such as a hobbyist, may also require such timing systems for their own needs. Our project shall create and demonstrate a framework in which an individual may have their own precise, secure, and available timing system.   
+
+Unsecured time servers are vulnerable to a multitude of issues, including spoofing, man-in-the-middle attacks, connection loss, as well as unavailability due to power loss and other factors.  Additionally, being reliant upon only one source for time exacerbates these concerns. A failure or attack on any of these elements could create a cascade of issues.  
+
+This project aims to provide a solution to this issue, via a more secure and robust, GPS-based, NTP server that may be replicated by the individual. We aim to use GPS as the primary time source, with secondary sources acting to corroborate and confirm the GPS. These include other GNSS systems, such as Galileo or BeiDou, radio broadcasts, oscillators, and internet sources. We shall provide a multilayered defense, including NTP and authentication, as well as comparing and contrasting our various sources, and fail-safes for signal or power loss.   
+
+Off-the-shelf solutions, while available, do not provide the same functionality relative to our expected cost, often featuring less robust servers or being prohibitively expensive. Additionally, due to our design being intended to be disseminated to the public, there will theoretically exist space within the project for the individual to make changes, and add or remove elements as they need. 
+
+This document will cover the following:
+
+  Table of Contents (wip)
+  
+
 
 
 ## Restating the Fully Formulated Problem
@@ -182,10 +195,83 @@ High-Level Requirements:
 - The system shall block all incoming signals except those needed for device functionaility. 
 - The system will provide secure access for administrators using SSH.
 
+## Clock Synchronization
+c) https://www.innovationwireless.com/blog/ntp-configuration-a-practical-guide-to-clock-synchronization.html 
+d) https://www.geeksforgeeks.org/distributed-systems/clock-synchronization-in-distributed-system/ 
+a) https://chrony-project.org/faq.html#_an_unreachable_source_is_selected
+b) https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd
+
+a) source fails/goes down
+b) using gps w/ chrony
+c, d) general clock systems
+
+need to insert sources
+
+The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground.  The first signal set to be used after GPS will be the alternate constellations, such as Galileo or BeiDou.  After that, the Internet sources (NIST) will be taken.  Finally, the WWVB Radio signal will be taken.  (a)   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
+The output will be the time code received of the most reliable signal. 
+
+Should a jump in real-time output occur, the output will be slewed into accuracy.
+
+The reliability check will work as such:  Each received signal will be taken, with an expected tolerance (transmission/propagation delay, jitter, etc), and compared against each other and the oscillator, weighted in terms of priority.  If a signal is an outlier, it will be momentarily flagged until it comes back into agreement.
+
+Purpose:
+Validate received time signals and determine output signal.
+
+input:
+Oscillator and PPS
+GPS + GNSS
+WWVB Radio
+
+Output:
+Accurate time signal upon client request
+
+High Level Requirements:
+///////////// need to add //////////
+
+## Enclosure
+
+
 
 ## Ethical, Professional, and Standards Considerations
 
-In the project proposal, each team must evaluate the broader impacts of the project on culture, society, the environment, public health, public safety, and the economy. Additionally, teams must consider relevant standards organizations that will inform the design process. A comprehensive discussion should be included on how these considerations have influenced the design. This includes detailing constraints, specifications, and practices implemented as a result, and how these address the identified considerations.
+This project will expand on the security and accuracy of currently available timing systems, which is a crucial part of PTN (positioning, timing, navigation). Timing, due to its broad use and necessity in critical systems, has a great need for improvements to security. This project will aim to provide these needed improvements for an affordable cost.
+
+Additionally, the design and dissemination of this project will contribute to greater time server independence, meaning that this project will likely provide timing more precise and resilient than standard, default internet based timing, while also no longer being so overly reliant on the internet. Finally, the project will be released publicly, thus reducing the barriers for any who may be interested in following this design. This improves accessibility and inclusivity of the project.
+
+Risk to Network Security
+This project will involve network connections from various sources, including international sources. These, along with communications between the server and the client, leave the potential open for malicious activity. 
+Mitigation: We plan to make the signal communications secure via systems like NTS, and quarantine the signals to only what they are needed for, thus keeping any malicious activity reasonably contained.
+
+False sense of security
+This project, as it is designed for improving the security of time servers, may give the user an overconfidence in this design, such that they may imagine hat they will have no risk of tampering or failure. This is not the case, even the completed design will not be immune to all issues, and theoretically a sufficiently skilled malicious actor could still disrupt the design. 
+Mitigation: In order to solve this issue, we intend to have clear documentation on each part of the project, clearly specifying exactly what capabilities the design possesses, so that there may be no confusion or estimation as to what the project may do.
+
+Environmental Impacts
+This project may impact the environment due to waste products, especially if the design is imprecise or cumbersome to follow. 
+Mitigation: We plan to mitigate this issue by having precise documentation, thus allowing any who come after us to create this design without wasting or destroying any components.
+
+Cost and Skill to implement
+This project, despite its reduced cost compared to the current market, may still be prohibitively expensive for those creating it, or too challenging to implement.
+Mitigation: While there is only so much that may be done for the cost of this project, we intend to reduce necessary costs as much as reasonably possible, thus making the design as accessible as can be helped. Additionally, we may mitigate the skill requirement by being precise and explanatory in our design documents so that the skill requirements may be as low as reasonably possible.
+
+Ethics:
+While this project is designed for the individual to have a secure time server, this does not come without ethical considerations. First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is. Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them. We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. The engineers involved must hold themselves to the IEEE Code of Ethics. 15
+
+Ethics in Design Decisions:
+Additionally, teams must consider relevant standards organizations that will inform the design process. A comprehensive discussion should be included on how these considerations have influenced the design. This includes detailing constraints, specifications, and practices implemented as a result, and how these address the identified considerations. 
+
+These prior ethical considerations have influenced our design decisions in the following ways:
+
+In keeping with our ethical commitments to clarity and functionality, the project shall adhere to the following technical standards and specifications:
+	NISTTN2187 
+	ANSI C63.10 Compliance Testing of Unlicensed Wireless Devices 
+	Title 47 CFR Part 15 regulation for Radio Frequency Devices 
+	RFC 5905 Network Time Protocol Version 4 
+
+Also, our decision to use off-the-shelf components and software, rather than designing the entire system from the ground up, was for the sake of ease of use and implementation, so as to not unduly burden those with smaller budgets or limited skillsets.
+
+Finally, our design features many network security features so that malicious activity may be limited and restrained, insofar as reason and our available technology permits. These include a firewall and interface monitoring.  Additionally, our own software will not contain malicious elements. 
+
 
 
 ## Resources
