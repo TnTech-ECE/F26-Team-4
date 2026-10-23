@@ -39,30 +39,15 @@ The fully formulated problem is the overall objective and scope complete with th
 ## Comparative Analysis of Potential Solutions
 **Merge this bad boy with the one from Project Proposal**
 
-The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare metal implementation. There are advantages and disadvantages for each approach that will be discussed further in this section.
+The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare-metal implementation. There are advantages and disadvantages for each approach:
 
-### SoC Implementation 
-#### Pros:
-- Ease of implementation
-- Built-in NTS and other security protocols
-- Simple Multiple Time Source integration
-- Easy time source metric tracking, such as drift of individual sources
-- Simpler Networking capabilities
-#### Cons:
-- May increase the total cost of the project
+|       | SoC Implementation                                                                                                                                                                                                                   | Microcontroller Implementation                                                                   |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| Pros: | - Ease of implementation<br>- Built-in NTS and other security protocols<br>- Simple Multiple Time Source integration<br>- Easy time source metric tracking, such as drift of individual sources<br>- Simpler Networking capabilities | - Lower Cost<br>- More Compact                                                                   |
+| Cons: | -May increase the total cost of the project                                                                                                                                                                                          | - Harder overall implementation<br>- Requires more time to develop<br>-  Potentially less secure |
+Given the options proposed, we decided that the marginally lower cost wasn't worth the difficulties involving implementation and potential security issues of a bare-metal solution. With the advantages that an SoC provides, it's the clear choice for this project.
 
-### Microcontroller Implementation
-#### Pros:
-- Lower Cost
-- More Compact
-#### Cons:
-- Harder overall implementation
-- Requires more time to develop
--  Potentially less secure
-
-Given the options proposed, we decided that the lower cost wasn't worth the difficulties of a bare metal integration. Additionally, the SoC implementation offers better security and time source integration. As such we decided the best solution was the SoC 
-
-Once we decided our system type, the next item of consideration was our time sources. Our client specifications required a GPS source, so that made it non-negotiable. The additional sources we consider adding are to improve the robustness of the system.
+Once we decided our system type, the next item of consideration was our time sources. Our client specifications required a GPS source, so that made it non-negotiable. The additional sources (Radio, Oscillator, and Internet Time Servers) we consider adding are to improve the robustness of the system.
 
 ## High-Level Solution
 
@@ -71,6 +56,7 @@ This section presents a comprehensive, high-level solution aimed at efficiently 
 
 ### Hardware Block Diagram
 ![[Hardware Diagram 2.svg]]
+It is worth noting that the radio clock module in this diagram is an optional component. 
 ### Operational Flow Chart
 
 Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.
@@ -78,22 +64,18 @@ Similar to a block diagram, the flow chart aims to specify the system, but from 
 
 ## Atomic Subsystem Specifications
 
+### The Holdover Oscillator   
+The Oscillator provides a consistent periodic signal as a time reference for the system to use when all other methods fail, or to use between periods of incoming reference signals for a more accurate device output. Depending on the type of oscillator used, if it is not an enclosed unit, we may need to implement a control loop to output a signal suitable for the SoC. 
 
-
-Based on the high-level design, provide a comprehensive description of the functions each subsection will perform.
-
-Inclued a description of the interfaces between this subsystem and other subsystems:
-- Give the type of signal (e.g. power, analog signal, serial communication, wireless communication, etc).
-- Clearly define the direction of the signal (input or output).
-- Document the communication protocols used.
-- Specifying what data will be sent and what will be received.
-
-Detail the operation of the subsystem:
-- Illustrate the expected user interface, if applicable.
-- Include functional flowcharts that capture the major sequential steps needed to achieve the desired functionalities.
-
-For all subsystems, formulate detailed "shall" statements. Ensure these statements are comprehensive enough so that an engineer who is unfamiliar with your project can design the subsystem based on your specifications. Assume the role of the customer in this context to provide clear and precise requirements.
-
+Functions:
+- Providing a known time reference signal
+Inputs:
+- Power from power supply
+Outputs:
+- A known reference frequency sent to the SoC
+High-Level Requirements:
+- The system shall keep a holdover with at most a 1 s/day drift
+- The system shall maintain a consistent and predictable pulse frequency
 
 ## Ethical, Professional, and Standards Considerations
 
@@ -110,7 +92,8 @@ Develop a budget proposal with justifications for expenses associated with each 
 
 ### Division of Labor
 
-First, conduct a thorough analysis of the skills currently available within the team, and then compare these skills to the specific requirements of each subsystem. Based on this analysis, appoint a team member to take the specifications for each subsystem and generate a corresponding solution (i.e. detailed design). If there are more team members than subsystems, consider further subdividing the solutions into smaller tasks or components, thereby allowing each team member the opportunity to design a subsystem.
+Holdover Oscillator - Jonathan Salvato
+Enclosure - Jonathan Salvato
 
 ### Timeline
 
@@ -126,3 +109,4 @@ All sources utilized in the conceptual design that are not considered common kno
 
 Block Diagram - Jonathan Salvato
 Comparative Analysis - Jonathan Salvato
+Atomic Subsystems: Holdover Oscillator - Jonathan Salvato
