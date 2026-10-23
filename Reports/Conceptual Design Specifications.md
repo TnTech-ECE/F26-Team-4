@@ -108,33 +108,33 @@ to clients downstream. It will also tune an oscillator to timestamps recieved, w
 The SoC will also be used to program external modules like the GNSS module to achieve the desired settings the user wants. Lastly, the SoC will transmitt
 the secure timestamps to clients, and will display its current settings and status to the user.
 
-  Functions:
+Functions:
 - Recieve and process timestamps
 - Tune the hold-over system
 - Enforce rigorous security measures
 - Transmitt timestamps to clients
 
-  Inputs:
+Inputs:
 - Commands to change system settings
 - Timestamps from GNSS via UART/I2C
 - Status from peripherials
 - Current Oscillator Frequency
 - Power from Power Supply
 
-  Outputs:
+Outputs:
 - Timestamps to clients over wifi or ethernet cable.
 - Commands to peripherials over I2C/UART
 - Current status and settings
 
-  Interfaces:
+Interfaces:
 - Information from external modules (GNSS, Oscillator)
 - Transmission of timestamps to clients
 - Power from power supply
 
-  High-Level Requirements:
-  - The system shall recieve accurate timestamps from satellite constellations
-  - The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
-  - The system will be able properly control peripherials and transmitt accurate timestamps to clients
+High-Level Requirements:
+- The system shall recieve accurate timestamps from satellite constellations
+- The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
+- The system will be able properly control peripherials and transmitt accurate timestamps to clients
 
 ## Client Communication  
 Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
