@@ -127,6 +127,7 @@ You have already estimated the resources needed to complete the solution. Now, l
 | Computer     | A small computer to run the Linux server | 1       | $100            |
 | 32Gb SD Card | Small resiliant storage                  | 1       | $30             |
 |              |                                          | Total:  | $130            |  
+The computer will be the core unit of the system and  should be chosen for its combination of cost and performance, as well as it's ability to run the computations necessary. The 32Gb micro SD card will be chosen as a trustworthy storage medium and its ability to hold the required software and operating system. 
 
 ### GNSS + Radio
 | GNSS Satelite Antenna/Reciever | The antenna and reciever for the GPS system                    | 1      | $300  |
@@ -134,6 +135,7 @@ You have already estimated the resources needed to complete the solution. Now, l
 | PPS Wire                       | A wire for the PPS singal to connect to a I/O port on the SOC  | 1      | $5    |
 | AM Radio Reciever              | The antenna and reciever for the 60kHz WWVB  radio time source | 1      | $15   |
 |                                |                                                                | Total: | $320  |
+The GNSS portion of this project is a major factor in what makes this system resiliant. The GNSS receiver needs to be capable of receiving signals from multiple constelations as well as being accruate enough to allow for our desired system accuracy of ()us. To ensure both of these criteria are met, a more robust GNSS module is needed. The seperate PPS wire will allow for the PPS signal to reach a I/O port on the SoC, increasing accuracy. In addition to GNSS signal our server will recieve radio signal from the WWVB NTP frequency. This adds an additional input source that is not connected to any other, improving the resiliancy of our system.  
 
 
 ### Enclosure
@@ -143,6 +145,15 @@ You have already estimated the resources needed to complete the solution. Now, l
 | Cooling     | Possible internal fans and cooling methods                             | 1      | $30   |
 | misc wiring | The remaining physical connectors we may need (Ethernet, Jumper, etc.) | 5      | $30   |
 |             |                                                                        | Total: | $190  |
+The enclosure subsystem contains the parts holding the entire project together. We will determine the size of the enclosure based on the specific parts that will be chosen in the future. It will provide physical protection to the systems inside. Mounting will be used to hold the components inside of the enclosure. They are what ensures the peices remain where they are intended to be. Depending on the overall wattage and tempterature produced, some kind of cooling may be needed to maintain desired internal temperature. A small fan will likely be used to acheive this. Finally, our systems need to be connected with wiring to allow the needed communication between systems. The misc wiring  was added to cover for the connections we will need. 
+
+###Power + Holdover
+| External Oscillator | A device to keep highly accurate system time                     | 1      | $150 |
+| ------------------- | ---------------------------------------------------------------- | ------ | ---- |
+| Battery Bank        | Allows the devices to keep running in the case of a power outage | 1      | $100 |
+| SOC AC Adapter      | Cables to power the SOC                                          | 1      | $20  |
+|                     |                                                                  | Total: | $270 |
+Holdover is the systems ability to remain accurate for a duration of time without activly receiving input from the various sources. A strong holdover time allows our system to be a trusted source regardless of what external circumstances are affecting the inputs. A powerful external oscillator will allow this to happen. To allow for the desired accuracy of ()us we need a well tested and trusted oscillator. In addition to the loss of input signal, it is possible for the system to lose power for a duration of time. To remedy this we will encorporate a power bank/UPS to allow for the server to continue running without power for a set time, ensuring our time server remains accurate regardless of outages. The SoC AC adapter will allow for our selected SoC to receive direct power. 
 
 Develop a budget proposal with justifications for expenses associated with each subsystem. Note that the total of this budget proposal can also serve as a specification for each subsystem. After creating the budgets for individual subsystems, merge them to create a comprehensive budget for the entire solution.
 
