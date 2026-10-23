@@ -15,37 +15,22 @@ The Primary objective of this project is to build a low cost, accessible, and ef
 The system shall be able to be constructed easily and inexpensively for use by the general public. In doing so, individuals and organizations will have access to extraordinarily accurate and secure time to ensure proper operation of their systems.
 
 ## Comparative Analysis of Potential Solutions
-The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare metal implementation. There are advantages and disadvantages for each approach that will be discussed further in this section.
+The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare-metal implementation. There are advantages and disadvantages for each approach:
 
-### SoC Implementation 
-#### Pros:
-- Ease of implementation
-- Built-in NTS and other security protocols
-- Simple Multiple Time Source integration
-- Easy time source metric tracking, such as drift of individual sources
-- Simpler Networking capabilities
-#### Cons:
-- May increase the total cost of the project
+|       | SoC Implementation                                                                                                                                                                                                                   | Microcontroller Implementation                                                                   |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| Pros: | - Ease of implementation<br>- Built-in NTS and other security protocols<br>- Simple Multiple Time Source integration<br>- Easy time source metric tracking, such as drift of individual sources<br>- Simpler Networking capabilities | - Lower Cost<br>- More Compact                                                                   |
+| Cons: | -May increase the total cost of the project                                                                                                                                                                                          | - Harder overall implementation<br>- Requires more time to develop<br>-  Potentially less secure |
+Given the options proposed, we decided that the marginally lower cost wasn't worth the difficulties involving implementation and potential security issues of a bare-metal solution. With the advantages that an SoC provides, it's the clear choice for this project.
 
-### Microcontroller Implementation
-#### Pros:
-- Lower Cost
-- More Compact
-#### Cons:
-- Harder overall implementation
-- Requires more time to develop
--  Potentially less secure
-
-Given the options proposed, we decided that the lower cost wasn't worth the difficulties of a bare metal integration. Additionally, the SoC implementation offers better security and time source integration. As such we decided the best solution was the SoC 
-
-Once we decided our system type, the next item of consideration was our time sources. Our client specifications required a GPS source, so that made it non-negotiable. The additional sources we consider adding are to improve the robustness of the system.
+Once we decided our system type, the next item of consideration was our time sources. Our client specifications required a GPS source, so that made it non-negotiable. The additional sources (Radio, Oscillator, and Internet Time Servers) we consider adding are to improve the robustness of the system.
 
 ## High-Level Solution
 The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,the design will achieve accurate timestamps even in hostile enviorments.
 
 ### Hardware Block Diagram
 <img src="figures/Hardware Diagram.svg" alt = "Hardware Diagram" width="600">
-
+Note that the radio clock module in this diagram is an optional component. 
 ### Operational Flow Chart
 
 <img src="figures/Operational_Flowchart.svg" alt = "Operational Flowchart" width="600">
@@ -155,6 +140,19 @@ High-Level Requirements:
 - The system shall remain secure and protected from intentional interference using firewalls and software quarantining. 
 - The system shall block all incoming signals except those needed for device functionaility. 
 - The system shall provide secure access for administrators using SSH.
+
+### The Holdover Oscillator   
+The Oscillator provides a consistent periodic signal as a time reference for the system to use when all other methods fail, or to use between periods of incoming reference signals for a more accurate device output. Depending on the type of oscillator used, if it is not an enclosed unit, we may need to implement a control loop to output a signal suitable for the SoC. 
+
+Functions:
+- Providing a known time reference signal
+Inputs:
+- Power from power supply
+Outputs:
+- A known reference frequency sent to the SoC
+High-Level Requirements:
+- The system shall keep a holdover with at most a 1 s/day drift
+- The system shall maintain a consistent and predictable pulse frequency
 
 ## Clock Synchronization
 
@@ -316,6 +314,7 @@ Comparative Analysis - Jonathan Salvato
 Timeline - Jocelyn Lee
 Power System - Jocelyn Lee
 Introduction - Everett Patterson
+Holdover Oscillator - Jonathan Salvato
 Clock Synchronization - Everett Patterson
 Ethics - Everett Patterson
 Enclosure - Everett Patterson & 
