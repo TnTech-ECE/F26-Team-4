@@ -78,27 +78,27 @@ The GNSS Module is the main source for retrieveing the timestamps that our syste
 timestamp from a satellite constallation. Second, it will run a check to attempt to detect spoofing, and it will then log ephemermis imformation if power is lost
 or a hot start is attempted. Lastly it will transmitt the timestamp to the main processing unit for further use.
 
-  Functions:
-    - Recieve Timestamps
-    - Perform Security Checks
+Functions:
+- Recieve Timestamps
+- Perform Security Checks
 
-  Inputs:
-     - Timestamps from satellites
-     - Programming from processor using USB
-     - Power from power supply
+Inputs:
+- Timestamps from satellites
+- Programming from processor using USB
+- Power from power supply
 
-  Outputs:
-      - Timestamp sent to processor using I2C/UART
-      - Current Status sent to processor using I2C/UART
+Outputs:
+- Timestamp sent to processor using I2C/UART
+- Current Status sent to processor using I2C/UART
 
-  Interfaces:
-      - Settings Control from processor 
-      - Data echange with processor
-      - Power from power supply
+Interfaces:
+- Settings Control from processor 
+- Data echange with processor
+- Power from power supply
 
-  High-Level Requirements:
-      - Shall Retrieve accurate timestamps
-      - Shall be secure from attempts to spoof or attack it
+High-Level Requirements:
+- Shall Retrieve accurate timestamps
+- Shall be secure from attempts to spoof or attack it
 
 ## SoC
 
@@ -109,32 +109,32 @@ The SoC will also be used to program external modules like the GNSS module to ac
 the secure timestamps to clients, and will display its current settings and status to the user.
 
   Functions:
-    - Recieve and process timestamps
-    - Tune the hold-over system
-    - Enforce rigorous security measures
-    - Transmitt timestamps to clients
+- Recieve and process timestamps
+- Tune the hold-over system
+- Enforce rigorous security measures
+- Transmitt timestamps to clients
 
   Inputs:
-    - Commands to change system settings
-    - Timestamps from GNSS via UART/I2C
-    - Status from peripherials
-    - Current Oscillator Frequency
-    - Power from Power Supply
+- Commands to change system settings
+- Timestamps from GNSS via UART/I2C
+- Status from peripherials
+- Current Oscillator Frequency
+- Power from Power Supply
 
   Outputs:
-    - Timestamps to clients over wifi or ethernet cable.
-    - Commands to peripherials over I2C/UART
-    - Current status and settings
+- Timestamps to clients over wifi or ethernet cable.
+- Commands to peripherials over I2C/UART
+- Current status and settings
 
   Interfaces:
-    - Information from external modules (GNSS, Oscillator)
-    - Transmission of timestamps to clients
-    - Power from power supply
+- Information from external modules (GNSS, Oscillator)
+- Transmission of timestamps to clients
+- Power from power supply
 
   High-Level Requirements:
-    -The system shall recieve accurate timestamps from satellite constellations
-    -The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
-    -The system will be able properly control peripherials and transmitt accurate timestamps to clients
+  - The system shall recieve accurate timestamps from satellite constellations
+  - The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
+  - The system will be able properly control peripherials and transmitt accurate timestamps to clients
 
 ## Client Communication  
 Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
