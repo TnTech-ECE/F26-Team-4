@@ -61,7 +61,9 @@ The end result should present a comprehensive view of a well-defined system, del
 
 ### Operational Flow Chart
 
-Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.
+<img src="figures/Operational_Flowchart.svg" alt = "Operational Flowchart" width="600">
+
+  The NTP server is designed to operate autonomously after the initial admin configuration. During normal operation the server receives data from upstream time sources and uses them to discipline its own system clock. Upon request from a client the server will relay its system time to allow the client to sync its own clock with the NTP server. Users will primarily be interacting with the server during the initial install and subsequent maintenance and troubleshooting. The operational flowchart showcases the normal operating behavior of the server.
 
 
 ## Atomic Subsystem Specifications
@@ -144,6 +146,42 @@ the secure timestamps to clients, and will display its current settings and stat
     -The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
     -The system will be able properly control peripherials and transmitt accurate timestamps to clients
 
+## Client Communication  
+Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
+
+Functions: 
+- Supply accurate NTP data to the clients on its network  
+- Maintain high levels of security using NTS to ensure the accuracy of the data  
+
+Inputs:  
+- Clock disciplined system time determined by the clock synchronization system.   
+
+Outputs:  
+- NTP signals, secured by NTS, carrying the data to clients
+
+High-Level Requirements:
+- The system shall relay secure NTS protected signals  
+- The system shall relay accurate information to connected clients
+
+## Device Security  
+Device security encapsulates the measures needed to protect the server from cybersecurity threats beyond incorrect timing data. It will allow our device to be safe from bad actors on its network. To ensure a secure server, we will implement a firewall to lock down the ports and allow only the ones needed for basic server function. This includes port 123 for NTP, port 4460 for NTS and port 22 for SSH [1][2]. To allow for secure administrator control SSH key authentication will be implemented to prevent potentially faulty passwords that can be compromised[4]. We will restrict Chrony to a non-root user to ensure that if Chrony is compromised, the attacker cannot gain access to the entire server[3]. Monitoring will also be used to ensure important configuration files are secure and unchanged and noting any NTP synchronization anomalies[3].  
+
+Functions:  
+- Protect the NTP server from unauthorized access and attempted compromise.
+- Safely monitor the NTP server to allow for secure admin access.
+- Log suspicious activity for administrator review.
+
+Inputs: 
+- All incoming internet communication.
+
+Outputs: 
+- Validated inputs to be passed onto the Clock Synchronization subsystem
+
+High-Level Requirements:
+- The system shall remain secure and protected from intentional interference using firewalls and software quarantining. 
+- The system shall block all incoming signals except those needed for device functionaility. 
+- The system will provide secure access for administrators using SSH.
+
 
 ## Ethical, Professional, and Standards Considerations
 
@@ -154,7 +192,44 @@ In the project proposal, each team must evaluate the broader impacts of the proj
 
 You have already estimated the resources needed to complete the solution. Now, let's refine those estimates.
 
-### Budget
+## Budget
+### SoC
+| Item         | Description                              | Quanity | Cost (Estimate) |
+|--------------|------------------------------------------|---------|-----------------|
+| Computer     | A small computer to run the Linux server | 1       | $100            |
+| 32Gb SD Card | Small resiliant storage                  | 1       | $30             |
+|              |                                          | Total:  | $130            |    
+
+The computer will be the core unit of the system and  should be chosen for its combination of cost and performance, as well as it's ability to run the computations necessary. The 32Gb micro SD card will be chosen as a trustworthy storage medium and its ability to hold the required software and operating system. 
+
+## GNSS + Radio
+| GNSS Satelite Antenna/Reciever | The antenna and reciever for the GPS system                    | 1      | $300  |
+|--------------------------------|----------------------------------------------------------------|--------|-------|
+| PPS Wire                       | A wire for the PPS singal to connect to a I/O port on the SOC  | 1      | $5    |
+| AM Radio Reciever              | The antenna and reciever for the 60kHz WWVB  radio time source | 1      | $15   |
+|                                |                                                                | Total: | $320  |  
+
+The GNSS portion of this project is a major factor in what makes this system resiliant. The GNSS receiver needs to be capable of receiving signals from multiple constelations as well as being accruate enough to allow for our desired system accuracy of ()us. To ensure both of these criteria are met, a more robust GNSS module is needed. The seperate PPS wire will allow for the PPS signal to reach a I/O port on the SoC, increasing accuracy. In addition to GNSS signal our server will recieve radio signal from the WWVB NTP frequency. This adds an additional input source that is not connected to any other, improving the resiliancy of our system.  
+
+
+### Enclosure
+| Enclosure   | Enclosure to store all components in a way that is neat and orderly    | 1      | $100  |
+|-------------|------------------------------------------------------------------------|--------|-------|
+| Mounting    | Mounting for the SOC and other ports                                   | 1      | $30   |
+| Cooling     | Possible internal fans and cooling methods                             | 1      | $30   |
+| misc wiring | The remaining physical connectors we may need (Ethernet, Jumper, etc.) | 5      | $30   |
+|             |                                                                        | Total: | $190  |  
+
+The enclosure subsystem contains the parts holding the entire project together. We will determine the size of the enclosure based on the specific parts that will be chosen in the future. It will provide physical protection to the systems inside. Mounting will be used to hold the components inside of the enclosure. They are what ensures the peices remain where they are intended to be. Depending on the overall wattage and tempterature produced, some kind of cooling may be needed to maintain desired internal temperature. A small fan will likely be used to acheive this. Finally, our systems need to be connected with wiring to allow the needed communication between systems. The misc wiring  was added to cover for the connections we will need. 
+
+###Power + Holdover
+| External Oscillator | A device to keep highly accurate system time                     | 1      | $150 |
+| ------------------- | ---------------------------------------------------------------- | ------ | ---- |
+| Battery Bank        | Allows the devices to keep running in the case of a power outage | 1      | $100 |
+| SOC AC Adapter      | Cables to power the SOC                                          | 1      | $20  |
+|                     |                                                                  | Total: | $270 |  
+
+Holdover is the systems ability to remain accurate for a duration of time without activly receiving input from the various sources. A strong holdover time allows our system to be a trusted source regardless of what external circumstances are affecting the inputs. A powerful external oscillator will allow this to happen. To allow for the desired accuracy of ()us we need a well tested and trusted oscillator. In addition to the loss of input signal, it is possible for the system to lose power for a duration of time. To remedy this we will encorporate a power bank/UPS to allow for the server to continue running without power for a set time, ensuring our time server remains accurate regardless of outages. The SoC AC adapter will allow for our selected SoC to receive direct power.
 
 Develop a budget proposal with justifications for expenses associated with each subsystem. Note that the total of this budget proposal can also serve as a specification for each subsystem. After creating the budgets for individual subsystems, merge them to create a comprehensive budget for the entire solution.
 
