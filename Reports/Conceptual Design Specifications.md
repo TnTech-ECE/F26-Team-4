@@ -200,10 +200,16 @@ GPS + GNSS
 WWVB Radio
 
 Output:
-Accurate time signal upon client request
+Accurate time signal upon client request.
 
 High Level Requirements:
-///////////// need to add //////////
+The system shall receive multiple signal inputs
+The system shall validate the received inputs and disregard those declared invalid.
+The system shall output a valid time signal. 
+
+
+
+
 
 ## Enclosure
 
