@@ -5,24 +5,24 @@ timestamp from a satellite constallation. Second, it will run a check to attempt
 or a hot start is attempted. Lastly it will transmitt the timestamp to the main processing unit for further use.
 
   Functions:
-    -Recieve Timestamps
-    -Perform Security Checks
+    - Recieve Timestamps
+    - Perform Security Checks
 
   Inputs:
-     -Timestamps from satellites
-     -Programming from processor using USB
-     -Power from power supply
+     - Timestamps from satellites
+     - Programming from processor using USB
+     - Power from power supply
 
   Outputs:
-      -Timestamp sent to processor using I2C/UART
-      -Current Status sent to processor using I2C/UART
+      - Timestamp sent to processor using I2C/UART
+      - Current Status sent to processor using I2C/UART
 
   Interfaces:
-      -Settings Control from processor 
-      -Data echange with processor
-      -Power from power supply
+      - Settings Control from processor 
+      - Data echange with processor
+      -P ower from power supply
 
   High-Level Requirements:
-      -Shall Retrieve accurate timestamps
-      -Shall be secure from attempts to spoof or attack it
+      - Shall Retrieve accurate timestamps
+      - Shall be secure from attempts to spoof or attack it
       
