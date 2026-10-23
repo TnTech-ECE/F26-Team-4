@@ -75,6 +75,34 @@ Detail the operation of the subsystem:
 
 For all subsystems, formulate detailed "shall" statements. Ensure these statements are comprehensive enough so that an engineer who is unfamiliar with your project can design the subsystem based on your specifications. Assume the role of the customer in this context to provide clear and precise requirements.
 
+## GNSS Module
+
+The GNSS Module is the main source for retrieveing the timestamps that our system will be distributing downstream. First, it recieves a signal containing the 
+timestamp from a satellite constallation. Second, it will run a check to attempt to detect spoofing, and it will then log ephemermis imformation if power is lost
+or a hot start is attempted. Lastly it will transmitt the timestamp to the main processing unit for further use.
+
+  Functions:
+    - Recieve Timestamps
+    - Perform Security Checks
+
+  Inputs:
+     - Timestamps from satellites
+     - Programming from processor using USB
+     - Power from power supply
+
+  Outputs:
+      - Timestamp sent to processor using I2C/UART
+      - Current Status sent to processor using I2C/UART
+
+  Interfaces:
+      - Settings Control from processor 
+      - Data echange with processor
+      - Power from power supply
+
+  High-Level Requirements:
+      - Shall Retrieve accurate timestamps
+      - Shall be secure from attempts to spoof or attack it
+
 
 ## Ethical, Professional, and Standards Considerations
 
