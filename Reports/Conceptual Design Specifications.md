@@ -108,6 +108,42 @@ or a hot start is attempted. Lastly it will transmitt the timestamp to the main 
       - Shall Retrieve accurate timestamps
       - Shall be secure from attempts to spoof or attack it
 
+## SoC
+
+The Soc is responsible for orchestration of the entire system. Its primary duties are recieving timestamps from the GNSS module and checking the stamp's integrity.
+Run an open source software called Chrony, which is an extremely powerful software that allows for rigorous security, and flexible distrobution of the timestamps
+to clients downstream. It will also tune an oscillator to timestamps recieved, which is needed if the system loses synchronization to the time sources.
+The SoC will also be used to program external modules like the GNSS module to achieve the desired settings the user wants. Lastly, the SoC will transmitt
+the secure timestamps to clients, and will display its current settings and status to the user.
+
+  Functions:
+    - Recieve and process timestamps
+    - Tune the hold-over system
+    - Enforce rigorous security measures
+    - Transmitt timestamps to clients
+
+  Inputs:
+    - Commands to change system settings
+    - Timestamps from GNSS via UART/I2C
+    - Status from peripherials
+    - Current Oscillator Frequency
+    - Power from Power Supply
+
+  Outputs:
+    - Timestamps to clients over wifi or ethernet cable.
+    - Commands to peripherials over I2C/UART
+    - Current status and settings
+
+  Interfaces:
+    - Information from external modules (GNSS, Oscillator)
+    - Transmission of timestamps to clients
+    - Power from power supply
+
+  High-Level Requirements:
+    -The system shall recieve accurate timestamps from satellite constellations
+    -The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
+    -The system will be able properly control peripherials and transmitt accurate timestamps to clients
+
 
 ## Ethical, Professional, and Standards Considerations
 
