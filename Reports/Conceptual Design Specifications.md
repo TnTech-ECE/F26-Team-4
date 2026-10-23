@@ -12,8 +12,6 @@ This document will cover the following:
 
   Table of Contents (wip)
   
-
-## Restating the Fully Formulated Problem
 ## Fully Formulated Problem
 The Primary objective of this project is to build a low cost, accessible, and effective Network Timer Server that provides accurate timestamps by using time references like satellite constellations and online servers. The system shall also be secure from attempts to subvert it from attacks like jamming, DOS, Man in the Middle attacks, and general attacks.
 
