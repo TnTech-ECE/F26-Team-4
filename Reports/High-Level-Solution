@@ -1,1 +1,5 @@
+## High-level Solution
 
+The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their 
+systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,
+the design will achieve accurate timestamps even in hostile enviorments.
