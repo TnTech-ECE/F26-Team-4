@@ -1,0 +1,44 @@
+Meeting 10/21/2027
+
+All members present
+Start time: 3:57
+End Time: 4:46
+
+We began by going over what we need to add to the Conceptual Design Document (CDD) as compared to the project proposal. We also contacted Dr. Storm help determine this. 
+
+Jocelyn will be out of town from November 4th to the 8th.
+
+We then went through the CDD specifications and assigned sections:
+
+	Intro - Everett
+	Restate the Problem - Merric
+	Comparative Analysis - Jonathan
+	High Level - Merric
+	Block Diagram - Jonathan
+	Operational Flow - Jack
+	
+	Subsystems:
+		Clock Sync - Everett
+		Client Communication - Jack
+		Power - Jocelyn
+		Holdover - Jonathan
+		GNSS+Radio - Merric
+		Device Security - Jack
+		SoC - Merric
+		Enclosure - Jonathan
+
+	Ethics - Everett
+	Resources & Budget - Jack
+	Division of Labor - All
+	Timeline - Jocelyn
+
+As far as the subsystem work was concerned:
+	Everett reported being about 80% complete.
+	Jack was also mostly complete.
+	Merric had started his sections.
+	Jocelyn had recently started.
+	Jonathan had not started.
+
+We decided that each person should aim to be completed with their sections by the end of the next day: October 22nd, 2027.
+
+We also decided to meet at 1 PM on Friday to merge all of our sections. 
