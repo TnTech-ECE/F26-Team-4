@@ -202,7 +202,7 @@ You have already estimated the resources needed to complete the solution. Now, l
 
 The computer will be the core unit of the system and  should be chosen for its combination of cost and performance, as well as it's ability to run the computations necessary. The 32Gb micro SD card will be chosen as a trustworthy storage medium and its ability to hold the required software and operating system. 
 
-## GNSS + Radio
+### GNSS + Radio
 | GNSS Satelite Antenna/Reciever | The antenna and reciever for the GPS system                    | 1      | $300  |
 |--------------------------------|----------------------------------------------------------------|--------|-------|
 | PPS Wire                       | A wire for the PPS singal to connect to a I/O port on the SOC  | 1      | $5    |
