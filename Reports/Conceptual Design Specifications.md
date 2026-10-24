@@ -46,7 +46,7 @@ This encompasses the overall security of the system. The system will have a fire
 ### Holdover Oscillator
 In normal conditions, the system will receive timing from the satellite constellations, however, sometimes this synchronization will be lost. The oscillator will be continuously tuned with the incoming signal to ensure timestamps will continue to be accurate.
 
-# Enclosure
+### Enclosure
 The enclosure is the body that will contain the entire system. It will provide proper cooling, and protection from external attacks. It will also provide ease of access for authenticated users.
 
 ### Hardware Block Diagram
@@ -91,7 +91,7 @@ High-Level Requirements:
 
 ## SoC
 
-The Soc is responsible for orchestration of the entire system. Its primary duties are recieving timestamps from the GNSS module and checking the stamp's integrity.
+The SoC is responsible for orchestration of the entire system. Its primary duties are recieving timestamps from the GNSS module and checking the stamp's integrity.
 Run an open source software called Chrony, which is an extremely powerful software that allows for rigorous security, and flexible distrobution of the timestamps
 to clients downstream. It will also tune an oscillator to timestamps recieved, which is needed if the system loses synchronization to the time sources.
 The SoC will also be used to program external modules like the GNSS module to achieve the desired settings the user wants. Lastly, the SoC will transmit
@@ -99,9 +99,9 @@ the secure timestamps to clients, and will display its current settings and stat
 
 Functions:
 - Recieve and process timestamps
-- Tune the hold-over system
+- Tune the holdover system
 - Enforce rigorous security measures
-- Transmitt timestamps to clients
+- Transmit timestamps to clients
 
 Inputs:
 - Commands to change system settings
@@ -337,4 +337,8 @@ Introduction - Everett Patterson
 Holdover Oscillator - Jonathan Salvato
 Clock Synchronization - Everett Patterson
 Ethics - Everett Patterson
-Enclosure - Everett Patterson & 
+Enclosure - Everett Patterson 
+GNSS - Merric Anderson
+SoC - Merric Anderson
+High Level Solution- Merric Anderson
+State the Problem- Merric Anderson
