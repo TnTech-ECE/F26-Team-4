@@ -18,13 +18,13 @@ Secure and accurate timing is paramount in most modern systems in a multitude of
 Examples include power generation, where plants need accurate time to log errors and 
 synchronize generators, the finance industry needs accurate timestamps to track transactions to 
 prevent theft and fraud, and modern navigation systems, like GPS, needs precise timing so that it 
-can track a position accurately, otherwise the target will drift off course[^1]. As the dependence on 
+can track a position accurately, otherwise the target will drift off course[1]. As the dependence on 
 more accurate time increases, the need for more reliable time distribution has become 
 increasingly important.
 
 Network Timer Servers (NTS) solve this by obtaining accurate time from trusted sources such as:
 satellite constellations and local atomic clocks. Then, it is distributed downstream 
-to clients via the Network Time Protocol[^2]. In a typical system, the server receives a reference 
+to clients via the Network Time Protocol[2]. In a typical system, the server receives a reference 
 time, disciplines a local oscillator to maintain reference time, and distributes that time to clients.
 
 While this system is effective and efficient at distributing time, it has several security 
@@ -78,13 +78,13 @@ The GPS Regulated Secure Network Time Server will adhere to:
 ## Survey of Existing Solutions
 Many GPS governed NTP servers already exist on the market today. Many of these solutions, however, are for an industrial scale which makes them bulky, incredibly high in cost, and generally inaccessible.
 
-For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[^3] It's a great time server, but costs ~$1595.00[^4], which makes it inadequate for hobbyist use.
+For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[3] It's a great time server, but costs ~$1595.00[4], which makes it inadequate for hobbyist use.
 
-For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day[^5]. This NTP server hovers around $5000-11000[^6][^7] making this an extreme example of high cost.
+For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day[5]. This NTP server hovers around $5000-11000[6][7] making this an extreme example of high cost.
 
 Of course, there are more accessible options on the market, but most of these come with tradeoffs of precision, security, or relative cost.
 
-For a lower cost, Time Machines Corp. has a fleet of NTP time servers[^8]: The TM1000A ($349.99)[^8], TM2000B ($549.99)[^8], TM2500C ($799.99)[^8], and TM3000A ($999.99)[^8]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[^9]. While these servers will work, they're either expensive or lacking in security features.
+For a lower cost, Time Machines Corp. has a fleet of NTP time servers[8]: The TM1000A ($349.99)[8], TM2000B ($549.99)[8], TM2500C ($799.99)[8], and TM3000A ($999.99)[8]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[9]. While these servers will work, they're either expensive or lacking in security features.
 
 As can be seen, there is no shortage in available time server solutions, however many of these solutions are expensive and/or lacking in available security or timekeeping measures. With this project we hope to offer a solution with a low cost, secure, and accurate time server.
 
@@ -172,7 +172,7 @@ Methodology:
 
 **Material and Hardware Resources** - Our project will be primarily built around a single computer that will act as the controller behind the operations of the NTP server. It will be an SoC capable of running Linux, as that is the OS needed to run our desired software. We will have an external oscillator to ensure high accuracy in the event of a loss of signal from external time sources. A power bank and the necessary wiring will be used to allow the system to continue running in the case of a power outage. All of the above-mentioned components will exist inside a custom enclosure to ensure proper function and security. A GNSS antenna and receiver, as well as an AM radio antenna and receiver, will collect and process incoming satellite signals to allow for non-internet-based time sources. 
 
-**Software Resources** - Our team will be primarily utilizing an open-source, well-respected NTP software called Chrony. It is capable of receiving and filtering the incoming time signals and using them to determine the exact time in a given moment, with up to nanosecond accuracy. It does all of this while filtering out suspicious or incorrect sources[^10]. We intend to implement a firewall as well to ensure the computer is protected against cybersecurity threats. 
+**Software Resources** - Our team will be primarily utilizing an open-source, well-respected NTP software called Chrony. It is capable of receiving and filtering the incoming time signals and using them to determine the exact time in a given moment, with up to nanosecond accuracy. It does all of this while filtering out suspicious or incorrect sources[10]. We intend to implement a firewall as well to ensure the computer is protected against cybersecurity threats. 
 
 **Facilities and Support** - We will use the Capstone Lab for assembly, prototyping, and testing our design, as well as the iMakerSpace for its 3D printers and measurement tools.
 
@@ -229,6 +229,8 @@ Jonathan Salvato
 Supervisor:
 Instructor: Dr. Storm
 
+Stakeholder: Dr. Austen
+
 ### Proposal Timeline
 <img width="809" height="394" alt="image" src="https://github.com/user-attachments/assets/68267c23-0450-48cd-8e97-922e97e770c6" />
 
@@ -236,11 +238,11 @@ Instructor: Dr. Storm
 
 Implementing the Resilient and Secure Network Time Server (NTS) that was proposed will provide many solutions to our customer's issues: secure, resilient, and affordable network time synchronization.
 
-By using the Network Time Security (NTS) protocol, the system will give a cryptographic authentication of timing information shared back and forth from the server and client. Through this, the risk of malicious sources providing false information can be reduced, creating a more secure alternative to traditional NTP [^11],[^12]. Timestamps that have been authenticated and proven reliable not only improve the trustworthiness of systems logs to many other network operations as well.
+By using the Network Time Security (NTS) protocol, the system will give a cryptographic authentication of timing information shared back and forth from the server and client. Through this, the risk of malicious sources providing false information can be reduced, creating a more secure alternative to traditional NTP [11],[12]. Timestamps that have been authenticated and proven reliable not only improve the trustworthiness of systems logs to many other network operations as well.
 
-Even when primary GPS timing sources become unavailable, this system will be designed to maintain a usable time reference. GPS and other PNT services (positioning, navigation, and timing) are commonly affected by power outages, interference, and other disruptions such as GPS jamming [^13]. By incorporating backups we can reduce the system's dependence on GPS allowing clients to continue receiving data during disruptions [^14].
+Even when primary GPS timing sources become unavailable, this system will be designed to maintain a usable time reference. GPS and other PNT services (positioning, navigation, and timing) are commonly affected by power outages, interference, and other disruptions such as GPS jamming [13]. By incorporating backups we can reduce the system's dependence on GPS allowing clients to continue receiving data during disruptions [14].
 
-The Network Time Security protocol will protect the system from being manipulated by people with malicious intents. With the ability to establish cryptographic keys and authenticate traffic, NTS allows clients to verify that time information has not been tampered with [^12]. This provides confidence to the customer as the time distributed by the system is protected.
+The Network Time Security protocol will protect the system from being manipulated by people with malicious intents. With the ability to establish cryptographic keys and authenticate traffic, NTS allows clients to verify that time information has not been tampered with [12]. This provides confidence to the customer as the time distributed by the system is protected.
 
 One of the primary objectives of the project is to achieve high end security and resilience through the use of common, inexpensive hardware. Ideally, hobbyist, students, and small organizations with limited budgets will be able to use the proposed system as it avoids the use of expensive commercial equipment. This provides protected time outputs to those who might not have the necessary infrastructure to use current NTS technology. Our team's GitHub Repository will also be available distribution as source of information on how to build their own NTS.
 
@@ -272,7 +274,7 @@ This project, despite its reduced cost compared to the current market, may still
 
 ## Ethics:
 While this project is designed for the individual to have a secure time server, this does not come without ethical considerations.  First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is.  Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them.  We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
-The engineers involved must hold themselves to the IEEE Code of Ethics. [^15]
+The engineers involved must hold themselves to the IEEE Code of Ethics. [15]
 
 ## Statement of Contributions
 
