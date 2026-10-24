@@ -28,22 +28,22 @@ Once we decided our system type, the next item of consideration was our time sou
 ## High-Level Solution
 The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,the design will achieve accurate timestamps even in hostile enviorments.
 
-# Power Supply
+### Power Supply
 The power supplies' job is to provide power to maintain a stable operating condition in normal and in extraordinary conditions, have a back supply incase the wall outlet fails. It should be able to switch fast enough as to maintain synchronicity after loss of power. 
 
-# GNSS Module
+### GNSS Module
 The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts
 
-# Processor
+### Processor
 This is the brains of the system. It coordinates the operation of the GNSS Module, external oscillator, and transmission of timestamps to clients. It will be able to change the settings of the system to the user's desired settings. It will also coordinate security and quality checks.
 
-# Client Communication
+### Client Communication
 The client communication is the bridge between the server and the clients. It ensures proper distribution of timestamps to clients, and ensures the clients have proper authentication.
 
-# Device Security
+### Device Security
 This encompasses the overall security of the system. The system will have a firewall to prevent unwanted intrusions and ensure proper authentication to access the secure timestamps and to change the settings of the system.
 
-# Holdover Oscillator
+### Holdover Oscillator
 In normal conditions, the system will receive timing from the satellite constellations, however, sometimes this synchronization will be lost. The oscillator will be continuously tuned with the incoming signal to ensure timestamps will continue to be accurate.
 
 # Enclosure
