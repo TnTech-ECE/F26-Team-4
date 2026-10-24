@@ -61,6 +61,41 @@ Note that the radio clock module in this diagram is an optional component.
 
 ## Subsystems
 
+### Power System
+
+The Power System is responsible for supplying stable and continuous electrical power to the components of the Resilient and Secure Network Time Server. During normal operation, the system will receive power from an external source and provide the required DC power to the System-on-Chip (SoC), GNSS receiver, external oscillator, and other supporting hardware. In the event that the primary power source is lost, a backup battery bank will provide an alternate source of power to allow the system to continue operating. The final power requirements will be determined by the voltage and current requirements of the hardware selected for each subsystem.
+
+**Functions:**
+
+- Supply the required electrical power to the components of the Network Time Server
+- Convert the external power source to the DC power required by the system hardware
+- Maintain stable power during normal system operation
+- Provide backup power during the loss of the primary power source
+- Distribute power to the SoC, GNSS receiver, external oscillator, and other required hardware
+- Support continued operation of critical system components during a temporary loss of primary power
+
+**Inputs:**
+
+- External electrical power from the primary power source
+- DC electrical power from the backup battery bank when primary power is unavailable
+
+**Outputs:**
+
+- Regulated DC power supplied to:
+	- The System-on-Chip (SoC)
+	- The GNSS receiver
+	- The external oscillator
+	- Additional supporting hardware as required by the final design
+
+**High-Level Requirements:**
+
+- The Power System shall provide the required operating power to all critical components of the Network Time Server.
+- The Power System shall provide voltage and current within the operating requirements of each connected component.
+- The Power System shall provide backup power when the primary power source is unavailable.
+- The Power System shall support continued operation of the SoC and critical timing hardware while sufficient backup power is available.
+- The Power System shall return the system to primary power operation when the primary power source is restored.
+- The Power System shall provide sufficient power to support the maximum expected electrical load during normal operation.
+  
 ## GNSS Module
 
 The GNSS Module is the main source for retrieveing the timestamps that our system will be distributing downstream. First, it recieves a signal containing the 
@@ -329,16 +364,16 @@ b) https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gp
 
 
 ## Statement of Contributions
-Block Diagram - Jonathan Salvato
-Comparative Analysis - Jonathan Salvato
-Timeline - Jocelyn Lee
-Power System - Jocelyn Lee
-Introduction - Everett Patterson
-Holdover Oscillator - Jonathan Salvato
-Clock Synchronization - Everett Patterson
-Ethics - Everett Patterson
-Enclosure - Everett Patterson 
-GNSS - Merric Anderson
-SoC - Merric Anderson
-High Level Solution- Merric Anderson
-State the Problem- Merric Anderson
+- Block Diagram - Jonathan Salvato
+- Comparative Analysis - Jonathan Salvato
+- Timeline - Jocelyn Lee
+- Power System - Jocelyn Lee
+- Introduction - Everett Patterson
+- Holdover Oscillator - Jonathan Salvato
+- Clock Synchronization - Everett Patterson
+- Ethics - Everett Patterson
+- Enclosure - Everett Patterson
+- GNSS - Merric Anderson
+- SoC - Merric Anderson
+- High Level Solution- Merric Anderson
+- State the Problem- Merric Anderson
