@@ -212,7 +212,7 @@ High-Level Requirements:
 
 ## Clock Synchronization
 
-The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [B]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [A]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
+The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [5]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [4]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
 The output will be the time code received of the most reliable signal. 
 
 Should a jump in real-time output occur, the output will be slewed into accuracy.  Slewing is the process by which a clock, rather than skipping ahead in time, alters its speed to gradually match the correct time.
@@ -301,9 +301,6 @@ Finally, our design features many network security features so that malicious ac
 
 
 ## Resources
-
-You have already estimated the resources needed to complete the solution. Now, let's refine those estimates.
-
 ## Budget
 ### SoC
 | Item         | Description                              | Quanity | Cost (Estimate) |
@@ -353,15 +350,18 @@ Develop a budget proposal with justifications for expenses associated with each 
 First, conduct a thorough analysis of the skills currently available within the team, and then compare these skills to the specific requirements of each subsystem. Based on this analysis, appoint a team member to take the specifications for each subsystem and generate a corresponding solution (i.e. detailed design). If there are more team members than subsystems, consider further subdividing the solutions into smaller tasks or components, thereby allowing each team member the opportunity to design a subsystem.
 
 ### Timeline
-<img width="955" height="361" alt="image" src="https://github.com/user-attachments/assets/0d2b6d60-b881-4b7f-824d-fb614f5e66a2" />
-
+<img width="1052" height="310" alt="Screenshot 2026-10-23 211602" src="https://github.com/user-attachments/assets/2760db70-d0b2-4b54-bc39-530ba3207c02" />
 
 ## References
-All sources utilized in the conceptual design that are not considered common knowledge must be properly cited. Multiple references should be included.
+[1] D. Franke, D. Sibold, K. Teichel, M. Dansarie, and R. Sundblad, “Network Time Security for the Network Time Protocol,” RFC 8915, Sept. 2020, doi: 10.17487/RFC8915.
 
-clock synch
-a) https://chrony-project.org/faq.html#_an_unreachable_source_is_selected
-b) https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd
+[2] D. Mills, J. Burbank, and W. Kasch, “Network Time Protocol Version 4: Protocol and Algorithms Specification,” RFC 5905, June 2010, doi: 10.17487/RFC5905.
+
+[3] “OpenSSH: Manual Pages,” OpenSSH.org, 2025. [Online]. Available: https://www.openssh.org/manual.html.
+
+[4] “An unreachable source is selected,” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_an_unreachable_source_is_selected.
+
+[5] “How should chronyd be configured with GPSD?” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd.
 
 
 ## Statement of Contributions
