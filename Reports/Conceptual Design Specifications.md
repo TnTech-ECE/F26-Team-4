@@ -10,7 +10,7 @@ Off-the-shelf solutions, while available, do not provide the same functionality 
 
   
 ## Fully Formulated Problem
-The Primary objective of this project is to build a low cost, accessible, and effective Network Timer Server that provides accurate timestamps by using time references like satellite constellations and online servers. The system shall also be secure from attempts to subvert it from attacks like jamming, DOS, Man in the Middle attacks, and general attacks.
+The Primary objective of this project is to build a low cost, accessible, and effective Network Timer Server that provides accurate timestamps by using time references like satellite constellations and online servers. The system shall also be secure from attempts of subversion such as DDOS and Man in the Middle attacks.
 
 The system shall be able to be constructed easily and inexpensively for use by the general public. In doing so, individuals and organizations will have access to extraordinarily accurate and secure time to ensure proper operation of their systems.
 
@@ -27,6 +27,27 @@ Once we decided our system type, the next item of consideration was our time sou
 
 ## High-Level Solution
 The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,the design will achieve accurate timestamps even in hostile enviorments.
+
+# Power Supply
+The power supplies' job is to provide power to maintain a stable operating condition in normal and in extraordinary conditions, have a back supply incase the wall outlet fails. It should be able to switch fast enough as to maintain synchronicity after loss of power. 
+
+# GNSS Module
+The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts
+
+# Processor
+This is the brains of the system. It coordinates the operation of the GNSS Module, external oscillator, and transmission of timestamps to clients. It will be able to change the settings of the system to the user's desired settings. It will also coordinate security and quality checks.
+
+# Client Communication
+The client communication is the bridge between the server and the clients. It ensures proper distribution of timestamps to clients, and ensures the clients have proper authentication.
+
+# Device Security
+This encompasses the overall security of the system. The system will have a firewall to prevent unwanted intrusions and ensure proper authentication to access the secure timestamps and to change the settings of the system.
+
+# Holdover Oscillator
+In normal conditions, the system will receive timing from the satellite constellations, however, sometimes this synchronization will be lost. The oscillator will be continuously tuned with the incoming signal to ensure timestamps will continue to be accurate.
+
+# Enclosure
+The enclosure is the body that will contain the entire system. It will provide proper cooling, and protection from external attacks. It will also provide ease of access for authenticated users.
 
 ### Hardware Block Diagram
 <img src="figures/Hardware Diagram.svg" alt = "Hardware Diagram" width="600">
@@ -73,7 +94,7 @@ High-Level Requirements:
 The Soc is responsible for orchestration of the entire system. Its primary duties are recieving timestamps from the GNSS module and checking the stamp's integrity.
 Run an open source software called Chrony, which is an extremely powerful software that allows for rigorous security, and flexible distrobution of the timestamps
 to clients downstream. It will also tune an oscillator to timestamps recieved, which is needed if the system loses synchronization to the time sources.
-The SoC will also be used to program external modules like the GNSS module to achieve the desired settings the user wants. Lastly, the SoC will transmitt
+The SoC will also be used to program external modules like the GNSS module to achieve the desired settings the user wants. Lastly, the SoC will transmit
 the secure timestamps to clients, and will display its current settings and status to the user.
 
 Functions:
@@ -86,7 +107,6 @@ Inputs:
 - Commands to change system settings
 - Timestamps from GNSS via UART/I2C
 - Status from peripherials
-- Current Oscillator Frequency
 - Power from Power Supply
 
 Outputs:
