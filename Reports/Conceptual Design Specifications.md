@@ -377,3 +377,7 @@ b) https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gp
 - SoC - Merric Anderson
 - High Level Solution- Merric Anderson
 - State the Problem- Merric Anderson
+- Client Communication - Jack Fennell
+- Device Security - Jack Fennell
+- Budget - Jack Fennell
+- Resources - Jack Fennell
