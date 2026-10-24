@@ -51,7 +51,8 @@ The enclosure is the body that will contain the entire system. It will provide p
 
 ### Hardware Block Diagram
 <img src="figures/Hardware Diagram.svg" alt = "Hardware Diagram" width="600">
-Note that the radio clock module in this diagram is an optional component. 
+Note that the radio clock module in this diagram is an optional component.  
+
 ### Operational Flow Chart
 
 <img src="figures/Operational_Flowchart.svg" alt = "Operational Flowchart" width="600">
@@ -196,7 +197,7 @@ High-Level Requirements:
 - The system shall block all incoming signals except those needed for device functionaility. 
 - The system shall provide secure access for administrators using SSH.
 
-### The Holdover Oscillator   
+## The Holdover Oscillator   
 The Oscillator provides a consistent periodic signal as a time reference for the system to use when all other methods fail, or to use between periods of incoming reference signals for a more accurate device output. Depending on the type of oscillator used, if it is not an enclosed unit, we may need to implement a control loop to output a signal suitable for the SoC. 
 
 Functions:
