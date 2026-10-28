@@ -343,7 +343,15 @@ Holdover is the systems ability to remain accurate for a duration of time withou
 
 ### Division of Labor
 
-First, conduct a thorough analysis of the skills currently available within the team, and then compare these skills to the specific requirements of each subsystem. Based on this analysis, appoint a team member to take the specifications for each subsystem and generate a corresponding solution (i.e. detailed design). If there are more team members than subsystems, consider further subdividing the solutions into smaller tasks or components, thereby allowing each team member the opportunity to design a subsystem.
+Merric Anderson: This team member has performed extensive research into GNSS systems and has knowledge of Digital System Processing. The team member also is skilled in embedded programming using C, and is proficient in python. Based on this skill set, the team member was assigned the GNSS subsystem and Processor subsystem.
+
+Jonathan Salvato: Has a strong background in controls, signal processing, and hardware design. This team member also has the most experience with 3D modeling and 3D printing. As such this team member was assigned the Holdover Oscillator and Enclosure subsystems.
+
+Jack Fennell: Has a background in controls and embedded systems and is the team member with the most experience in software and programming. Because of this, this team member will take the lead on the software-heavy sections, such as Client Communication and Device Security. Both subsystems require the implementation of cybersecurity concepts and software configuration.
+
+Jocelyn Lee: Has a background in power systems, hardware design, and controls. This team member also skilled in programming and 3D modeling. From this skill set, this team member will be leading the power subsystem as well as assisting with the processor subsystem.
+
+Everett Patterson: Has a background in hardware security, embedded systems, and controls. This team member is also skilled with C programming and cyber security. From this, this team member will be leading the clock synchronization.
 
 ### Timeline
 <img width="1052" height="310" alt="Screenshot 2026-10-23 211602" src="https://github.com/user-attachments/assets/2760db70-d0b2-4b54-bc39-530ba3207c02" />
