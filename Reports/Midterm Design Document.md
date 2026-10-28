@@ -651,9 +651,11 @@ This team member has performed extensive research into GNSS systems and has know
 Jonathan Salvato:
 Has a strong background in controls, signal processing, and hardware design. This team member also has the most experience with 3D modeling and 3D printing. As such this team member was assigned the Holdover Oscillator and Enclosure subsystems.  
 
-Jack Fennell: Has a background in controls and embedded systems and is the team member with the most experience in software and programming. Because of this, he will take the lead on the software-heavy sections, such as Client Communication and Device Security. Both subsystems require the implementation of cybersecurity concepts and software configuration. 
+Jack Fennell: 
+Has a background in controls and embedded systems and is the team member with the most experience in software and programming. Because of this, he will take the lead on the software-heavy sections, such as Client Communication and Device Security. Both subsystems require the implementation of cybersecurity concepts and software configuration. 
 
 Jocelyn Lee:
+Has a background in power systems, hardware design, and controls. This team member also skilled in programming and 3D modeling. From this skill set, this team member will be leading the power subsystem as well as assisting with the processor subsystem.
 
 Everett Patterson:
 
