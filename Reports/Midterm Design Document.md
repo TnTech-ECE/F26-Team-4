@@ -650,7 +650,7 @@ This team member has performed extensive research into GNSS systems and has know
 
 Jonathan Salvato:
 
-Jack Fennell:
+Jack Fennell: Has a background in controls and embedded systems and is the team member with the most experience in software and programming. Because of this, he will take the lead on the software-heavy sections, such as Client Communication and Device Security. Both subsystems require the implementation of cybersecurity concepts and software configuration. 
 
 Jocelyn Lee:
 
