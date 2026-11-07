@@ -74,7 +74,7 @@ $T_2$ = The time the server initially received said request
 $T_3$ = The time the server sends its response  
 $T_4$ = the time the client receives the response from the server  
 
-It will then calculate the offset ($\theta$) (Difference between the clients clock and the accurate server clock) and the round trip delay ($\delta$) with the following formulas
+It will then calculate the offset ($\theta$) and the round trip delay ($\delta$) with the following formulas
 
 
 Offset:  
