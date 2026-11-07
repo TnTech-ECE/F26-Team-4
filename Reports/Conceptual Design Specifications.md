@@ -35,6 +35,9 @@ The power supplies' job is to provide power to maintain a stable operating condi
 The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts
 
 ### Processor
+
+[1]GeeksforGeeks, “Difference Between MCU and SoC,” GeeksforGeeks, Sept. 04, 2020. https://www.geeksforgeeks.org/computer-organization-architecture/difference-between-mcu-and-soc/ (accessed Nov. 07, 2026).
+
 This is the brains of the system. It coordinates the operation of the GNSS Module, external oscillator, and transmission of timestamps to clients. It will be able to change the settings of the system to the user's desired settings. It will also coordinate security and quality checks. However, there are two possible architectures we could implement the NTS on: a System on Chip (SoC) and a Microcontroller Unit (MCU). They are both capable of receiving timing data from a GNSS Module and tuning a holdover system, but they differ in raw processing capability, software support, and the ability to deliver timestamps to clients.
 
 A MCU architecture offers several advantages such as low power consumption, simplicity, and deterministic timing due to most MCUs using light weight operating systems or Real Time Operating Systems. This is very beneficial as it allows the system to receive time signals like PPS (Pulse Per Second) accurately. However, there is little support when it comes to implementing NTS and NTP. It would require manual set up of network communication, holdover synchronization, and security protocols. Overall, MCU architecture would introduce significant software complexity to the project.
