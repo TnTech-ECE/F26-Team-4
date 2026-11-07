@@ -55,10 +55,10 @@ The Client Communication amd Clock Synchronization subsystems are the backbone o
 
 The functionality of these subsystems is what makes this project an NTP server at all, and therefore we need to take careful consideration of how they will be implemented. When researching solutions to the software side of the project, a few major potential solutions stuck out. 
 
-Custom NTP Software: 
+**Custom NTP Software:** 
 This would involve writing the software to receive timestamps, calculate accurate internal timing, process, and respond to NTP requests securely. This method would allow us full control over the implementation, and forces a deep understanding of the protocols used. The downside is the mountain of research and development that would go into it.  
 
-Existing NTP Software:
+**Existing NTP Software:**
 This would involve using an established NTP implementation such as Chrony or NTPsec. There are many advantages to taking this route. One of which is that we can build off of tools with proven implementation and support for everything that may be needed. In addition, there exists a wealth of documentation and user threads that explain and help troubleshoot these softwares. The primary downside would be that we have less control over the implementation. Given the many advantages to this type of implementation, this is the route we went with.   
 
 However even after the decision to use existing software was made, there still existed many software options to choose from. Below is a breakdown of the main NTP tools used.  
