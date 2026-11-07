@@ -180,9 +180,9 @@ High-Level Requirements:
 - The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
 - The system will be able properly control peripherials and transmitt accurate timestamps to clients
 
-  ## Processor Principles
+  ### Processor Principles
 
-  ## Processor Operation
+  ### Processor Operation
 
   
 
