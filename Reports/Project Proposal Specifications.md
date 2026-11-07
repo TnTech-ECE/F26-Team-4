@@ -80,8 +80,9 @@ The GPS regulated Secure Network Time Server will:
 		-GNSS sources such as GPS
 		-An Internal Oscillator
 		-Network sources such as NIST Internet time servers
-	-The server shall, if time allows, obtain time from additional sources including:
-		-Radio time such as WWVB
+	-The server may, if time allows:
+		- Obtain time from radio time such as WWVB
+		- Output a reference clock signal from the oscillator
 	-The server shall communicate the current time data through the NTPv4 standard
 2. Maintain Security:
 	-The server shall maintain a secure connection to clients connected through NTS
@@ -344,4 +345,4 @@ Introduction and Broader Impacts/Ethics - Everett Patterson
 [^13]:J. McCarthy, Y.-S. Li-Baboud, J. Brule, and K. Meldorf, “Foundational PNT Profile: Applying the Cybersecurity Framework for the Responsible Use of Positioning, Navigation, and Timing (PNT) Services,” NIST Interagency/Internal Report 8323 Rev. 1, National Institute of Standards and Technology, Jan. 2023.
 [^14]:J. Sherman, L. Arissian, R. Brown, M. J. Deutch, E. Donley, V. Gerginov, J. Levine, G. Nelson, A. Novick, B. Patla, T. Parker, B. Stuhl, J. Yao, W. Yates, M. A. Lombardi, V. Zhang, and D. Sutton, “A Resilient Architecture for the Realization and Distribution of Coordinated Universal Time to Critical Infrastructure Systems in the United States: Methodologies and Recommendations from the National Institute of Standards and Technology,” NIST Technical Note 2187, National Institute of Standards and Technology, Nov. 2021.
 [^15]:IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. [https://www.ieee.org/about/corporate/governance/p7-8](https://www.ieee.org/about/corporate/governance/p7-8) (accessed Oct. 12, 2026).
-[^16]D. Ehlers, “TimeMachines Time Server Accuracy (TM1000A, TM2000A/B, TM2500B) – Revision D,” Technical report, Jan. 2024. [Online]. Available: https://timemachinescorp.com/wp-content/uploads/TMTimeServerAccuracyRevB.pdf
+[^16]:D. Ehlers, “TimeMachines Time Server Accuracy (TM1000A, TM2000A/B, TM2500B) – Revision D,” Technical report, Jan. 2024. [Online]. Available: https://timemachinescorp.com/wp-content/uploads/TMTimeServerAccuracyRevB.pdf
