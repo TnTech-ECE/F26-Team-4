@@ -52,7 +52,7 @@ An SoC architecture provides many advantages such as much greater processing pow
 
 Due to these facts, the system will use an SoC with a Linux based operating system. With the immense ecosystem setup around this choice, the project will be able to be created with much more ease and reliability.
 
-### Client Communication
+### Client Communication and Clock Synchronization
 The client communication is the bridge between the server and the clients. It ensures proper distribution of timestamps to clients, and ensures the clients have proper authentication.
 
 ### Device Security
