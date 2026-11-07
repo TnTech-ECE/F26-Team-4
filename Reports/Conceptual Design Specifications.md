@@ -128,7 +128,7 @@ Inputs:
 - Power from power supply
 
 Outputs:
-- Timestamp sent to processor using I2C/UART
+- Timestamp sent to processor using I2C/UART/PPS
 - Current Status sent to processor using I2C/UART
 
 Interfaces:
@@ -139,6 +139,11 @@ Interfaces:
 High-Level Requirements:
 - Shall Retrieve accurate timestamps
 - Shall be secure from attempts to spoof or attack it
+
+  ## GNSS Principles
+
+  ## GNSS Operation
+  
 
 ## Processor
 
@@ -174,6 +179,12 @@ High-Level Requirements:
 - The system shall recieve accurate timestamps from satellite constellations
 - The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
 - The system will be able properly control peripherials and transmitt accurate timestamps to clients
+
+  ## Processor Principles
+
+  ## Processor Operation
+
+  
 
 ## Client Communication  
 Client communication is the system that uses the hyper-accurate system time determined by the Clock Synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
