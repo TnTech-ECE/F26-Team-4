@@ -68,6 +68,23 @@ The end result should present a comprehensive view of a well-defined system, del
 ## Client Communication  
 Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
 
+The client calculates the correct time and offset given 4 timestamps:
+$T_1$ = The time the client originally sent the request
+$T_2$ = The time the server initially received said request
+$T_3$ = The time the server sends its response
+$T_4$ = the time the client receives the response from the server
+
+It will then calculate the offset (Difference between the clients clock and the accurate server clock) and the round trip delay with the following formulas
+
+$$
+\boxed{\theta = \frac{(T_2 - T_1) + (T_3 - T_4)}{2}}
+$$
+
+$$
+\boxed{\delta = (T_4 - T_1) - (T_3 - T_2)}
+$$
+
+
 Functions: 
 - Supply accurate NTP data to the clients on its network  
 - Maintain high levels of security using NTS to ensure the accuracy of the data  
