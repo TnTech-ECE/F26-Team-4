@@ -34,6 +34,9 @@ The Network Time Server provides a secure platform that will allow its users to 
 ### Power Supply
 The power supplies' job is to provide power to maintain a stable operating condition in normal and in extraordinary conditions, have a back supply incase the wall outlet fails. It should be able to switch fast enough as to maintain synchronicity after loss of power. 
 
+### Antenna
+
+
 ### GNSS Module
 The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts
 
