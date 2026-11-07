@@ -42,13 +42,11 @@ The GNSS Module is the main source of timestamps of the system. It should be abl
 
 ### Processor
 
-[1]GeeksforGeeks, “Difference Between MCU and SoC,” GeeksforGeeks, Sept. 04, 2020. https://www.geeksforgeeks.org/computer-organization-architecture/difference-between-mcu-and-soc/ (accessed Nov. 07, 2026).
-
-This is the brains of the system. It coordinates the operation of the GNSS Module, external oscillator, and transmission of timestamps to clients. It will be able to change the settings of the system to the user's desired settings. It will also coordinate security and quality checks. However, there are two possible architectures we could implement the NTS on: a System on Chip (SoC) and a Microcontroller Unit (MCU). They are both capable of receiving timing data from a GNSS Module and tuning a holdover system, but they differ in raw processing capability, software support, and the ability to deliver timestamps to clients.
+This is the brains of the system. It coordinates the operation of the GNSS Module, external oscillator, and transmission of timestamps to clients. It will be able to change the settings of the system to the user's desired settings. It will also coordinate security and quality checks. However, there are two possible architectures we could implement the NTS on: a System on Chip (SoC) and a Microcontroller Unit (MCU). They are both capable of receiving timing data from a GNSS Module and tuning a holdover system, but they differ in raw processing capability, software support, and the ability to deliver timestamps to clients[1].
 
 A MCU architecture offers several advantages such as low power consumption, simplicity, and deterministic timing due to most MCUs using light weight operating systems or Real Time Operating Systems. This is very beneficial as it allows the system to receive time signals like PPS (Pulse Per Second) accurately. However, there is little support when it comes to implementing NTS and NTP. It would require manual set up of network communication, holdover synchronization, and security protocols. Overall, MCU architecture would introduce significant software complexity to the project.
 
-An SoC architecture provides many advantages such as much greater processing power, and features a full operating system, like Linux. This allows the project to make full use of existing solutions to synchronization, network communication, and security. For example, Chrony is a popular software that incorporates security, synchronization, and communication in one complete package that is very easy to set up on a Linux based system. However, since the system is running a complete operating system, additional jitter and uncertainty are introduced due to scheduling and processing latency. This can be accounted by using a real-time kernel or configuring the kernel with proper consideration.
+An SoC architecture provides many advantages such as much greater processing power, and features a full operating system, like Linux. This allows the project to make full use of existing solutions to synchronization, network communication, and security. For example, Chrony is a popular software that incorporates security, synchronization, and communication in one complete package that is very easy to set up on a Linux based system. However, since the system is running a complete operating system, additional jitter and uncertainty are introduced due to scheduling and processing latency[2]. This can be accounted by using a real-time kernel or configuring the kernel with proper consideration.
 
 Due to these facts, the system will use an SoC with a Linux based operating system. With the immense ecosystem setup around this choice, the project will be able to be created with much more ease and reliability.
 
@@ -68,10 +66,10 @@ However even after the decision to use existing software was made, there still e
 
 | Software | Pros                                                                                                                                                                     | Cons                                                                                                                                                              |
 |----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Chrony   | It's the modern day gold standard. It has functionality for up to nanosecond accuracy, NTS capabilities, is VM-friendly, and designed to work well on conjested networks | Complex configuration when compared to its alternatives                                                                                                           |
-| NTPD     | Capable of working on very old systems. It is also well documented as a result of its age.                                                                               | It is the original NTP software. Requires legacy operating systems. Includes very little security functionality                                                   |
-| NTPsec   | Modernized version of NTPD. Developed to add modern day security requirements to these legacy systems.                                                                   | It is not used very often and as a result has limited documentation and support. It is a direct competitor to Chrony and is often looked over in favor of Chrony. |
-| OpenNTPD | Very lightwieght and requires very few system resources. Developed to be very secure.                                                                                    | Less accurate as a result of being designed for security over all else.                                                                                           |
+| Chrony[2]   | It's the modern day gold standard. It has functionality for up to nanosecond accuracy, NTS capabilities, is VM-friendly, and designed to work well on conjested networks | Complex configuration when compared to its alternatives                                                                                                           |
+| NTPD[3]     | Capable of working on very old systems. It is also well documented as a result of its age.                                                                               | It is the original NTP software. Requires legacy operating systems. Includes very little security functionality                                                   |
+| NTPsec[4]   | Modernized version of NTPD. Developed to add modern day security requirements to these legacy systems.                                                                   | It is not used very often and as a result has limited documentation and support. It is a direct competitor to Chrony and is often looked over in favor of Chrony. |
+| OpenNTPD[5] | Very lightwieght and requires very few system resources. Developed to be very secure.                                                                                    | Less accurate as a result of being designed for security over all else.                                                                                           |
 
 
 ### Device Security
@@ -198,7 +196,7 @@ High-Level Requirements:
 
   
 ## Client Communication  
-Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
+Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [6]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [7]  
 
 The client calculates the correct time and offset given 4 timestamps:  
 $T_1$ = The time the client originally sent the request  
@@ -237,7 +235,7 @@ High-Level Requirements:
 - The system shall relay accurate information to connected clients
 
 ## Device Security  
-Device security encapsulates the measures needed to protect the server from cybersecurity threats beyond incorrect timing data. It will allow the device to be safe from bad actors on its network. To ensure a secure server, we will implement a firewall to lock down the ports and allow only the ones needed for basic server function. This includes port 123 for NTP, port 4460 for NTS and port 22 for SSH (A secure network protocol used to remotely access systems)[1][2]. To allow for secure administrator control SSH key authentication will be implemented to prevent potentially faulty passwords that can be compromised[4]. We will restrict Chrony to a non-root user to ensure that if Chrony is compromised, the attacker cannot gain access to the entire server[3]. Monitoring will also be used to ensure important configuration files are secure and unchanged and noting any NTP synchronization anomalies[3].  
+Device security encapsulates the measures needed to protect the server from cybersecurity threats beyond incorrect timing data. It will allow the device to be safe from bad actors on its network. To ensure a secure server, we will implement a firewall to lock down the ports and allow only the ones needed for basic server function. This includes port 123 for NTP, port 4460 for NTS and port 22 for SSH (A secure network protocol used to remotely access systems)[6][7]. To allow for secure administrator control SSH key authentication will be implemented to prevent potentially faulty passwords that can be compromised[8]. We will restrict Chrony to a non-root user to ensure that if Chrony is compromised, the attacker cannot gain access to the entire server. Monitoring will also be used to ensure important configuration files are secure and unchanged and noting any NTP synchronization anomalies.  
 
 Functions:  
 - Protect the NTP server from unauthorized access and attempted compromise.
@@ -271,7 +269,7 @@ High-Level Requirements:
 
 ## Clock Synchronization
 
-The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [5]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [4]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
+The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [9]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [10]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
 The output will be the time code received of the most reliable signal. 
 
 Should a jump in real-time output occur, the output will be slewed into accuracy.  Slewing is the process by which a clock, rather than skipping ahead in time, alters its speed to gradually match the correct time.
@@ -412,15 +410,25 @@ First, conduct a thorough analysis of the skills currently available within the 
 <img width="1052" height="310" alt="Screenshot 2026-10-23 211602" src="https://github.com/user-attachments/assets/2760db70-d0b2-4b54-bc39-530ba3207c02" />
 
 ## References
-[1] D. Franke, D. Sibold, K. Teichel, M. Dansarie, and R. Sundblad, “Network Time Security for the Network Time Protocol,” RFC 8915, Sept. 2020, doi: 10.17487/RFC8915.
+[1]GeeksforGeeks, “Difference Between MCU and SoC,” GeeksforGeeks, Sept. 04, 2020. https://www.geeksforgeeks.org/computer-organization-architecture/difference-between-mcu-and-soc/ (accessed Nov. 07, 2026). 
 
-[2] D. Mills, J. Burbank, and W. Kasch, “Network Time Protocol Version 4: Protocol and Algorithms Specification,” RFC 5905, June 2010, doi: 10.17487/RFC5905.
+[2]“Chrony – Introduction,” chrony-project.org. https://chrony-project.org/ (accessed Nov. 07, 2026).
 
-[3] “OpenSSH: Manual Pages,” OpenSSH.org, 2025. [Online]. Available: https://www.openssh.org/manual.html.
+[3]“Ntpd - Network Time Protocol (NTP) Daemon,” NTP: Network Time Protocol. https://www.ntp.org/documentation/4.2.8-series/ntpd/ (accessed Nov. 07, 2026). 
 
-[4] “An unreachable source is selected,” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_an_unreachable_source_is_selected.
+[4]“Differences From NTP Classic,” Ntpsec.org, 2025. https://docs.ntpsec.org/latest/ntpsec.html (accessed Nov. 07, 2026).  
 
-[5] “How should chronyd be configured with GPSD?” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd.
+[5]OpenBSD Project, “OpenNTPD,” OpenBSD Project, July 01, 2026. https://www.openntpd.org/ (accessed Nov. 07, 2026).
+
+[6] D. Franke, D. Sibold, K. Teichel, M. Dansarie, and R. Sundblad, “Network Time Security for the Network Time Protocol,” RFC 8915, Sept. 2020, doi: 10.17487/RFC8915.
+
+[7] D. Mills, J. Burbank, and W. Kasch, “Network Time Protocol Version 4: Protocol and Algorithms Specification,” RFC 5905, June 2010, doi: 10.17487/RFC5905.
+
+[8] “OpenSSH: Manual Pages,” OpenSSH.org, 2025. [Online]. Available: https://www.openssh.org/manual.html.  
+
+[9] “How should chronyd be configured with GPSD?” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd.  
+
+[10] “An unreachable source is selected,” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_an_unreachable_source_is_selected.  
 
 
 ## Statement of Contributions
