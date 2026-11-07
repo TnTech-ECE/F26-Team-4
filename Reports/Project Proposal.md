@@ -10,10 +10,6 @@ This project aims to provide a solution to this issue, via a more secure and rob
 
 Off-the-shelf solutions, while available, do not provide the same functionality relative to our expected cost, often featuring less robust servers or being prohibitively expensive. Additionally, due to our design being intended to be disseminated to the public, there will theoretically exist space within the project for the individual to make changes, and add or remove elements as they need. 
 
-$$
-\boxed{\theta = \frac{(T_2 - T_1) + (T_3 - T_4)}{2}}
-$$
-
 
 This proposal will cover the following:
 
