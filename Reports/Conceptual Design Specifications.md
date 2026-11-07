@@ -140,9 +140,9 @@ High-Level Requirements:
 - Shall Retrieve accurate timestamps
 - Shall be secure from attempts to spoof or attack it
 
-  ## GNSS Principles
+  ### GNSS Principles
 
-  ## GNSS Operation
+  ### GNSS Operation
   
 
 ## Processor
