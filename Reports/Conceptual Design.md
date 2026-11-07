@@ -55,9 +55,9 @@ Note that the radio clock module in this diagram is an optional component.
 
 ### Operational Flow Chart
 
-<img src="figures/Operational_Flowchart.svg" alt = "Operational Flowchart" width="600">
+<img src="figures/Operational_Flowchart1.svg" alt = "Operational Flowchart" width="1100">
 
-  The NTP server is designed to operate autonomously after the initial admin configuration. During normal operation the server receives data from upstream time sources and uses them to discipline its own system clock. Upon request from a client the server will relay its system time to allow the client to sync its own clock with the NTP server. Both the Clock Synchronization and Client Communication subsystems loop repeatedly, both of which are outlined above. Users will primarily be interacting with the server during the initial install and subsequent maintenance and troubleshooting. The operational flowchart showcases the normal operating behavior of the server.
+  The NTP server is designed to operate autonomously after the initial admin configuration. During normal operation the server receives data from upstream time sources and uses them to discipline its own system clock. Upon request from a client the server will relay its system time to allow the client to sync its own clock with the NTP server. Both the Clock Synchronization and Client Communication subsystems loop repeatedly, with Signal Acquisition being self contained loop inside the Clock Synchronization subsystem. To show further detail, Signal Acquisition and Clock Synchronization are seperated above. Users will primarily be interacting with the server during the initial install and subsequent maintenance and troubleshooting. The operational flowchart showcases the normal operating behavior of the server.
 
 
 ## Subsystems
