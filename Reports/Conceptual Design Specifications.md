@@ -78,11 +78,13 @@ It will then calculate the offset (Difference between the clients clock and the 
 
 
 Offset:  
+
 $$
 \boxed{\theta = \frac{(T_2 - T_1) + (T_3 - T_4)}{2}}
 $$
 
 Round Trip Delay:  
+
 $$
 \boxed{\delta = (T_4 - T_1) - (T_3 - T_2)}
 $$
