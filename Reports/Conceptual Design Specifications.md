@@ -198,7 +198,7 @@ The main sources of uncertainty introduced when the signal is transmitted from t
 Pseudo-range is the apparent geometric distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times. 
 
 It is defined as:
-σ= √(〖(x_i-x_a)〗^2+〖(y_i-y_a)〗^2+〖(z_i-z_a)〗^2 )+c*(t_offset+〖dt〗_ar )=c*(t_ar-t_i)
+σ= √(〖(x_i-x_a)〗^2+〖(y_i-y_a〗^2+〖(z_i-z_a)〗^2 )+c*(t_offset+dt_ar )=c*(t_ar-t_i)
 
 xi,yi,zi is the current satellite location
 
