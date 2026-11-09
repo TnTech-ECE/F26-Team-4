@@ -14,22 +14,11 @@ The Primary objective of this project is to build a low cost, accessible, and ef
 
 The system shall be able to be constructed easily and inexpensively for use by the general public. In doing so, individuals and organizations will have access to extraordinarily accurate and secure time to ensure proper operation of their systems.
 
-## Comparative Analysis of Potential Solutions
-The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare-metal implementation. There are advantages and disadvantages for each approach:
-
-|       | SoC Implementation                                                                                                                                                                                                                   | Microcontroller Implementation                                                                   |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| Pros: | - Ease of implementation<br>- Built-in NTS and other security protocols<br>- Simple Multiple Time Source integration<br>- Easy time source metric tracking, such as drift of individual sources<br>- Simpler Networking capabilities | - Lower Cost<br>- More Compact                                                                   |
-| Cons: | -May increase the total cost of the project                                                                                                                                                                                          | - Harder overall implementation<br>- Requires more time to develop<br>-  Potentially less secure |
-Given the options proposed, we decided that the marginally lower cost wasn't worth the difficulties involving implementation and potential security issues of a bare-metal solution. With the advantages that an SoC provides, it's the clear choice for this project.
-
-Once we decided our system type, the next item of consideration was our time sources. Our client specifications required a GPS source, so that made it non-negotiable. The additional sources (Radio, Oscillator, and Internet Time Servers) we consider adding are to improve the robustness of the system.
-
 ## High-Level Solution
 The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,the design will achieve accurate timestamps even in hostile enviorments.
 
 
-## High-Level Justifications for Subsystems
+## Comparative Analysis of Potential Solutions
 
 ### Power Supply
 The power supplies' job is to provide power to maintain a stable operating condition in normal and in extraordinary conditions, have a back supply incase the wall outlet fails. It should be able to switch fast enough as to maintain synchronicity after loss of power. 
@@ -76,6 +65,12 @@ A MCU architecture offers several advantages such as low power consumption, simp
 An SoC architecture provides many advantages such as much greater processing power, and features a full operating system, like Linux. This allows the project to make full use of existing solutions to synchronization, network communication, and security. For example, Chrony is a popular software that incorporates security, synchronization, and communication in one complete package that is very easy to set up on a Linux based system. However, since the system is running a complete operating system, additional jitter and uncertainty are introduced due to scheduling and processing latency[2]. This can be accounted by using a real-time kernel or configuring the kernel with proper consideration.
 
 Due to these facts, the system will use an SoC with a Linux based operating system. With the immense ecosystem setup around this choice, the project will be able to be created with much more ease and reliability.
+
+|       | SoC Implementation                                                                                                                                                                                                                   | Microcontroller Implementation                                                                   |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| Pros: | - Ease of implementation<br>- Built-in NTS and other security protocols<br>- Simple Multiple Time Source integration<br>- Easy time source metric tracking, such as drift of individual sources<br>- Simpler Networking capabilities | - Lower Cost<br>- More Compact                                                                   |
+| Cons: | -May increase the total cost of the project                                                                                                                                                                                          | - Harder overall implementation<br>- Requires more time to develop<br>-  Potentially less secure |
+
 
 ### Client Communication and Clock Synchronization
 The Client Communication amd Clock Synchronization subsystems are the backbone of the NTP server. They ensure accurate system time in the server and ensure proper distribution of timestamps to clients, and ensure the clients have proper authentication.
