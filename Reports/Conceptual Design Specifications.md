@@ -191,6 +191,21 @@ High-Level Requirements:
 - Shall Retrieve accurate timestamps
 - Shall be secure from attempts to spoof or attack it
 
+Sources of uncertainty:
+The main sources of uncertainty introduced when the signal is transmitted from the satellite are the ionosphere, troposphere, multipathing, and hardware delays. However, it’s hard to calculate the effects from many of these sources, so we will use the simplified model of pseudo-range.
+
+Pseudo-range is the apparent geometric distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times. 
+
+It is defined as:
+σ= √(〖(x_i-x_a)〗^2+〖(y_i-y_a)〗^2+〖(z_i-z_a)〗^2 )+c*(t_offset+〖dt〗_ar )=c*(t_ar-t_i)
+
+xi,yi,zi is the current satellite location
+xa,ya,za is the current receiver location
+c is the speed of light
+toffset is the real time offset of the receiver’s local time
+dtar is the real propagation delay between the antenna phase center and receiver correlator
+
+
  
 
 ## Processor
