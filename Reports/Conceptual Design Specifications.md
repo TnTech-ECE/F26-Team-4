@@ -213,8 +213,16 @@ toffset is the real time offset of the receiver’s local time
 
 dtar is the real propagation delay between the antenna phase center and receiver correlator
 
+To account for the time delay rearrange the above equation:
 
- 
+Set:
+R = √(〖(x_i-x_a)〗^2+〖(y_i-y_a)〗^2+〖(z_i-z_a)〗^2 )
+δt = (t_offset+〖dt〗_ar )
+σ = R+c*δt
+δt = (σ-R)/c
+
+In practice, one satellite cannot solve the above equations accurately, which is why modern GNSS systems us multiple satellites to solve the above equations.
+
 
 ## Processor
 
