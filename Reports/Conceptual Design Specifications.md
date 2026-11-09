@@ -36,6 +36,8 @@ The power supplies' job is to provide power to maintain a stable operating condi
 
 ### Antenna
 
+The antenna is the backbone of the entire system. It is what receives timestamps from the satellite constellations and therefore is of vital importance. From research, there are three main types of antennas that we can acquire: Patch Antenna, Helical Antenna, and Choke Ring Antenna.
+
 
 ### GNSS Module
 The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts
