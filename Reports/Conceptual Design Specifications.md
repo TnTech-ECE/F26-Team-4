@@ -193,6 +193,9 @@ High-Level Requirements:
 
 Sources of uncertainty:
 
+[1]“ITU-T Technical Report GSTR-GNSS Considerations on the Use of GNSS as a Primary Time Reference in Telecommunications,” 2020. Accessed: Nov. 09, 2026. [Online]. Available: https://www.itu.int/dms_pub/itu-t/opb/tut/T-TUT-HOME-2020-PDF-E.pdf
+
+
 The main sources of uncertainty introduced when the signal is transmitted from the satellite are the ionosphere, troposphere, multipathing, and hardware delays. However, it’s hard to calculate the effects from many of these sources, so we will use the simplified model of pseudo-range.
 
 Pseudo-range is the apparent geometric distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times. 
