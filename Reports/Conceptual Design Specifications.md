@@ -246,9 +246,9 @@ $$
 Rearranging to isolate the timing offset:
 
 $$
-\[
+\
 \boxed{\delta t = \frac{\sigma-R}{c}}
-\[
+\
 $$
 
 
