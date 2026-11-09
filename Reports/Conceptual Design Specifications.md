@@ -242,6 +242,7 @@ $$
 \sigma = R + c\delta t
 \[
 $$
+
 Rearranging to isolate the timing offset:
 
 \[
