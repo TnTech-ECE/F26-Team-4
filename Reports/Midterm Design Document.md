@@ -348,6 +348,10 @@ This encompasses the overall security of the system. The system will have a fire
 ### Holdover Oscillator
 In normal conditions, the system will receive timing from the satellite constellations, however, sometimes this synchronization will be lost. The oscillator will be continuously tuned with the incoming signal to ensure timestamps will continue to be accurate.
 
+### Clock Synchronization
+Clock synchronization is the process by which the program will validate each signal source received, and then choose which source to use for timing data, which will then be given to Client Communication.
+
+
 ### Enclosure
 The enclosure is the body that will contain the entire system. It will provide proper cooling, and protection from external attacks. It will also provide ease of access for authenticated users.
 
@@ -538,11 +542,29 @@ High-Level Requirements:
 ## Clock Synchronization
 
 The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [5]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [4]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
-The output will be the time code received of the most reliable signal. 
+The output will be the time code received of the most reliable signal, which will be passed on to the client communication subsystem. 
+
+
+$$
+T_{\text{output}}(t) =
+\begin{cases}
+T_{\text{GPS}}(t), & V_{\text{GPS}} = 1 \\
+T_{\text{GNSS}}(t), & V_{\text{GPS}} = 0,\ V_{\text{GNSS}} = 1 \\
+T_{\text{NIST}}(t), & V_{\text{GPS}} = V_{\text{GNSS}} = 0,\ V_{\text{NIST}} = 1 \\
+T_{\text{WWVB}}(t), & V_{\text{GPS}} = V_{\text{GNSS}} = V_{\text{NIST}} = 0,\ V_{\text{WWVB}} = 1 \\
+T_{\text{holdover}}(t), & \text{Otherwise}
+\end{cases}
+$$
+
+$V_n$ = validity of source n.
+
 
 Should a jump in real-time output occur, the output will be slewed into accuracy.  Slewing is the process by which a clock, rather than skipping ahead in time, alters its speed to gradually match the correct time.
 
 The reliability check will work as such: each received signal will be taken, with an expected tolerance (transmission/propagation delay, jitter, etc), and compared against each other and the oscillator, weighted in terms of priority.  If a signal is an outlier, it will be momentarily flagged until it comes back into agreement. 
+
+This subsystem will be developed in accordance with the standards foynd in RFC 5905. [2]
+
 
 Purpose:
 - Validate the accuracy of received time signals and determine output signal.
@@ -559,7 +581,7 @@ Output:
 High Level
 - The system shall receive multiple signal inputs.
 - The system shall validate the received inputs and disregard those declared invalid.
-- The system shall output a valid time signal. 
+- The system shall output a validated time signal. 
 
 
 ## Enclosure
@@ -585,26 +607,30 @@ High Level:
 
 This project will expand on the security and accuracy of currently available timing systems, which is a crucial part of PTN (positioning, timing, navigation). Timing, due to its broad use and necessity in critical systems, has a great need for improvements to security. This project will aim to provide these needed improvements for an affordable cost.
 
-Additionally, the design and dissemination of this project will contribute to greater time server independence, meaning that this project will likely provide timing more precise and resilient than standard, default internet based timing, while also no longer being so overly reliant on the internet. Finally, the project will be released publicly, thus reducing the barriers for any who may be interested in following this design. This improves accessibility and inclusivity of the project.
+Additionally, the design and dissemination of this project will contribute to greater time server independence, meaning that this project will likely provide timing more precise and resilient than standard, default internet based timing, while also no longer being so overly reliant on the internet.  Thus increasing broader access to secure timing sources. 
+
+Finally, the project will be released publicly, thus reducing the barriers for any who may be interested in following this design. This improves accessibility and inclusivity of the project, including to those such as independent citizens, universities and organizations, as well as businesses of varying sizes. Each should be fully capable, if desirous, to make use of this project.  
 
 #### Risk to Network Security
 This project will involve network connections from various sources, including international sources. These, along with communications between the server and the client, leave the potential open for malicious activity. 
-Mitigation: We plan to make the signal communications secure via systems like NTS, and quarantine the signals to only what they are needed for, thus keeping any malicious activity reasonably contained.
+Mitigation: We plan to make the signal communications secure via systems like NTS, and quarantine the signals to only what they are needed for, thus keeping any malicious activity reasonably contained. This mitigation will be evaluated by supplying a series of common attacks during the testing phase of this project.
 
 #### False sense of security
 This project, as it is designed for improving the security of time servers, may give the user an overconfidence in this design, such that they may imagine hat they will have no risk of tampering or failure. This is not the case, even the completed design will not be immune to all issues, and theoretically a sufficiently skilled malicious actor could still disrupt the design. 
 Mitigation: In order to solve this issue, we intend to have clear documentation on each part of the project, clearly specifying exactly what capabilities the design possesses, so that there may be no confusion or estimation as to what the project may do.
 
 #### Environmental Impacts
-This project may impact the environment due to waste products, especially if the design is imprecise or cumbersome to follow. 
-Mitigation: We plan to mitigate this issue by having precise documentation, thus allowing any who come after us to create this design without wasting or destroying any components.
+This project may impact the environment due to waste products, especially if the design is imprecise or cumbersome to follow, leading to damaged and discarded parts. Additionally, elements such as wiring or the enclosure may create waste in their construction.
+Mitigation: We plan to mitigate this issue by having precise documentation, including detailed replication instructions and warning concerning ways to reduce debris, thus allowing any who come after us to create this design without wasting or destroying any components. 
 
 #### Cost and Skill to implement
 This project, despite its reduced cost compared to the current market, may still be prohibitively expensive for those creating it, or too challenging to implement.
 Mitigation: While there is only so much that may be done for the cost of this project, we intend to reduce necessary costs as much as reasonably possible, thus making the design as accessible as can be helped. Additionally, we may mitigate the skill requirement by being precise and explanatory in our design documents so that the skill requirements may be as low as reasonably possible.
 
 #### Ethics:
-While this project is designed for the individual to have a secure time server, this does not come without ethical considerations. First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is. Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them. We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. The engineers involved must hold themselves to the IEEE Code of Ethics. 15
+While this project is designed for the individual to have a secure time server, this does not come without ethical considerations. First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is. Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them. We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
+
+The engineers involved must hold themselves to the IEEE Code of Ethics. [6]
 
 #### Ethics in Design Decisions:
 Additionally, teams must consider relevant standards organizations that will inform the design process. A comprehensive discussion should be included on how these considerations have influenced the design. This includes detailing constraints, specifications, and practices implemented as a result, and how these address the identified considerations. 
@@ -686,6 +712,7 @@ First, conduct a thorough analysis of the skills currently available within the 
 
 [5] “How should chronyd be configured with GPSD?” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd.
 
+[6] IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. https://www.ieee.org/about/corporate/governance/p7-8 (accessed Nov. 09, 2026).
 
 ## Statement of Contributions
 - Block Diagram - Jonathan Salvato
