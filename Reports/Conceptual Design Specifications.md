@@ -208,8 +208,9 @@ $$
 \sqrt{(x_i-x_a)^2+(y_i-y_a)^2+(z_i-z_a)^2}
 +c(t_{\text{offset}}+dt_{ar})
 =c(t_{ar}-t_i)
-\]
+\[
 $$
+
 xi,yi,zi is the current satellite location
 
 xa,ya,za is the current receiver location
@@ -227,7 +228,7 @@ Set:
 $$
 \[
 R = \sqrt{(x_i-x_a)^2+(y_i-y_a)^2+(z_i-z_a)^2}
-\]
+\[
 $$
 
 $$
@@ -239,13 +240,13 @@ $$
 $$
 \[
 \sigma = R + c\delta t
-\]
+\[
 $$
 Rearranging to isolate the timing offset:
 
 \[
 \boxed{\delta t = \frac{\sigma-R}{c}}
-\]
+\[
 
 In practice, one satellite cannot solve the above equations accurately, which is why modern GNSS systems us multiple satellites to solve the above equations.
 
