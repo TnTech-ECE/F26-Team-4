@@ -17,6 +17,14 @@ The system shall be able to be constructed easily and inexpensively for use by t
 ## High-Level Solution
 The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,the design will achieve accurate timestamps even in hostile enviorments.
 
+To meet the criterion proposed above the system will be composed of:
+
+
+- A Power Supply capable of providing adequate power during normal operation and able to switch to a backup if there is an interruption. 
+- A RHCP Antenna to properly receive GNSS signals which contain the timestamps desired.
+- A dedicated GNSS Receiver that will perform the signal processing, and able to transmit the acquired time via PPS.
+- A 
+
 
 ## Comparative Analysis of Potential Solutions
 
