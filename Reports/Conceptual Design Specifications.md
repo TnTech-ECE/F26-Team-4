@@ -203,12 +203,12 @@ Pseudo-range is the apparent geometric distance between a satellite and the rece
 It is defined as:
 
 $$
-\[
+\
 \sigma =
 \sqrt{(x_i-x_a)^2+(y_i-y_a)^2+(z_i-z_a)^2}
 +c(t_{\text{offset}}+dt_{ar})
 =c(t_{ar}-t_i)
-\[
+\
 $$
 
 xi,yi,zi is the current satellite location
@@ -226,28 +226,31 @@ To account for the time delay rearrange the above equation:
 Set:
 
 $$
-\[
+\
 R = \sqrt{(x_i-x_a)^2+(y_i-y_a)^2+(z_i-z_a)^2}
-\[
+\
 $$
 
 $$
-\[
+\
 \delta t = t_{\text{offset}} + dt_{ar}
-\]
+\
 $$
 
 $$
-\[
+\
 \sigma = R + c\delta t
-\[
+\
 $$
 
 Rearranging to isolate the timing offset:
 
+$$
 \[
 \boxed{\delta t = \frac{\sigma-R}{c}}
 \[
+$$
+
 
 In practice, one satellite cannot solve the above equations accurately, which is why modern GNSS systems us multiple satellites to solve the above equations.
 
