@@ -36,6 +36,9 @@ The power supplies' job is to provide power to maintain a stable operating condi
 
 ### Antenna
 
+
+[1]Novatech, “What is Circular Polarization and Its Impact on GNSS/GPS Antennas?,” Novatech.com, 2026. https://novotech.com/pages/circular-polarization (accessed Nov. 10, 2026).
+
 The antenna is the backbone of the entire system. It is what receives timestamps from the satellite constellations and therefore is of vital importance. From research, the antenna must be able to receive Right-Hand Circular Polarization (RHCP) signals as it's what most GNSS satellites use. RHCP signals have these advantages: reduced signal obstruction, as RHCP maintains the integrity of signals through buildings, trees ect, Enhanced Multipath Rejection, as RHCP favors direct line of sight, and improved reception quality as RHCP maintains signals quality across various orientations[1]. To utilize these qualities, the system will acquire a RHCP antenna of one of these types: Patch Antenna, Helix Antenna, and Choke Ring Antenna.
 
 
