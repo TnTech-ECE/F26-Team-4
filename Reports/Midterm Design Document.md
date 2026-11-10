@@ -395,11 +395,11 @@ $$
 Simplifying these expressions down to find the time at some zero, n:
 
 $$
-t_{nom}=\frac{n}{2f_o}
+t_{nom}=\frac{n}{f_o}
 $$
 
 $$
-t_{osc}=\frac{n}{2f}
+t_{osc}=\frac{n}{f}
 $$
 
 We can then find the difference between the time values to approximate the time delay between the signals at some zero n:
@@ -434,6 +434,7 @@ $$
 
 ## CHANGE THE NUMBERS IN THIS SECTION RAAAAAAAAA
 Finally, we can plug in our desired drift of **1s/day** and find that we need a ppm offset of ~**11.57** ppm which means that a TCXO is, oddly the best choice. 
+It is worth noting that with proper controls techniques, the accuracy of the oscillator can be improved past its base ppm value, and as such the ppm value obtained should be used as a ballpark estimate of what class of oscillator we need.
 ### Enclosure
 The enclosure is the housing that will contain all the subsystems, except for antenna, in a neat way. Given the nature of the project a custom enclosure is required. As this project needs to be accessible, complex housing techniques such as milling or injection molding are off the table, which leaves 3D printing. 3D printing will provide the most accessible results, and will allow the user to customize more easily if desired.
 The material used to print the enclosure is ultimately up to the end user to decide, but PETG offers a good middle ground in heat resistance, durability, and ease of printing and as such is recommended for this project.
@@ -584,16 +585,17 @@ Outputs:
 
 High-Level Requirements:
 - The system shall remain secure and protected from intentional interference using firewalls and software quarantining. 
-- The system shall block all incoming signals except those needed for device functionaility. 
+- The system shall block all incoming signals except those needed for device functionality. 
 - The system shall provide secure access for administrators using SSH.
 
 ## The Holdover Oscillator   
-The Oscillator provides a consistent periodic signal as a time reference for the system to use when all other methods fail, or to use between periods of incoming reference signals for a more accurate device output. Depending on the type of oscillator used, if it is not an enclosed unit, we may need to implement a control loop to output a signal suitable for the SoC. 
+The Oscillator provides a consistent periodic signal as a time reference for the system to use when all other methods fail, or to use between periods of incoming reference signals for a more accurate device output. The Oscillator achieves this by providing a PPS signal to the SoC at a known frequency, which the board can then interpret to measure time. For an OCXO, there will be a warm-up period for which it consumes more power and may provide a less accurate frequency, this is due to the heating elements needing time to reach the proper temperature. Should a control loop be implemented, the oscillator system will need a reference signal from the SoC to correct itself, which will come from known time sources such as GPS.
 
 Functions:
 - Providing a known time reference signal
 Inputs:
 - Power from power supply
+- SoC Correction Signal
 Outputs:
 - A known reference frequency sent to the SoC
 High-Level Requirements:
