@@ -267,15 +267,15 @@ $$
 \
 $$
 
-xi,yi,zi is the current satellite location
+$x_i$ , $y_i$ , $z_i$ is the current satellite location
 
-xa,ya,za is the current receiver location
+$x_a$ , $y_a$ , $z_a$ is the current receiver location
 
-c is the speed of light
+$c$ is the speed of light
 
-toffset is the real time offset of the receiver’s local time
+$t_{offset}$ is the real time offset of the receiver’s local time
 
-dtar is the real propagation delay between the antenna phase center and receiver correlator
+$dt_{ar}$ is the real propagation delay between the antenna phase center and receiver correlator
 
 To account for the time delay rearrange the above equation:
 
@@ -515,11 +515,11 @@ Finally, our design features many network security features so that malicious ac
 
 ## Budget and Resources
 ### SoC
-| Subsystem | Item         | Part Name            | Description                              | Quanity | Cost Per Item (Estimate) |
-|-----------|--------------|----------------------|------------------------------------------|---------|--------------------------|
-| SoC       | Computer     | Rasberry pi 3 1GB    | A small computer to run the Linux server | 1       | $34.99                   |
-|           | 32Gb SD Card | Sandisk 32GB sd card | Small resiliant storage                  | 1       | $20.99                   |
-|           |              |                      |                                          |  Total:       |  $55.98            |
+| Item         | Part Name            | Description                              | Quanity | Cost Per Item (Estimate) |
+|--------------|----------------------|------------------------------------------|---------|--------------------------|
+| Computer     | Rasberry pi 3 1GB    | A small computer to run the Linux server | 1       | $34.99                   |
+| 32Gb SD Card | Sandisk 32GB sd card | Small resiliant storage                  | 1       | $20.99                   |
+|              |                      |                                          |  Total:       |  $55.98            |
    
 
 The computer will be the core unit of the system and  should be chosen for its combination of cost and performance, as well as it's ability to run the computations necessary. The 32Gb micro SD card will be chosen as a trustworthy storage medium and its ability to hold the required software and operating system. 
