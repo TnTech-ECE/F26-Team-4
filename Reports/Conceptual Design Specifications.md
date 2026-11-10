@@ -583,7 +583,7 @@ First, conduct a thorough analysis of the skills currently available within the 
 [^1000]:Anand, Ankur, “Oscillators: Key Parameters and Specifications.” June 14, 2021. Accessed: Nov. 09, 2026. [Online]. Available: https://www.ti.com/content/dam/videos/external-videos/en-us/7/3816841626001/6219032061001.mp4/subassets/clocks-and-timing-oscillator-key-parameters-specifications-presentation-quiz.pdf
 ## Statement of Contributions
 - Block Diagram - Jonathan Salvato
-- Comparative Analysis - Jonathan Salvato
+- Comparative Analysis - Oscillator/Enclosure - Jonathan Salvato
 - Timeline - Jocelyn Lee
 - Power System - Jocelyn Lee
 - Introduction - Everett Patterson
