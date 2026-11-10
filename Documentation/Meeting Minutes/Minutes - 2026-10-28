@@ -1,0 +1,23 @@
+Meeting 10/28/26
+
+All Present
+
+Start Time: 3:41
+End Time: 4:52
+
+The meeting began by reminding the team of the upcoming Team Critique.
+
+We then spent some time discussing elements of the Project Proposal that needed correction, such as wording or adding details.
+
+We then moved to how to brea down the Detailed Design Document.  We decided to keep the rough division that the Conceptual Design had:
+	Merric - SoC, GNSS
+	Jonathan - Enclosure, Holdover
+	Jack - Device Security, Client Communication
+	Jocelyn - Power Systems, (tentatively) SoC
+	Everett - Device Security, Clock Synchronization.
+
+Our final decisions were thus:
+	Decide on division of labor
+	Begin working on Detailed Design
+	Need to Fix Proposal
+	 

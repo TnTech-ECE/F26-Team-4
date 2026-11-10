@@ -18,13 +18,13 @@ Secure and accurate timing is paramount in most modern systems in a multitude of
 Examples include power generation, where plants need accurate time to log errors and 
 synchronize generators, the finance industry needs accurate timestamps to track transactions to 
 prevent theft and fraud, and modern navigation systems, like GPS, needs precise timing so that it 
-can track a position accurately, otherwise the target will drift off course[^1]. As the dependence on 
+can track a position accurately, otherwise the target will drift off course[1]. As the dependence on 
 more accurate time increases, the need for more reliable time distribution has become 
 increasingly important.
 
 Network Timer Servers (NTS) solve this by obtaining accurate time from trusted sources such as:
 satellite constellations and local atomic clocks. Then, it is distributed downstream 
-to clients via the Network Time Protocol[^2]. In a typical system, the server receives a reference 
+to clients via the Network Time Protocol[2]. In a typical system, the server receives a reference 
 time, disciplines a local oscillator to maintain reference time, and distributes that time to clients.
 
 While this system is effective and efficient at distributing time, it has several security 
@@ -82,13 +82,13 @@ We, the design team, will adhere to the IEEE Code of Ethics, as seen from Sectio
 ## Survey of Existing Solutions
 Many GPS governed NTP servers already exist on the market today. Many of these solutions, however, are for an industrial scale which makes them bulky, incredibly high in cost, and generally inaccessible.
 
-For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[^3] It's a great time server, but costs ~$1595.00[^4], which makes it inadequate for hobbyist use.
+For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[3] It's a great time server, but costs ~$1595.00[4], which makes it inadequate for hobbyist use.
 
-For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day[^5]. This NTP server hovers around $5000-11000[^6][^7] making this an extreme example of high cost.
+For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day[5]. This NTP server hovers around $5000-11000[6][7] making this an extreme example of high cost.
 
 Of course, there are more accessible options on the market, but most of these come with tradeoffs of precision, security, or relative cost.
 
-For a lower cost, Time Machines Corp. has a fleet of NTP time servers[^8]: The TM1000A ($349.99)[^8], TM2000B ($549.99)[^8], TM2500C ($799.99)[^8], and TM3000A ($999.99)[^8]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[^9]. While these servers will work, they're either expensive or lacking in security features.
+For a lower cost, Time Machines Corp. has a fleet of NTP time servers[8]: The TM1000A ($349.99)[8], TM2000B ($549.99)[8], TM2500C ($799.99)[8], and TM3000A ($999.99)[8]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[9]. While these servers will work, they're either expensive or lacking in security features.
 
 
 Compiling the servers options above:
@@ -189,7 +189,7 @@ Methodology:
 
 **Material and Hardware Resources** - Our project will be primarily built around a single computer that will act as the controller behind the operations of the NTP server. It will be an SoC capable of running Linux, as that is the OS needed to run our desired software. We will have an external oscillator to ensure high accuracy in the event of a loss of signal from external time sources. A power bank and the necessary wiring will be used to allow the system to continue running in the case of a power outage. All of the above-mentioned components will exist inside a custom enclosure to ensure proper function and security. A GNSS antenna and receiver, as well as an AM radio antenna and receiver, will collect and process incoming satellite signals to allow for non-internet-based time sources. 
 
-**Software Resources** - Our team will be primarily utilizing an open-source, well-respected NTP software called Chrony. It is capable of receiving and filtering the incoming time signals and using them to determine the exact time in a given moment, with up to nanosecond accuracy. It does all of this while filtering out suspicious or incorrect sources[^10]. We intend to implement a firewall as well to ensure the computer is protected against cybersecurity threats. 
+**Software Resources** - Our team will be primarily utilizing an open-source, well-respected NTP software called Chrony. It is capable of receiving and filtering the incoming time signals and using them to determine the exact time in a given moment, with up to nanosecond accuracy. It does all of this while filtering out suspicious or incorrect sources[10]. We intend to implement a firewall as well to ensure the computer is protected against cybersecurity threats. 
 
 **Facilities and Support** - We will use the Capstone Lab for assembly, prototyping, and testing our design, as well as the iMakerSpace for its 3D printers and measurement tools.
 
@@ -246,6 +246,8 @@ Jonathan Salvato
 Supervisor:
 Instructor: Dr. Storm
 
+Stakeholder: Dr. Austen
+
 ### Proposal Timeline
 <img width="809" height="394" alt="image" src="https://github.com/user-attachments/assets/68267c23-0450-48cd-8e97-922e97e770c6" />
 
@@ -253,11 +255,11 @@ Instructor: Dr. Storm
 
 Implementing the Resilient and Secure Network Time Server (NTS) that was proposed will provide many solutions to our customer's issues: secure, resilient, and affordable network time synchronization.
 
-By using the Network Time Security (NTS) protocol, the system will give a cryptographic authentication of timing information shared back and forth from the server and client. Through this, the risk of malicious sources providing false information can be reduced, creating a more secure alternative to traditional NTP [^11],[^12]. Timestamps that have been authenticated and proven reliable not only improve the trustworthiness of systems logs to many other network operations as well.
+By using the Network Time Security (NTS) protocol, the system will give a cryptographic authentication of timing information shared back and forth from the server and client. Through this, the risk of malicious sources providing false information can be reduced, creating a more secure alternative to traditional NTP [11],[12]. Timestamps that have been authenticated and proven reliable not only improve the trustworthiness of systems logs to many other network operations as well.
 
-Even when primary GPS timing sources become unavailable, this system will be designed to maintain a usable time reference. GPS and other PNT services (positioning, navigation, and timing) are commonly affected by power outages, interference, and other disruptions such as GPS jamming [^13]. By incorporating backups we can reduce the system's dependence on GPS allowing clients to continue receiving data during disruptions [^14].
+Even when primary GPS timing sources become unavailable, this system will be designed to maintain a usable time reference. GPS and other PNT services (positioning, navigation, and timing) are commonly affected by power outages, interference, and other disruptions such as GPS jamming [13]. By incorporating backups we can reduce the system's dependence on GPS allowing clients to continue receiving data during disruptions [14].
 
-The Network Time Security protocol will protect the system from being manipulated by people with malicious intents. With the ability to establish cryptographic keys and authenticate traffic, NTS allows clients to verify that time information has not been tampered with [^12]. This provides confidence to the customer as the time distributed by the system is protected.
+The Network Time Security protocol will protect the system from being manipulated by people with malicious intents. With the ability to establish cryptographic keys and authenticate traffic, NTS allows clients to verify that time information has not been tampered with [12]. This provides confidence to the customer as the time distributed by the system is protected.
 
 One of the primary objectives of the project is to achieve high end security and resilience through the use of common, inexpensive hardware. Ideally, hobbyist, students, and small organizations with limited budgets will be able to use the proposed system as it avoids the use of expensive commercial equipment. This provides protected time outputs to those who might not have the necessary infrastructure to use current NTS technology. Our team's GitHub Repository will also be available distribution as source of information on how to build their own NTS.
 
@@ -289,7 +291,7 @@ This project, despite its reduced cost compared to the current market, may still
 
 ## Ethics:
 While this project is designed for the individual to have a secure time server, this does not come without ethical considerations.  First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is.  Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them.  We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
-The engineers involved must hold themselves to the IEEE Code of Ethics. [^15]
+The engineers involved must hold themselves to the IEEE Code of Ethics. [15]
 
 ## Statement of Contributions
 
@@ -437,6 +439,10 @@ $$
 ## CHANGE THE NUMBERS IN THIS SECTION RAAAAAAAAA
 Finally, we can plug in our desired drift of 40 us/day and find that we need a ppm offset of, at most, ~0.46 ppb which makes an OCXO the clear choice 
 It is worth noting that with proper controls techniques, the accuracy of the oscillator can be improved past its base ppm value, and as such the ppm value obtained should be used as a ballpark estimate of what class of oscillator we need and not an exact value.
+### Clock Synchronization
+Clock synchronization is the process by which the program will validate each signal source received, and then choose which source to use for timing data, which will then be given to Client Communication.
+
+
 ### Enclosure
 The enclosure is the housing that will contain all the subsystems, except for antenna, in a neat way. Given the nature of the project a custom enclosure is required. As this project needs to be accessible, complex housing techniques such as milling or injection molding are off the table, which leaves 3D printing. 3D printing will provide the most accessible results, and will allow the user to customize more easily if desired.
 The material used to print the enclosure is ultimately up to the end user to decide, but PETG offers a good middle ground in heat resistance, durability, and ease of printing and as such is recommended for this project.
@@ -448,9 +454,9 @@ Note that the radio clock module in this diagram is an optional component.
 
 ### Operational Flow Chart
 
-<img width="462" height="535" alt="image" src="https://github.com/user-attachments/assets/60fff472-f0a3-4bc6-9925-40432275a7d1" />
+<img src="figures/Operational_Flowchart1.svg" alt = "Operational Flowchart" width="1100">
 
-  The NTP server is designed to operate autonomously after the initial admin configuration. During normal operation the server receives data from upstream time sources and uses them to discipline its own system clock. Upon request from a client the server will relay its system time to allow the client to sync its own clock with the NTP server. Both the Clock Synchronization and Client Communication subsystems loop repeatedly, both of which are outlined above. Users will primarily be interacting with the server during the initial install and subsequent maintenance and troubleshooting. The operational flowchart showcases the normal operating behavior of the server.
+  The NTP server is designed to operate autonomously after the initial admin configuration. During normal operation the server receives data from upstream time sources and uses them to discipline its own system clock. Upon request from a client the server will relay its system time to allow the client to sync its own clock with the NTP server. Both the Clock Synchronization and Client Communication subsystems loop repeatedly, with Signal Acquisition being self contained loop inside the Clock Synchronization subsystem. To show further detail, Signal Acquisition and Clock Synchronization are seperated above. Users will primarily be interacting with the server during the initial install and subsequent maintenance and troubleshooting. The operational flowchart showcases the normal operating behavior of the server.
 
 
 ## Subsystems
@@ -554,7 +560,29 @@ High-Level Requirements:
 - The system will be able properly control peripherials and transmitt accurate timestamps to clients
 
 ## Client Communication  
-Client communication is the system that uses the hyper-accurate system time determined by the Clock Synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
+Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
+
+The client calculates the correct time and offset given 4 timestamps:  
+$T_1$ = The time the client originally sent the request  
+$T_2$ = The time the server initially received said request  
+$T_3$ = The time the server sends its response  
+$T_4$ = the time the client receives the response from the server  
+
+It will then calculate the offset ($\theta$) and the round trip delay ($\delta$) with the following formulas
+
+
+Offset:  
+
+$$
+\boxed{\theta = \frac{(T_2 - T_1) + (T_3 - T_4)}{2}}
+$$
+
+Round Trip Delay:  
+
+$$
+\boxed{\delta = (T_4 - T_1) - (T_3 - T_2)}
+$$
+
 
 Functions: 
 - Supply accurate NTP data to the clients on its network  
@@ -607,11 +635,29 @@ High-Level Requirements:
 ## Clock Synchronization
 
 The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [5]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [4]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
-The output will be the time code received of the most reliable signal. 
+The output will be the time code received of the most reliable signal, which will be passed on to the client communication subsystem. 
+
+
+$$
+T_{\text{output}}(t) =
+\begin{cases}
+T_{\text{GPS}}(t), & V_{\text{GPS}} = 1 \\
+T_{\text{GNSS}}(t), & V_{\text{GPS}} = 0,\ V_{\text{GNSS}} = 1 \\
+T_{\text{NIST}}(t), & V_{\text{GPS}} = V_{\text{GNSS}} = 0,\ V_{\text{NIST}} = 1 \\
+T_{\text{WWVB}}(t), & V_{\text{GPS}} = V_{\text{GNSS}} = V_{\text{NIST}} = 0,\ V_{\text{WWVB}} = 1 \\
+T_{\text{holdover}}(t), & \text{Otherwise}
+\end{cases}
+$$
+
+$V_n$ = validity of source n.
+
 
 Should a jump in real-time output occur, the output will be slewed into accuracy.  Slewing is the process by which a clock, rather than skipping ahead in time, alters its speed to gradually match the correct time.
 
 The reliability check will work as such: each received signal will be taken, with an expected tolerance (transmission/propagation delay, jitter, etc), and compared against each other and the oscillator, weighted in terms of priority.  If a signal is an outlier, it will be momentarily flagged until it comes back into agreement. 
+
+This subsystem will be developed in accordance with the standards foynd in RFC 5905. [2]
+
 
 Purpose:
 - Validate the accuracy of received time signals and determine output signal.
@@ -628,7 +674,7 @@ Output:
 High Level
 - The system shall receive multiple signal inputs.
 - The system shall validate the received inputs and disregard those declared invalid.
-- The system shall output a valid time signal. 
+- The system shall output a validated time signal. 
 
 
 ## Enclosure
@@ -654,26 +700,30 @@ High Level:
 
 This project will expand on the security and accuracy of currently available timing systems, which is a crucial part of PTN (positioning, timing, navigation). Timing, due to its broad use and necessity in critical systems, has a great need for improvements to security. This project will aim to provide these needed improvements for an affordable cost.
 
-Additionally, the design and dissemination of this project will contribute to greater time server independence, meaning that this project will likely provide timing more precise and resilient than standard, default internet based timing, while also no longer being so overly reliant on the internet. Finally, the project will be released publicly, thus reducing the barriers for any who may be interested in following this design. This improves accessibility and inclusivity of the project.
+Additionally, the design and dissemination of this project will contribute to greater time server independence, meaning that this project will likely provide timing more precise and resilient than standard, default internet based timing, while also no longer being so overly reliant on the internet.  Thus increasing broader access to secure timing sources. 
+
+Finally, the project will be released publicly, thus reducing the barriers for any who may be interested in following this design. This improves accessibility and inclusivity of the project, including to those such as independent citizens, universities and organizations, as well as businesses of varying sizes. Each should be fully capable, if desirous, to make use of this project.  
 
 #### Risk to Network Security
 This project will involve network connections from various sources, including international sources. These, along with communications between the server and the client, leave the potential open for malicious activity. 
-Mitigation: We plan to make the signal communications secure via systems like NTS, and quarantine the signals to only what they are needed for, thus keeping any malicious activity reasonably contained.
+Mitigation: We plan to make the signal communications secure via systems like NTS, and quarantine the signals to only what they are needed for, thus keeping any malicious activity reasonably contained. This mitigation will be evaluated by supplying a series of common attacks during the testing phase of this project.
 
 #### False sense of security
 This project, as it is designed for improving the security of time servers, may give the user an overconfidence in this design, such that they may imagine hat they will have no risk of tampering or failure. This is not the case, even the completed design will not be immune to all issues, and theoretically a sufficiently skilled malicious actor could still disrupt the design. 
 Mitigation: In order to solve this issue, we intend to have clear documentation on each part of the project, clearly specifying exactly what capabilities the design possesses, so that there may be no confusion or estimation as to what the project may do.
 
 #### Environmental Impacts
-This project may impact the environment due to waste products, especially if the design is imprecise or cumbersome to follow. 
-Mitigation: We plan to mitigate this issue by having precise documentation, thus allowing any who come after us to create this design without wasting or destroying any components.
+This project may impact the environment due to waste products, especially if the design is imprecise or cumbersome to follow, leading to damaged and discarded parts. Additionally, elements such as wiring or the enclosure may create waste in their construction.
+Mitigation: We plan to mitigate this issue by having precise documentation, including detailed replication instructions and warning concerning ways to reduce debris, thus allowing any who come after us to create this design without wasting or destroying any components. 
 
 #### Cost and Skill to implement
 This project, despite its reduced cost compared to the current market, may still be prohibitively expensive for those creating it, or too challenging to implement.
 Mitigation: While there is only so much that may be done for the cost of this project, we intend to reduce necessary costs as much as reasonably possible, thus making the design as accessible as can be helped. Additionally, we may mitigate the skill requirement by being precise and explanatory in our design documents so that the skill requirements may be as low as reasonably possible.
 
 #### Ethics:
-While this project is designed for the individual to have a secure time server, this does not come without ethical considerations. First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is. Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them. We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. The engineers involved must hold themselves to the IEEE Code of Ethics. 15
+While this project is designed for the individual to have a secure time server, this does not come without ethical considerations. First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is. Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them. We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
+
+The engineers involved must hold themselves to the IEEE Code of Ethics. [6]
 
 #### Ethics in Design Decisions:
 Additionally, teams must consider relevant standards organizations that will inform the design process. A comprehensive discussion should be included on how these considerations have influenced the design. This includes detailing constraints, specifications, and practices implemented as a result, and how these address the identified considerations. 
@@ -771,6 +821,7 @@ Has a background in hardware security, embedded systems, and controls.  This tea
 
 [5] “How should chronyd be configured with GPSD?” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd.
 
+[6] IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. https://www.ieee.org/about/corporate/governance/p7-8 (accessed Nov. 09, 2026).
 
 ## Statement of Contributions
 - Block Diagram - Jonathan Salvato

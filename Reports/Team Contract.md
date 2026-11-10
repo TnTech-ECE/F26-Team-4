@@ -54,7 +54,6 @@ Project responsibilities may be divided according to the needs of the project an
 - Members who cannot attend should provide notice 24-hour in advance unless due to illness or an emergency.
 - Members are expected to come prepared and have completed previously assigned tasks.
 - Important decisions, action items, and any other relevant information should be documented in the meeting minutes.
-- The team will maintain regular weekday check-ins on Monday, Wednesday, and Friday to monitor project progress. 
 
 ### **5. Conduct**
 
