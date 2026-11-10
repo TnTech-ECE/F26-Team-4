@@ -110,10 +110,64 @@ However even after the decision to use existing software was made, there still e
 This encompasses the overall security of the system. The system will have a firewall to prevent unwanted intrusions and ensure proper authentication to access the secure timestamps and to change the settings of the system.
 
 ### Holdover Oscillator
-In normal conditions, the system will receive timing from the satellite constellations, however, sometimes this synchronization will be lost. The oscillator will be continuously tuned with the incoming signal to ensure timestamps will continue to be accurate.
+Under normal conditions, the system will receive timing from the satellite constellations or other known sources. However should the connection get lost, or if timing information is required between communication periods of the other time sources, an accurate backup, or holdover, time source is needed. While other types of oscillators exist, a crystal oscillator is among the most consistent, accurate, and available holdover source on the market, as such a crystal oscillator will be our holdover oscillator source.
+There are three main types of crystal oscillator, each with different levels of accuracy[^1000]:
+- A standard Crystal Oscillator (XO), with a typical frequency tolerance of +/-25 ppm to +/-100 ppm
+- A Temperature Compensated Crystal Oscillator (TCXO), with a typical frequency tolerance of <+/-2ppm
+- An Oven Compensated Crystal Oscillator (OCXO), with a typical frequency tolerance of <+/-500 ppb or <+/-0.5ppm
+It is worth noting that the units ppm is defined by the relative error of the oscillator (f) compared to the nominal frequency (fo):
+$$
+\text{ppm offset}=\frac{f-f_o}{f_o}*10^6
+$$
+To determine what level of accuracy we need, we first recognize that the oscillator and nominal frequency are both periodic in nature, so we approximate each as a sinusoid:
+$$
+H_{nom}(t)=A_{nom}\sin{(2\pi f_ot)}
+$$
+$$
+H_{osc}(t)=A_{osc}\sin{(2\pi ft)}
+$$
+As a sinusoid, each will reach a compete oscillation at an even integer multiple of pi:
+$$
+2\pi f_ot_{nom} = 2n_o\pi
+$$
+$$
+2\pi ft_{osc} = 2n\pi
+$$
+Simplifying these expressions down to find the time at some zero, n:
+$$
+t_{nom}=\frac{n}{2f_o}
+$$
+$$
+t_{osc}=\frac{n}{2f}
+$$
+We can then find the difference between the time values to approximate the time delay between the signals at some zero n:
+$$
+t_{nom}-t_{osc}=n\left( \frac{1}{f_o}-\frac{1}{f} \right)
+$$
+Finally, to find the accuracy, we let n be the number of oscillations per second, which will just be the nominal frequency
+$$
+n=f_o
+$$
+$$
+t_{nom}-t_{osc}=\left(1-\frac{f_o}{f}   \right)
+$$
+This is the approximate drift per second, to get the drift per day we just need to scale this value by the number of seconds in a day (86400 s/day)
 
+$$
+\text{drift (s/day)} = 86400 \left(1-\frac{f_o}{f}\right)
+$$
+
+To determine what class of oscillator to use, we reverse this process, taking our drift per day to find the ppm (or ppb).
+
+Using the equations defined above, the following expression can be obtained:
+$$
+\text{ppm offset}=\left( 1- \frac{86400}{86400+\text{drift(s/day)}} \right)*10^6
+$$
+## CHANGE THE NUMBERS IN THIS SECTION RAAAAAAAAA
+Finally, we can plug in our desired drift of **1s/day** and find that we need a ppm offset of ~**11.57** ppm which means that a TCXO is, oddly the best choice. 
 ### Enclosure
-The enclosure is the body that will contain the entire system. It will provide proper cooling, and protection from external attacks. It will also provide ease of access for authenticated users.
+The enclosure is the housing that will contain all the subsystems, except for antenna, in a neat way. Given the nature of the project a custom enclosure is required. As this project needs to be accessible, complex housing techniques such as milling or injection molding are off the table, which leaves 3D printing. 3D printing will provide the most accessible results, and will allow the user to customize more easily if desired.
+The material used to print the enclosure is ultimately up to the end user to decide, but PETG offers a good middle ground in heat resistance, durability, and ease of printing and as such is recommended for this project.
 
 ### Hardware Block Diagram
 <img src="figures/Hardware Diagram.svg" alt = "Hardware Diagram" width="600">
@@ -526,7 +580,7 @@ First, conduct a thorough analysis of the skills currently available within the 
 
 [10] “An unreachable source is selected,” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_an_unreachable_source_is_selected.  
 
-
+[^1000]:Anand, Ankur, “Oscillators: Key Parameters and Specifications.” June 14, 2021. Accessed: Nov. 09, 2026. [Online]. Available: https://www.ti.com/content/dam/videos/external-videos/en-us/7/3816841626001/6219032061001.mp4/subassets/clocks-and-timing-oscillator-key-parameters-specifications-presentation-quiz.pdf
 ## Statement of Contributions
 - Block Diagram - Jonathan Salvato
 - Comparative Analysis - Jonathan Salvato
