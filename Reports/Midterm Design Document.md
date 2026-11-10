@@ -330,6 +330,7 @@ Introduction and Broader Impacts/Ethics - Everett Patterson
 
 [15]:IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. [https://www.ieee.org/about/corporate/governance/p7-8](https://www.ieee.org/about/corporate/governance/p7-8) (accessed Oct. 12, 2026).
 
+[^16]:D. Ehlers, “TimeMachines Time Server Accuracy (TM1000A, TM2000A/B, TM2500B) – Revision D,” Technical report, Jan. 2024. [Online]. Available: https://timemachinescorp.com/wp-content/uploads/TMTimeServerAccuracyRevB.pdf
 
 ## Comparative Analysis of Potential Solutions
 The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare-metal implementation. There are advantages and disadvantages for each approach:
