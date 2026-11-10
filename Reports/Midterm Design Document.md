@@ -367,41 +367,57 @@ There are three main types of crystal oscillator, each with different levels of 
 - An Oven Compensated Crystal Oscillator (OCXO), with a typical frequency tolerance of <+/-500 ppb or <+/-0.5ppm
 
 It is worth noting that the units ppm is defined by the relative error of the oscillator (f) compared to the nominal frequency (fo):
+
 $$
 \text{ppm offset}=\frac{f-f_o}{f_o}*10^6
 $$
+
 To determine what level of accuracy we need, we first recognize that the oscillator and nominal frequency are both periodic in nature, so we approximate each as a sinusoid:
+
 $$
 H_{nom}(t)=A_{nom}\sin{(2\pi f_ot)}
 $$
+
 $$
 H_{osc}(t)=A_{osc}\sin{(2\pi ft)}
 $$
+
 As a sinusoid, each will reach a compete oscillation at an even integer multiple of pi:
+
 $$
 2\pi f_ot_{nom} = 2n_o\pi
 $$
+
 $$
 2\pi ft_{osc} = 2n\pi
 $$
+
 Simplifying these expressions down to find the time at some zero, n:
+
 $$
 t_{nom}=\frac{n}{2f_o}
 $$
+
 $$
 t_{osc}=\frac{n}{2f}
 $$
+
 We can then find the difference between the time values to approximate the time delay between the signals at some zero n:
+
 $$
 t_{nom}-t_{osc}=n\left( \frac{1}{f_o}-\frac{1}{f} \right)
 $$
+
 Finally, to find the accuracy, we let n be the number of oscillations per second, which will just be the nominal frequency
+
 $$
 n=f_o
 $$
+
 $$
 t_{nom}-t_{osc}=\left(1-\frac{f_o}{f}   \right)
 $$
+
 This is the approximate drift per second, to get the drift per day we just need to scale this value by the number of seconds in a day (86400 s/day)
 
 $$
@@ -411,9 +427,11 @@ $$
 To determine what class of oscillator to use, we reverse this process, taking our drift per day to find the ppm (or ppb).
 
 Using the equations defined above, the following expression can be obtained:
+
 $$
 \text{ppm offset}=\left( 1- \frac{86400}{86400+\text{drift(s/day)}} \right)*10^6
 $$
+
 ## CHANGE THE NUMBERS IN THIS SECTION RAAAAAAAAA
 Finally, we can plug in our desired drift of **1s/day** and find that we need a ppm offset of ~**11.57** ppm which means that a TCXO is, oddly the best choice. 
 ### Enclosure
