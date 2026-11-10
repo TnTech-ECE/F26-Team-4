@@ -559,6 +559,8 @@ The enclosure subsystem contains the parts holding the entire project together. 
 
 Holdover is the systems ability to remain accurate for a duration of time without activly receiving input from the various sources. A strong holdover time allows our system to be a trusted source regardless of what external circumstances are affecting the inputs. A powerful external oscillator will allow this to happen. To allow for the desired accuracy of ()us we need a well tested and trusted oscillator. In addition to the loss of input signal, it is possible for the system to lose power for a duration of time. To remedy this we will encorporate a power bank/UPS to allow for the server to continue running without power for a set time, ensuring our time server remains accurate regardless of outages. The SoC AC adapter will allow for our selected SoC to receive direct power.
 
+ ***Grand Total: $500.07***
+
 All selected parts are subject to change as deemed necessary by the team. 
 
 ### Division of Labor
