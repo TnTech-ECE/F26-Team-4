@@ -49,7 +49,9 @@ The GPS regulated Secure Network Time Server will:
 		-GNSS sources such as GPS
 		-An Internal Oscillator
 		-Network sources such as NIST Internet time servers
-		-*If time allows, radio time such as WWVB*
+	-The server may, if time allows:
+		- Obtain time from radio time such as WWVB
+		- Output a reference clock signal from the oscillator
 	-The server shall communicate the current time data through the NTPv4 standard
 2. Maintain Security:
 	-The server shall maintain a secure connection to clients connected through NTS
@@ -60,7 +62,7 @@ The GPS regulated Secure Network Time Server will:
 		-Power Loss
 3. Be open source and accessible to a hobbyist:
 	-The server's design and details shall be published to the public
-	-The server shall have components and build instructions that are clear and easy to follow
+	-The server shall have components that are accessible and build instructions that are able to be followed by someone with little to moderate electronics knowledge
 	-The server's cost needs to be minimized 
 	-The server's Licenses for software must be compatible and open source
 #### Constraints
@@ -75,6 +77,8 @@ The GPS Regulated Secure Network Time Server will adhere to:
 	
 	-The server shall be compliant with the Title 47 CFR Part 15 regulation for Radio Frequency Devices
 
+We, the design team, will adhere to the IEEE Code of Ethics, as seen from Section 7 - Professional Activities of the IEEE Policies
+
 ## Survey of Existing Solutions
 Many GPS governed NTP servers already exist on the market today. Many of these solutions, however, are for an industrial scale which makes them bulky, incredibly high in cost, and generally inaccessible.
 
@@ -86,7 +90,19 @@ Of course, there are more accessible options on the market, but most of these co
 
 For a lower cost, Time Machines Corp. has a fleet of NTP time servers[^8]: The TM1000A ($349.99)[^8], TM2000B ($549.99)[^8], TM2500C ($799.99)[^8], and TM3000A ($999.99)[^8]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[^9]. While these servers will work, they're either expensive or lacking in security features.
 
-As can be seen, there is no shortage in available time server solutions, however many of these solutions are expensive and/or lacking in available security or timekeeping measures. With this project we hope to offer a solution with a low cost, secure, and accurate time server.
+
+Compiling the servers options above:
+
+| NTP Server           | GMR1000                                | SyncServer S600                                                   | TM1000A           | TM2000B               | TM2500C               | TM3000A               |
+| -------------------- | -------------------------------------- | ----------------------------------------------------------------- | ----------------- | --------------------- | --------------------- | --------------------- |
+| Cost                 | $1595.00                               | $5000-11000                                                       | $349.99           | $549.99               | $799.99               | $999.99               |
+| Time Sources         | GNSS, OCXO Oscillator                  | GNSS, Rubidium atomic clock or OCXO                               | US GPS Satellites | GNSS, OCXO Oscillator | GNSS, OCXO Oscillator | GNSS, OCXO Oscillator |
+| Security Features    | Monitoring, SSH SHA2 AES256 encryption | Security Hardening, GPS Jamming and Spoofing Detection/protection | None              | NTS, https, SNMPv3    | NTS, https, SNMPv3    | NTS, https, SNMPv3    |
+| Holdover Time Source | 5μsec / day                            | <1μsec / day or 400 μsec / day                                    | N/A               | ~43μsec / day*        | ~43μsec / day*        | ~43μsec / day*        |
+*Time Machines Corp doesn't include the TM3000A in their Accuracy Paper[^16], but it can be assumed it's the same oscillator as the TM2000B and TM2500C.
+
+As can be seen, there is no shortage in available time server solutions, however many of these solutions are expensive and/or lacking in available security or timekeeping measures. With this project we hope to offer a solution with a low cost, secure, and accurate time server. 
+
 
 
 ## Measures of Success
