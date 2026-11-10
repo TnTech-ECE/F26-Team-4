@@ -44,7 +44,7 @@ from outside sources to ensure functioning even in extreme and hostile situation
 #### Specifications
 The GPS regulated Secure Network Time Server will:
 1. Keep and Broadcast the current time:
-	-The server shall keep time within an accuracy of at most 100 us to UTC with an internal holdover of  at most 1 s/day
+	-The server shall keep time within an accuracy of at most 100 us to UTC with an internal holdover of  at most 40 us/day
 	-The server shall obtain the time from multiple sources including:
 		-GNSS sources such as GPS
 		-An Internal Oscillator
@@ -99,6 +99,7 @@ Compiling the servers options above:
 | Time Sources         | GNSS, OCXO Oscillator                  | GNSS, Rubidium atomic clock or OCXO                               | US GPS Satellites | GNSS, OCXO Oscillator | GNSS, OCXO Oscillator | GNSS, OCXO Oscillator |
 | Security Features    | Monitoring, SSH SHA2 AES256 encryption | Security Hardening, GPS Jamming and Spoofing Detection/protection | None              | NTS, https, SNMPv3    | NTS, https, SNMPv3    | NTS, https, SNMPv3    |
 | Holdover Time Source | 5μsec / day                            | <1μsec / day or 400 μsec / day                                    | N/A               | ~43μsec / day*        | ~43μsec / day*        | ~43μsec / day*        |
+
 *Time Machines Corp doesn't include the TM3000A in their Accuracy Paper[^16], but it can be assumed it's the same oscillator as the TM2000B and TM2500C.
 
 As can be seen, there is no shortage in available time server solutions, however many of these solutions are expensive and/or lacking in available security or timekeeping measures. With this project we hope to offer a solution with a low cost, secure, and accurate time server. 
@@ -433,8 +434,8 @@ $$
 $$
 
 ## CHANGE THE NUMBERS IN THIS SECTION RAAAAAAAAA
-Finally, we can plug in our desired drift of **1s/day** and find that we need a ppm offset of ~**11.57** ppm which means that a TCXO is, oddly the best choice. 
-It is worth noting that with proper controls techniques, the accuracy of the oscillator can be improved past its base ppm value, and as such the ppm value obtained should be used as a ballpark estimate of what class of oscillator we need.
+Finally, we can plug in our desired drift of 40 us/day and find that we need a ppm offset of, at most, ~0.46 ppb which makes an OCXO the clear choice 
+It is worth noting that with proper controls techniques, the accuracy of the oscillator can be improved past its base ppm value, and as such the ppm value obtained should be used as a ballpark estimate of what class of oscillator we need and not an exact value.
 ### Enclosure
 The enclosure is the housing that will contain all the subsystems, except for antenna, in a neat way. Given the nature of the project a custom enclosure is required. As this project needs to be accessible, complex housing techniques such as milling or injection molding are off the table, which leaves 3D printing. 3D printing will provide the most accessible results, and will allow the user to customize more easily if desired.
 The material used to print the enclosure is ultimately up to the end user to decide, but PETG offers a good middle ground in heat resistance, durability, and ease of printing and as such is recommended for this project.
@@ -599,7 +600,7 @@ Inputs:
 Outputs:
 - A known reference frequency sent to the SoC
 High-Level Requirements:
-- The system shall keep a holdover with at most a 1 s/day drift
+- The system shall keep a holdover with at most a 40 us/day drift
 - The system shall maintain a consistent and predictable pulse frequency
 
 ## Clock Synchronization
