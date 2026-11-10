@@ -309,7 +309,11 @@ $$
 $$
 
 
-In practice, one satellite cannot solve the above equations accurately, which is why modern GNSS systems us multiple satellites to solve the above equations.
+
+[1]“One Way GNSS Time Transfer | NIST,” NIST, May 17, 2016. https://www.nist.gov/pml/time-and-frequency-division/time-services/one-way-gnss-time-transfer (accessed Nov. 10, 2026).
+
+
+In practice, one satellite cannot solve the above equations accurately, which is why modern GNSS systems us multiple satellites to solve the above equations. For our purposes, we can used established sources and we can estimate that the time delay from the satellites to our receiver will be roughly 3 to 6 ns if we know the location of the receiver within a few meters, which work as that is around the accuracy of most satellites[1].
 
 
 ## Processor
