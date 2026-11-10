@@ -254,7 +254,7 @@ Sources of uncertainty:
 
 The main sources of uncertainty introduced when the signal is transmitted from the satellite are the ionosphere, troposphere, multipathing, and hardware delays. However, it’s hard to calculate the effects from many of these sources, so we will use the simplified model of pseudo-range.
 
-Pseudo-range is the apparent geometric distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times. 
+Pseudo-range is the apparent (not absolute geometric distance due to phenomena that affects propogation) distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times. 
 
 It is defined as:
 
