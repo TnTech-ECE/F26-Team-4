@@ -571,6 +571,7 @@ First, conduct a thorough analysis of the skills currently available within the 
 
 ### Timeline
 <img width="1052" height="310" alt="Screenshot 2026-10-23 211602" src="https://github.com/user-attachments/assets/2760db70-d0b2-4b54-bc39-530ba3207c02" />
+<img width="1006" height="390" alt="Screenshot 2026-11-10 174617" src="https://github.com/user-attachments/assets/1be954ba-7f58-4540-97c8-b6a90039b6d5" />
 
 ## References
 [1]GeeksforGeeks, “Difference Between MCU and SoC,” GeeksforGeeks, Sept. 04, 2020. https://www.geeksforgeeks.org/computer-organization-architecture/difference-between-mcu-and-soc/ (accessed Nov. 07, 2026). 
