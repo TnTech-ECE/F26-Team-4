@@ -365,6 +365,7 @@ There are three main types of crystal oscillator, each with different levels of 
 - A standard Crystal Oscillator (XO), with a typical frequency tolerance of +/-25 ppm to +/-100 ppm
 - A Temperature Compensated Crystal Oscillator (TCXO), with a typical frequency tolerance of <+/-2ppm
 - An Oven Compensated Crystal Oscillator (OCXO), with a typical frequency tolerance of <+/-500 ppb or <+/-0.5ppm
+
 It is worth noting that the units ppm is defined by the relative error of the oscillator (f) compared to the nominal frequency (fo):
 $$
 \text{ppm offset}=\frac{f-f_o}{f_o}*10^6
