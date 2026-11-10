@@ -101,7 +101,7 @@ This would involve writing the software to receive timestamps, calculate accurat
 **Existing NTP Software:**
 This would involve using an established NTP implementation such as Chrony or NTPsec. There are many advantages to taking this route. One of which is that we can build off of tools with proven implementation and support for everything that may be needed. In addition, there exists a wealth of documentation and user threads that explain and help troubleshoot these softwares. The primary downside would be that we have less control over the implementation. Given the many advantages to this type of implementation, this is the route we went with.   
 
-However even after the decision to use existing software was made, there still existed many software options to choose from. Below is a breakdown of the main NTP tools used.  
+However even after the decision to use existing software was made, there still existed many software options to choose from. Below is a breakdown of the main NTP tools available.  
 
 
 | Software | Pros                                                                                                                                                                     | Cons                                                                                                                                                              |
