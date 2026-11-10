@@ -758,6 +758,7 @@ Has a background in hardware security, embedded systems, and controls.  This tea
 
 ### Conceptual Design Timeline
 <img width="1052" height="310" alt="Screenshot 2026-10-23 211602" src="https://github.com/user-attachments/assets/2760db70-d0b2-4b54-bc39-530ba3207c02" />
+<img width="1006" height="390" alt="image" src="https://github.com/user-attachments/assets/6b27ecd3-a632-46a8-bf8e-6fae14d2baec" />
 
 ## References
 [1] D. Franke, D. Sibold, K. Teichel, M. Dansarie, and R. Sundblad, “Network Time Security for the Network Time Protocol,” RFC 8915, Sept. 2020, doi: 10.17487/RFC8915.
