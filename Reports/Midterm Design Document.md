@@ -18,13 +18,13 @@ Secure and accurate timing is paramount in most modern systems in a multitude of
 Examples include power generation, where plants need accurate time to log errors and 
 synchronize generators, the finance industry needs accurate timestamps to track transactions to 
 prevent theft and fraud, and modern navigation systems, like GPS, needs precise timing so that it 
-can track a position accurately, otherwise the target will drift off course[1]. As the dependence on 
+can track a position accurately, otherwise the target will drift off course[^1]. As the dependence on 
 more accurate time increases, the need for more reliable time distribution has become 
 increasingly important.
 
 Network Timer Servers (NTS) solve this by obtaining accurate time from trusted sources such as:
 satellite constellations and local atomic clocks. Then, it is distributed downstream 
-to clients via the Network Time Protocol[2]. In a typical system, the server receives a reference 
+to clients via the Network Time Protocol[^2]. In a typical system, the server receives a reference 
 time, disciplines a local oscillator to maintain reference time, and distributes that time to clients.
 
 While this system is effective and efficient at distributing time, it has several security 
@@ -82,13 +82,13 @@ We, the design team, will adhere to the IEEE Code of Ethics, as seen from Sectio
 ## Survey of Existing Solutions
 Many GPS governed NTP servers already exist on the market today. Many of these solutions, however, are for an industrial scale which makes them bulky, incredibly high in cost, and generally inaccessible.
 
-For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[3] It's a great time server, but costs ~$1595.00[4], which makes it inadequate for hobbyist use.
+For example, Masterclock's GMR1000 is an enterprise-grade time server that can synchronize to GPS, NTP, and PTP sources (among others). It contains a high-stability oscillator which gives it a strong holdover of a 5us drift per day[^3] It's a great time server, but costs ~$1595.00[^4], which makes it inadequate for hobbyist use.
 
-For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day[5]. This NTP server hovers around $5000-11000[6][7] making this an extreme example of high cost.
+For another example of an industrial server, Microchip’s SyncServer S600. Similarly, this is a high security and high accuracy NTP/PTP time server. It has an optional atomic clock, enabling a holdover drift of <1 us per day. The standard drift without the atomic clock is around 400 us per day[^5]. This NTP server hovers around $5000-11000[^6][^7] making this an extreme example of high cost.
 
 Of course, there are more accessible options on the market, but most of these come with tradeoffs of precision, security, or relative cost.
 
-For a lower cost, Time Machines Corp. has a fleet of NTP time servers[8]: The TM1000A ($349.99)[8], TM2000B ($549.99)[8], TM2500C ($799.99)[8], and TM3000A ($999.99)[8]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[9]. While these servers will work, they're either expensive or lacking in security features.
+For a lower cost, Time Machines Corp. has a fleet of NTP time servers[^8]: The TM1000A ($349.99)[^8], TM2000B ($549.99)[^8], TM2500C ($799.99)[^8], and TM3000A ($999.99)[^8]. All of these are capable of GPS synchronization and support NTPv4. However, only the TM3000A is capable of security protocols such as NTS. Additionally, the TM1000A lacks a holdover time source and none have more than one backup time source[^9]. While these servers will work, they're either expensive or lacking in security features.
 
 
 Compiling the servers options above:
@@ -103,8 +103,6 @@ Compiling the servers options above:
 *Time Machines Corp doesn't include the TM3000A in their Accuracy Paper[^16], but it can be assumed it's the same oscillator as the TM2000B and TM2500C.
 
 As can be seen, there is no shortage in available time server solutions, however many of these solutions are expensive and/or lacking in available security or timekeeping measures. With this project we hope to offer a solution with a low cost, secure, and accurate time server. 
-
-
 
 ## Measures of Success
 
@@ -189,7 +187,7 @@ Methodology:
 
 **Material and Hardware Resources** - Our project will be primarily built around a single computer that will act as the controller behind the operations of the NTP server. It will be an SoC capable of running Linux, as that is the OS needed to run our desired software. We will have an external oscillator to ensure high accuracy in the event of a loss of signal from external time sources. A power bank and the necessary wiring will be used to allow the system to continue running in the case of a power outage. All of the above-mentioned components will exist inside a custom enclosure to ensure proper function and security. A GNSS antenna and receiver, as well as an AM radio antenna and receiver, will collect and process incoming satellite signals to allow for non-internet-based time sources. 
 
-**Software Resources** - Our team will be primarily utilizing an open-source, well-respected NTP software called Chrony. It is capable of receiving and filtering the incoming time signals and using them to determine the exact time in a given moment, with up to nanosecond accuracy. It does all of this while filtering out suspicious or incorrect sources[10]. We intend to implement a firewall as well to ensure the computer is protected against cybersecurity threats. 
+**Software Resources** - Our team will be primarily utilizing an open-source, well-respected NTP software called Chrony. It is capable of receiving and filtering the incoming time signals and using them to determine the exact time in a given moment, with up to nanosecond accuracy. It does all of this while filtering out suspicious or incorrect sources[^10]. We intend to implement a firewall as well to ensure the computer is protected against cybersecurity threats. 
 
 **Facilities and Support** - We will use the Capstone Lab for assembly, prototyping, and testing our design, as well as the iMakerSpace for its 3D printers and measurement tools.
 
@@ -198,8 +196,8 @@ Methodology:
 
 The below table breaks down the total recources and estimated cost of each item needed. The selected components and prices were chosen based on cost, reliability, and performance. The final estimate ($895) is well below the initial overall budget of $1000. 
 
-|  Subsystem       | Part                           | Description                                                              | Justification                                                                                                       | Quantity | Cost Per Item | Total Cost (Estimate) |
-|------------------|--------------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|----------|---------------|-----------------------|
+| Subsystem        | Part                           | Description                                                              | Justification                                                                                                       | Quantity | Cost Per Item | Total Cost (Estimate) |
+| ---------------- | ------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | -------- | ------------- | --------------------- |
 | SOC              | Computer                       | A small computer to run the Linux   server                               | To use Chrony a linux machine is   a necessity so MCUs are not an option                                            | 1        | $100          | $100                  |
 | SOC              | 32Gb SD Card                   | Small resiliant storage                                                  | 32Gb is the max many small SOCs   are capable of                                                                    | 1        | $30           | $30                   |
 | SOC              | SOC AC Adapter                 | Cables to power the SOC                                                  | Needed to power the SOC                                                                                             | 1        | $20           | $20                   |
@@ -212,7 +210,7 @@ The below table breaks down the total recources and estimated cost of each item 
 | Enclosure        | Cooling                        | Possible internal fans and   cooling methods                             | To ensure the system doesn't   overheat and is able to function properly                                            | 1        | $30           | $30                   |
 | Enclosure        | misc wiring                    | The remaining physical connectors   we may need (Ethernet, Jumper, etc.) | Needed to send and receive the   signals to and from the server                                                     | 5        | $6            | $30                   |
 | GNSS + Radio     | AM Radio Reciever              | The antenna and reciever for the   60kHz WWVB  radio time source         | Needed as an additional time   source to ensure accuracy between sources                                            | 1        | $15           | $15                   |
-| | | | | |**Total :** |**$895**|
+|                  |                                |                                                                          |                                                                                                                     |          | **Total :**   | **$895**              |
 
 ### Personnel
 Required Skills
@@ -255,11 +253,11 @@ Stakeholder: Dr. Austen
 
 Implementing the Resilient and Secure Network Time Server (NTS) that was proposed will provide many solutions to our customer's issues: secure, resilient, and affordable network time synchronization.
 
-By using the Network Time Security (NTS) protocol, the system will give a cryptographic authentication of timing information shared back and forth from the server and client. Through this, the risk of malicious sources providing false information can be reduced, creating a more secure alternative to traditional NTP [11],[12]. Timestamps that have been authenticated and proven reliable not only improve the trustworthiness of systems logs to many other network operations as well.
+By using the Network Time Security (NTS) protocol, the system will give a cryptographic authentication of timing information shared back and forth from the server and client. Through this, the risk of malicious sources providing false information can be reduced, creating a more secure alternative to traditional NTP [^11],[^12]. Timestamps that have been authenticated and proven reliable not only improve the trustworthiness of systems logs to many other network operations as well.
 
-Even when primary GPS timing sources become unavailable, this system will be designed to maintain a usable time reference. GPS and other PNT services (positioning, navigation, and timing) are commonly affected by power outages, interference, and other disruptions such as GPS jamming [13]. By incorporating backups we can reduce the system's dependence on GPS allowing clients to continue receiving data during disruptions [14].
+Even when primary GPS timing sources become unavailable, this system will be designed to maintain a usable time reference. GPS and other PNT services (positioning, navigation, and timing) are commonly affected by power outages, interference, and other disruptions such as GPS jamming [^13]. By incorporating backups we can reduce the system's dependence on GPS allowing clients to continue receiving data during disruptions [^14].
 
-The Network Time Security protocol will protect the system from being manipulated by people with malicious intents. With the ability to establish cryptographic keys and authenticate traffic, NTS allows clients to verify that time information has not been tampered with [12]. This provides confidence to the customer as the time distributed by the system is protected.
+The Network Time Security protocol will protect the system from being manipulated by people with malicious intents. With the ability to establish cryptographic keys and authenticate traffic, NTS allows clients to verify that time information has not been tampered with [^12]. This provides confidence to the customer as the time distributed by the system is protected.
 
 One of the primary objectives of the project is to achieve high end security and resilience through the use of common, inexpensive hardware. Ideally, hobbyist, students, and small organizations with limited budgets will be able to use the proposed system as it avoids the use of expensive commercial equipment. This provides protected time outputs to those who might not have the necessary infrastructure to use current NTS technology. Our team's GitHub Repository will also be available distribution as source of information on how to build their own NTS.
 
@@ -291,7 +289,7 @@ This project, despite its reduced cost compared to the current market, may still
 
 ## Ethics:
 While this project is designed for the individual to have a secure time server, this does not come without ethical considerations.  First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is.  Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them.  We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
-The engineers involved must hold themselves to the IEEE Code of Ethics. [15]
+The engineers involved must hold themselves to the IEEE Code of Ethics. [^15]
 
 ## Statement of Contributions
 
@@ -379,7 +377,7 @@ This encompasses the overall security of the system. The system will have a fire
 
 ### Holdover Oscillator
 Under normal conditions, the system will receive timing from the satellite constellations or other known sources. However should the connection get lost, or if timing information is required between communication periods of the other time sources, an accurate backup, or holdover, time source is needed. While other types of oscillators exist, a crystal oscillator is among the most consistent, accurate, and available holdover source on the market, as such a crystal oscillator will be our holdover oscillator source.
-There are three main types of crystal oscillator, each with different levels of accuracy[^1000]:
+There are three main types of crystal oscillator, each with different levels of accuracy[^7]:
 - A standard Crystal Oscillator (XO), with a typical frequency tolerance of +/-25 ppm to +/-100 ppm
 - A Temperature Compensated Crystal Oscillator (TCXO), with a typical frequency tolerance of <+/-2ppm
 - An Oven Compensated Crystal Oscillator (OCXO), with a typical frequency tolerance of <+/-500 ppb or <+/-0.5ppm
@@ -574,7 +572,7 @@ High-Level Requirements:
 - The system will be able properly control peripherials and transmitt accurate timestamps to clients
 
 ## Client Communication  
-Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications [1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [2]  
+Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications[^1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [^2]  
 
 The client calculates the correct time and offset given 4 timestamps:  
 $T_1$ = The time the client originally sent the request  
@@ -613,7 +611,7 @@ High-Level Requirements:
 - The system shall relay accurate information to connected clients
 
 ## Device Security  
-Device security encapsulates the measures needed to protect the server from cybersecurity threats beyond incorrect timing data. It will allow the device to be safe from bad actors on its network. To ensure a secure server, we will implement a firewall to lock down the ports and allow only the ones needed for basic server function. This includes port 123 for NTP, port 4460 for NTS and port 22 for SSH (A secure network protocol used to remotely access systems)[1][2]. To allow for secure administrator control SSH key authentication will be implemented to prevent potentially faulty passwords that can be compromised[4]. We will restrict Chrony to a non-root user to ensure that if Chrony is compromised, the attacker cannot gain access to the entire server[3]. Monitoring will also be used to ensure important configuration files are secure and unchanged and noting any NTP synchronization anomalies[3].  
+Device security encapsulates the measures needed to protect the server from cybersecurity threats beyond incorrect timing data. It will allow the device to be safe from bad actors on its network. To ensure a secure server, we will implement a firewall to lock down the ports and allow only the ones needed for basic server function. This includes port 123 for NTP, port 4460 for NTS and port 22 for SSH (A secure network protocol used to remotely access systems)[^1][^2]. To allow for secure administrator control SSH key authentication will be implemented to prevent potentially faulty passwords that can be compromised[^4]. We will restrict Chrony to a non-root user to ensure that if Chrony is compromised, the attacker cannot gain access to the entire server[^3]. Monitoring will also be used to ensure important configuration files are secure and unchanged and noting any NTP synchronization anomalies[^3].  
 
 Functions:  
 - Protect the NTP server from unauthorized access and attempted compromise.
@@ -648,7 +646,7 @@ High-Level Requirements:
 
 ## Clock Synchronization
 
-The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [5]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [4]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
+The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [^5]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [^4]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
 The output will be the time code received of the most reliable signal, which will be passed on to the client communication subsystem. 
 
 
@@ -737,7 +735,7 @@ Mitigation: While there is only so much that may be done for the cost of this pr
 #### Ethics:
 While this project is designed for the individual to have a secure time server, this does not come without ethical considerations. First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is. Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them. We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
 
-The engineers involved must hold themselves to the IEEE Code of Ethics. [6]
+The engineers involved must hold themselves to the IEEE Code of Ethics. [^6]
 
 #### Ethics in Design Decisions:
 Additionally, teams must consider relevant standards organizations that will inform the design process. A comprehensive discussion should be included on how these considerations have influenced the design. This includes detailing constraints, specifications, and practices implemented as a result, and how these address the identified considerations. 
@@ -757,43 +755,43 @@ Finally, our design features many network security features so that malicious ac
 
 ## Resources and Budget
 ### SoC
-| Item         | Description                              | Quanity | Cost (Estimate) |
-|--------------|------------------------------------------|---------|-----------------|
-| Computer     | A small computer to run the Linux server | 1       | $100            |
-| 32Gb SD Card | Small resiliant storage                  | 1       | $30             |
-|              |                                          | Total:  | $130            |    
+| Item         | Description                              | Quanity | Cost (Estimate) |     |
+| ------------ | ---------------------------------------- | ------- | --------------- | --- |
+| Computer     | A small computer to run the Linux server | 1       | $100            |     |
+| 32Gb SD Card | Small resiliant storage                  | 1       | $30             |     |
+|              |                                          | Total:  | $130            |     |
 
 The computer will be the core unit of the system and  should be chosen for its combination of cost and performance, as well as it's ability to run the computations necessary. The 32Gb micro SD card will be chosen as a trustworthy storage medium and its ability to hold the required software and operating system. 
 
 ### GNSS + Radio
-| Item         | Description                              | Quanity | Cost (Estimate) |
-|--------------|------------------------------------------|---------|-----------------|
-| GNSS Satelite Antenna/Reciever | The antenna and reciever for the GPS system                    | 1      | $300  |
-| PPS Wire                       | A wire for the PPS singal to connect to a I/O port on the SOC  | 1      | $5    |
-| AM Radio Reciever (Optional)             | The antenna and reciever for the 60kHz WWVB  radio time source | 1      | $15   |
-|                                |                                                                | Total: | $320  |  
+| Item                           | Description                                                    | Quanity | Cost (Estimate) |     |
+| ------------------------------ | -------------------------------------------------------------- | ------- | --------------- | --- |
+| GNSS Satelite Antenna/Reciever | The antenna and reciever for the GPS system                    | 1       | $300            |     |
+| PPS Wire                       | A wire for the PPS singal to connect to a I/O port on the SOC  | 1       | $5              |     |
+| AM Radio Reciever (Optional)   | The antenna and reciever for the 60kHz WWVB  radio time source | 1       | $15             |     |
+|                                |                                                                | Total:  | $320            |     |
 
 The GNSS portion of this project is a major factor in what makes this system resiliant. The GNSS receiver needs to be capable of receiving signals from multiple constelations as well as being accruate enough to allow for our desired system accuracy of 100us. To ensure both of these criteria are met, a more robust GNSS module is needed. The seperate PPS wire will allow for the PPS signal to reach a I/O port on the SoC, increasing accuracy. In addition to GNSS signal our server will recieve radio signal from the WWVB NTP frequency. This adds an additional input source that is not connected to any other, improving the resiliancy of our system.  
 
 
 ### Enclosure
-| Item         | Description                              | Quanity | Cost (Estimate) |
-|--------------|------------------------------------------|---------|-----------------|
-| Enclosure   | Enclosure to store all components in a way that is neat and orderly    | 1      | $100  |
-| Mounting    | Mounting for the SOC and other ports                                   | 1      | $30   |
-| Cooling     | Possible internal fans and cooling methods                             | 1      | $30   |
-| misc wiring | The remaining physical connectors we may need (Ethernet, Jumper, etc.) | 5      | $30   |
-|             |                                                                        | Total: | $190  |  
+| Item        | Description                                                            | Quanity | Cost (Estimate) |     |
+| ----------- | ---------------------------------------------------------------------- | ------- | --------------- | --- |
+| Enclosure   | Enclosure to store all components in a way that is neat and orderly    | 1       | $100            |     |
+| Mounting    | Mounting for the SOC and other ports                                   | 1       | $30             |     |
+| Cooling     | Possible internal fans and cooling methods                             | 1       | $30             |     |
+| misc wiring | The remaining physical connectors we may need (Ethernet, Jumper, etc.) | 5       | $30             |     |
+|             |                                                                        | Total:  | $190            |     |
 
 The enclosure subsystem contains the parts holding the entire project together. We will determine the size of the enclosure based on the specific parts that will be chosen in the future. It will provide physical protection to the systems inside. Mounting will be used to hold the components inside of the enclosure. They are what ensures the peices remain where they are intended to be. Depending on the overall wattage and tempterature produced, some kind of cooling may be needed to maintain desired internal temperature. A small fan will likely be used to acheive this. Finally, our systems need to be connected with wiring to allow the needed communication between systems. The misc wiring  was added to cover for the connections we will need. 
 
 ### Power + Holdover
-| Item         | Description                              | Quanity | Cost (Estimate) |
-|--------------|------------------------------------------|---------|-----------------|
-| External Oscillator | A device to keep highly accurate system time                     | 1      | $150 |
-| Battery Bank        | Allows the devices to keep running in the case of a power outage | 1      | $100 |
-| SOC AC Adapter      | Cables to power the SOC                                          | 1      | $20  |
-|                     |                                                                  | Total: | $270 |  
+| Item                | Description                                                      | Quanity | Cost (Estimate) |     |
+| ------------------- | ---------------------------------------------------------------- | ------- | --------------- | --- |
+| External Oscillator | A device to keep highly accurate system time                     | 1       | $150            |     |
+| Battery Bank        | Allows the devices to keep running in the case of a power outage | 1       | $100            |     |
+| SOC AC Adapter      | Cables to power the SOC                                          | 1       | $20             |     |
+|                     |                                                                  | Total:  | $270            |     |
 
 Holdover is the systems ability to remain accurate for a duration of time without activly receiving input from the various sources. A strong holdover time allows our system to be a trusted source regardless of what external circumstances are affecting the inputs. A powerful external oscillator will allow this to happen. To allow for the desired accuracy of 100us we need a well tested and trusted oscillator. In addition to the loss of input signal, it is possible for the system to lose power for a duration of time. To remedy this we will encorporate a power bank/UPS to allow for the server to continue running without power for a set time, ensuring our time server remains accurate regardless of outages. The SoC AC adapter will allow for our selected SoC to receive direct power.
 
@@ -825,18 +823,19 @@ Has a background in hardware security, embedded systems, and controls.  This tea
 <img width="1006" height="390" alt="image" src="https://github.com/user-attachments/assets/6b27ecd3-a632-46a8-bf8e-6fae14d2baec" />
 
 ## References
-[1] D. Franke, D. Sibold, K. Teichel, M. Dansarie, and R. Sundblad, “Network Time Security for the Network Time Protocol,” RFC 8915, Sept. 2020, doi: 10.17487/RFC8915.
+[^1]:D. Franke, D. Sibold, K. Teichel, M. Dansarie, and R. Sundblad, “Network Time Security for the Network Time Protocol,” RFC 8915, Sept. 2020, doi: 10.17487/RFC8915.
 
-[2] D. Mills, J. Burbank, and W. Kasch, “Network Time Protocol Version 4: Protocol and Algorithms Specification,” RFC 5905, June 2010, doi: 10.17487/RFC5905.
+[^2]:D. Mills, J. Burbank, and W. Kasch, “Network Time Protocol Version 4: Protocol and Algorithms Specification,” RFC 5905, June 2010, doi: 10.17487/RFC5905.
 
-[3] “OpenSSH: Manual Pages,” OpenSSH.org, 2025. [Online]. Available: https://www.openssh.org/manual.html.
+[^3]:“OpenSSH: Manual Pages,” OpenSSH.org, 2025. [Online]. Available: https://www.openssh.org/manual.html.
 
-[4] “An unreachable source is selected,” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_an_unreachable_source_is_selected.
+[^4]:“An unreachable source is selected,” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_an_unreachable_source_is_selected.
 
-[5] “How should chronyd be configured with GPSD?” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd.
+[^5]:“How should chronyd be configured with GPSD?” Chrony Project, Chrony FAQ. [Online]. Available: https://chrony-project.org/faq.html#_how_should_chronyd_be_configured_with_gpsd.
 
-[6] IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. https://www.ieee.org/about/corporate/governance/p7-8 (accessed Nov. 09, 2026).
+[^6]:IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. https://www.ieee.org/about/corporate/governance/p7-8 (accessed Nov. 09, 2026).
 
+[^7]:Anand, Ankur, “Oscillators: Key Parameters and Specifications.” June 14, 2021. Accessed: Nov. 09, 2026. [Online]. Available: https://www.ti.com/content/dam/videos/external-videos/en-us/7/3816841626001/6219032061001.mp4/subassets/clocks-and-timing-oscillator-key-parameters-specifications-presentation-quiz.pdf
 ## Statement of Contributions
 - Block Diagram - Jonathan Salvato
 - Comparative Analysis - Oscillator/Enclosure - Jonathan Salvato
