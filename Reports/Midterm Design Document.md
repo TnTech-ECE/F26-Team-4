@@ -361,9 +361,6 @@ Given the options proposed, we decided that the marginally lower cost wasn't wor
 
 Once we decided our system type, the next item of consideration was our time sources. Our client specifications required a GPS source, so that made it non-negotiable. The additional sources (Radio, Oscillator, and Internet Time Servers) we consider adding are to improve the robustness of the system.
 
-## High-Level Solution
-The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,the design will achieve accurate timestamps even in hostile enviorments.
-
 ### Power Supply
 The Power Supply subsystem is responsible for providing consistent electrical power to the Network Time Server and its connected components. Reliable power is important to ensure the server can maintain accurate time and continue distributing timestamps to clients. Because interruptions in electrical power could cause the server to lose operation, several potential power configurations were considered.
 
