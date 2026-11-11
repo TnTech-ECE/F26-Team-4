@@ -760,6 +760,9 @@ High-Level Requirements:
 - The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
 - The system will be able properly control peripherials and transmitt accurate timestamps to clients
 
+**Source of Uncertainty:**
+The only major source of uncertainty here is the input from the PPS from the GNSS Module. Depending on the hardware between the processor and GNSS Module, there will be a certain amount of jitter, but that should be reported in the specification sheet of the hardware, and therefore can be accounted for.
+
 ## Client Communication  
 Client communication is the system that uses the hyper-accurate system time determined by the Clock synchronization subsystem and relays that to the clients in need of NTP data. The client will request NTS credentials to be able to verify its identity in the future using TCP port 4460. This is called the Transport Layer Security (TLS) handshake. The client and server register each other as trusted communicators and create credentials called cookies that are used in future communications[^1]. When the client needs NTP data it sends a request on UDP port 123 to the server using its cookies, the server receives processes and sends back the accurate time data. Using the time given by the server the client will adjust its internal clock to match the server, taking into account any delay accrued from the transmission. [^2]  
 
