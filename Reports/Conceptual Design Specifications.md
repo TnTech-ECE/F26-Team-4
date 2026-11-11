@@ -243,10 +243,10 @@ The Power System is responsible for supplying stable and continuous electrical p
 **Outputs:**
 
 - Regulated DC power supplied to:
-	- The System-on-Chip (SoC)
-	- The GNSS receiver
-	- The external oscillator
-	- Additional supporting hardware as required by the final design
+- The System-on-Chip (SoC)
+- The GNSS receiver
+- The external oscillator
+- Additional supporting hardware as required by the final design
 
 **High-Level Requirements:**
 
@@ -257,6 +257,26 @@ The Power System is responsible for supplying stable and continuous electrical p
 - The Power System shall return the system to primary power operation when the primary power source is restored.
 - The Power System shall provide sufficient power to support the maximum expected electrical load during normal operation.
   
+
+## Antenna
+The Antennas job is to receive signals from satellite constellations, and output them to the GNSS Module. 
+
+**Functions:**
+- Receive signal from satellites
+- Output to GNSS Module
+
+**Inputs:**
+- If active, power from power supply
+
+**Outputs:**
+- A voltage signal
+
+**High-Level Requirements:**
+- The antenna shall be able to receive signal from multiple constellations
+- It shall be able to output a signal while maintaining its integrity  
+
+
+
 ## GNSS Module
 
 The GNSS Module is the main source for retrieveing the timestamps that our system will be distributing downstream. First, it recieves a signal containing the 
