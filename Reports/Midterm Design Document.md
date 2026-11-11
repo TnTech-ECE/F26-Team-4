@@ -466,10 +466,10 @@ However even after the decision to use existing software was made, there still e
 
 | Software | Pros                                                                                                                                                                     | Cons                                                                                                                                                              |
 |----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Chrony[2]   | It's the modern day gold standard. It has functionality for up to nanosecond accuracy, NTS capabilities, is VM-friendly, and designed to work well on conjested networks | Complex configuration when compared to its alternatives                                                                                                           |
-| NTPD[3]     | Capable of working on very old systems. It is also well documented as a result of its age.                                                                               | It is the original NTP software. Requires legacy operating systems. Includes very little security functionality                                                   |
-| NTPsec[4]   | Modernized version of NTPD. Developed to add modern day security requirements to these legacy systems.                                                                   | It is not used very often and as a result has limited documentation and support. It is a direct competitor to Chrony and is often looked over in favor of Chrony. |
-| OpenNTPD[5] | Very lightwieght and requires very few system resources. Developed to be very secure.                                                                                    | Less accurate as a result of being designed for security over all else.                                                                                           |
+| Chrony[2000]   | It's the modern day gold standard. It has functionality for up to nanosecond accuracy, NTS capabilities, is VM-friendly, and designed to work well on conjested networks | Complex configuration when compared to its alternatives                                                                                                           |
+| NTPD[3000]     | Capable of working on very old systems. It is also well documented as a result of its age.                                                                               | It is the original NTP software. Requires legacy operating systems. Includes very little security functionality                                                   |
+| NTPsec[4000]   | Modernized version of NTPD. Developed to add modern day security requirements to these legacy systems.                                                                   | It is not used very often and as a result has limited documentation and support. It is a direct competitor to Chrony and is often looked over in favor of Chrony. |
+| OpenNTPD[5000] | Very lightwieght and requires very few system resources. Developed to be very secure.                                                                                    | Less accurate as a result of being designed for security over all else.                                                                                           |
 
 
 ### Holdover Oscillator
@@ -936,6 +936,14 @@ Has a background in hardware security, embedded systems, and controls.  This tea
 [^6]:IEEE, “IEEE Code of Ethics | IEEE,” Ieee.org, 2020. https://www.ieee.org/about/corporate/governance/p7-8 (accessed Nov. 09, 2026).
 
 [^7]:Anand, Ankur, “Oscillators: Key Parameters and Specifications.” June 14, 2021. Accessed: Nov. 09, 2026. [Online]. Available: https://www.ti.com/content/dam/videos/external-videos/en-us/7/3816841626001/6219032061001.mp4/subassets/clocks-and-timing-oscillator-key-parameters-specifications-presentation-quiz.pdf
+
+[2000]“Chrony – Introduction,” chrony-project.org. https://chrony-project.org/ (accessed Nov. 07, 2026).
+
+[3000]“Ntpd - Network Time Protocol (NTP) Daemon,” NTP: Network Time Protocol. https://www.ntp.org/documentation/4.2.8-series/ntpd/ (accessed Nov. 07, 2026). 
+
+[4000]“Differences From NTP Classic,” Ntpsec.org, 2025. https://docs.ntpsec.org/latest/ntpsec.html (accessed Nov. 07, 2026).  
+
+[5000]OpenBSD Project, “OpenNTPD,” OpenBSD Project, July 01, 2026. https://www.openntpd.org/ (accessed Nov. 07, 20
 ## Statement of Contributions
 - Block Diagram - Jonathan Salvato
 - Comparative Analysis - Oscillator/Enclosure - Jonathan Salvato
