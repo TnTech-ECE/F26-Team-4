@@ -621,32 +621,95 @@ The Power System is responsible for supplying stable and continuous electrical p
 - The Power System shall provide sufficient power to support the maximum expected electrical load during normal operation.
   
 ## GNSS Module
+The GNSS Module is the main source for retrieving the timestamps that our system will be distributing downstream. First, it receives a signal containing the timestamp from a satellite constellation. Second, it will run a check to attempt to detect spoofing, and it will then log ephemeris information if power is lost or a hot start is attempted. Lastly, it will transmit the timestamp to the main processing unit for further use.
 
-The GNSS Module is the main source for retrieveing the timestamps that our system will be distributing downstream. First, it recieves a signal containing the 
-timestamp from a satellite constallation. Second, it will run a check to attempt to detect spoofing, and it will then log ephemermis imformation if power is lost
-or a hot start is attempted. Lastly it will transmitt the timestamp to the main processing unit for further use.
-
-Functions:
+**Functions**:
 - Recieve Timestamps
 - Perform Security Checks
 
-Inputs:
+**Inputs**:
 - Timestamps from satellites
 - Programming from processor using USB
 - Power from power supply
 
-Outputs:
-- Timestamp sent to processor using I2C/UART
+**Outputs**:
+- Timestamp sent to processor using I2C/UART/PPS
 - Current Status sent to processor using I2C/UART
 
-Interfaces:
+**Interfaces**:
 - Settings Control from processor 
 - Data echange with processor
 - Power from power supply
 
-High-Level Requirements:
+**High-Level Requirements**:
 - Shall Retrieve accurate timestamps
 - Shall be secure from attempts to spoof or attack it
+
+**Sources of uncertainty**:
+
+[1]“ITU-T Technical Report GSTR-GNSS Considerations on the Use of GNSS as a Primary Time Reference in Telecommunications,” 2020. Accessed: Nov. 09, 2026. [Online]. Available: https://www.itu.int/dms_pub/itu-t/opb/tut/T-TUT-HOME-2020-PDF-E.pdf
+
+
+The main sources of uncertainty introduced when the signal is transmitted from the satellite are the ionosphere, troposphere, multipathing, and hardware delays. However, it’s hard to calculate the effects from many of these sources, so we will use the simplified model of pseudo-range.
+Pseudo-range is the apparent (not absolute geometric distance due to phenomena that affects propogation) distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times. 
+
+It is defined as:
+
+$$
+\
+\sigma =
+\sqrt{(x_i-x_a)^2+(y_i-y_a)^2+(z_i-z_a)^2}
++c(t_{\text{offset}}+dt_{ar})
+=c(t_{ar}-t_i)
+\
+$$
+
+$x_i$ , $y_i$ , $z_i$ is the current satellite location
+
+$x_a$ , $y_a$ , $z_a$ is the current receiver location
+
+$c$ is the speed of light
+
+$t_{offset}$ is the real time offset of the receiver’s local time
+
+$dt_{ar}$ is the real propagation delay between the antenna phase center and receiver correlator
+
+To account for the time delay rearrange the above equation:
+
+Set:
+
+$$
+\
+R = \sqrt{(x_i-x_a)^2+(y_i-y_a)^2+(z_i-z_a)^2}
+\
+$$
+
+$$
+\
+\delta t = t_{\text{offset}} + dt_{ar}
+\
+$$
+
+$$
+\
+\sigma = R + c\delta t
+\
+$$
+
+Rearranging to isolate the timing offset:
+
+$$
+\
+\boxed{\delta t = \frac{\sigma-R}{c}}
+\
+$$
+
+These equations show how the geometric relationship between the satellites and the receiver corresponds to a total timing offset. In reality, it takes multiple satellites to actually solve the above equation. 
+
+[1]“One Way GNSS Time Transfer | NIST,” NIST, May 17, 2016. https://www.nist.gov/pml/time-and-frequency-division/time-services/one-way-gnss-time-transfer (accessed Nov. 10, 2026).
+
+Since our system is stationary, we can approximate this geometric uncertainty to around 3-6ns if we know the position of our receiver within an accuracy of a few meters. As for ionosphere, during nighttime, it can add 10s of ns in uncertainty and in the daytime, can add 100s of ns in uncertainty. Another source of uncertainty is the relativistic Sagnac effect, which can add around 200ns of delay[1].   
+
 
 ## Processor
 
