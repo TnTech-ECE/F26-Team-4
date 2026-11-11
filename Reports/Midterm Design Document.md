@@ -332,6 +332,24 @@ Introduction and Broader Impacts/Ethics - Everett Patterson
 
 [^16]:D. Ehlers, “TimeMachines Time Server Accuracy (TM1000A, TM2000A/B, TM2500B) – Revision D,” Technical report, Jan. 2024. [Online]. Available: https://timemachinescorp.com/wp-content/uploads/TMTimeServerAccuracyRevB.pdf
 
+## High-Level Solution
+The Network Time Server provides a secure platform that will allow its users to retrieve accurate timestamps which will allow them to properly operate their systems. By integrating accurate time sources, precise and reliable hold-over systems, protection from malicious entities, and flexible, capable open source software,the design will achieve accurate timestamps even in hostile enviorments.
+
+To meet the criterion proposed above, the system will be composed of:
+
+
+- A Power Supply capable of providing adequate power during normal operation and able to switch to a backup if there is an interruption 
+- A RHCP Antenna to properly receive GNSS signals which contain the timestamps desired
+- A dedicated GNSS Receiver that will perform the signal processing, and able to transmit the acquired time via PPS
+- A Processor that will receive the processed GNSS signal with the timestamp, discipline the holdover system, run security software, and distribute timestamps to clients
+- A software that will run Network Time Protocol and Network Time Security
+- A software that will ensure reliable timestamps are distributed to clients
+- An enclosure that will hold and protect the system
+
+
+
+
+
 ## Comparative Analysis of Potential Solutions
 The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare-metal implementation. There are advantages and disadvantages for each approach:
 
