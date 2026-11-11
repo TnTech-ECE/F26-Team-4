@@ -32,7 +32,21 @@ To meet the criterion proposed above, the system will be composed of:
 ## Comparative Analysis of Potential Solutions
 
 ### Power Supply
-The power supplies' job is to provide power to maintain a stable operating condition in normal and in extraordinary conditions, have a back supply incase the wall outlet fails. It should be able to switch fast enough as to maintain synchronicity after loss of power. 
+The Power Supply subsystem is responsible for providing consistent electrical power to the Network Time Server and its connected components. Reliable power is important to ensure the server can maintain accurate time and continue distributing timestamps to clients. Because interruptions in electrical power could cause the server to lose operation, several potential power configurations were considered.
+
+**External AC/DC Power Supply:** This option would involve using an AC/DC adapter to convert standard wall power into the DC voltage required by the system. The proposed design uses a 5.1 V, 15 W AC/DC adapter to power the Raspberry Pi 3. This method is relatively simple and inexpensive to implement and provides a consistent source of power during normal operation. However, the primary disadvantage is that the server would lose power during an electrical outage unless an additional backup source were included.
+
+**Battery-Only Power Supply:** This option would involve using a rechargeable battery as the primary power source for the server. The main advantage is that the system would not depend on a continuous connection to an AC outlet. However, the amount of time the server could operate would depend on the available battery capacity and the total power consumption of the system. The battery would also require periodic charging and monitoring to ensure that sufficient power remains available.
+
+**AC/DC Power Supply with Battery Backup:** This option combines an external AC/DC adapter with a rechargeable battery backup system. During normal operation, the AC/DC adapter supplies power to the server while the battery remains available for backup. If the primary power source is interrupted, the backup system is intended to maintain power to the server and its critical components. The proposed design uses a 5.1 V, 15 W AC/DC adapter along with a 16,000 mAh, 18 W mini UPS. Although this configuration introduces additional cost and implementation considerations, it provides the benefit of having both a primary power source and backup power available.
+
+After considering the advantages and disadvantages of each configuration, the AC/DC power supply with battery backup was selected for the project. This configuration provides a reliable primary power source while also allowing the server to continue operating during power interruptions, provided the backup system supports the complete system load. Before final implementation, the voltage and current requirements of the Raspberry Pi, GNSS receiver, OCXO, and other connected components must be verified to ensure compatibility with the selected equipment.
+
+| **Power Configuration** | **Pros** | **Cons** |
+| ------------ | ------------ | ------------ |
+| External AC/DC Power Supply | Simple implementation, relatively inexpensive, provides consistent power during normal operation. | No backup power during an electrical outage. |
+| Battery-Only Power Supply | Independent of wall power, allows operation during electrical outages. | Limited operating time, requires charging and battery monitoring. |
+| AC/DC Power Supply with Battery Backup | Provides a primary power source and backup power, improves system availability during outages. | Higher cost, additional components, requires verification of power compatibility and switchover behavior. |
 
 ### Antenna
 
