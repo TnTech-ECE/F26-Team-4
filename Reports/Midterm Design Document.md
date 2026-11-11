@@ -369,11 +369,27 @@ The GNSS Module is the main source of timestamps of the system. It should be abl
 ### Processor
 This is the brains of the system. It coordinates the operation of the GNSS Module, external oscillator, and transmission of timestamps to clients. It will be able to change the settings of the system to the user's desired settings. It will also coordinate security and quality checks.
 
-### Client Communication
-The client communication is the bridge between the server and the clients. It ensures proper distribution of timestamps to clients, and ensures the clients have proper authentication.
+### Client Communication and Clock Synchronization
+The Client Communication amd Clock Synchronization subsystems are the backbone of the NTP server. They ensure accurate system time in the server and ensure proper distribution of timestamps to clients, and ensure the clients have proper authentication.
 
-### Device Security
-This encompasses the overall security of the system. The system will have a firewall to prevent unwanted intrusions and ensure proper authentication to access the secure timestamps and to change the settings of the system.
+The functionality of these subsystems is what makes this project an NTP server at all, and therefore we need to take careful consideration of how they will be implemented. When researching solutions to the software side of the project, a few major potential solutions stuck out. 
+
+**Custom NTP Software:** 
+This would involve writing the software to receive timestamps, calculate accurate internal timing, process, and respond to NTP requests securely. This method would allow us full control over the implementation, and forces a deep understanding of the protocols used. The downside is the mountain of research and development that would go into it.  
+
+**Existing NTP Software:**
+This would involve using an established NTP implementation such as Chrony or NTPsec. There are many advantages to taking this route. One of which is that we can build off of tools with proven implementation and support for everything that may be needed. In addition, there exists a wealth of documentation and user threads that explain and help troubleshoot these softwares. The primary downside would be that we have less control over the implementation. Given the many advantages to this type of implementation, this is the route we went with.   
+
+However even after the decision to use existing software was made, there still existed many software options to choose from. Below is a breakdown of the main NTP tools available.  
+
+
+| Software | Pros                                                                                                                                                                     | Cons                                                                                                                                                              |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Chrony[2]   | It's the modern day gold standard. It has functionality for up to nanosecond accuracy, NTS capabilities, is VM-friendly, and designed to work well on conjested networks | Complex configuration when compared to its alternatives                                                                                                           |
+| NTPD[3]     | Capable of working on very old systems. It is also well documented as a result of its age.                                                                               | It is the original NTP software. Requires legacy operating systems. Includes very little security functionality                                                   |
+| NTPsec[4]   | Modernized version of NTPD. Developed to add modern day security requirements to these legacy systems.                                                                   | It is not used very often and as a result has limited documentation and support. It is a direct competitor to Chrony and is often looked over in favor of Chrony. |
+| OpenNTPD[5] | Very lightwieght and requires very few system resources. Developed to be very secure.                                                                                    | Less accurate as a result of being designed for security over all else.                                                                                           |
+
 
 ### Holdover Oscillator
 Under normal conditions, the system will receive timing from the satellite constellations or other known sources. However should the connection get lost, or if timing information is required between communication periods of the other time sources, an accurate backup, or holdover, time source is needed. While other types of oscillators exist, a crystal oscillator is among the most consistent, accurate, and available holdover source on the market, as such a crystal oscillator will be our holdover oscillator source.
@@ -451,9 +467,6 @@ $$
 ## CHANGE THE NUMBERS IN THIS SECTION RAAAAAAAAA
 Finally, we can plug in our desired drift of 40 us/day and find that we need a ppm offset of, at most, ~0.46 ppb which makes an OCXO the clear choice 
 It is worth noting that with proper controls techniques, the accuracy of the oscillator can be improved past its base ppm value, and as such the ppm value obtained should be used as a ballpark estimate of what class of oscillator we need and not an exact value.
-### Clock Synchronization
-Clock synchronization is the process by which the program will validate each signal source received, and then choose which source to use for timing data, which will then be given to Client Communication.
-
 
 ### Enclosure
 The enclosure is the housing that will contain all the subsystems, except for antenna, in a neat way. Given the nature of the project a custom enclosure is required. As this project needs to be accessible, complex housing techniques such as milling or injection molding are off the table, which leaves 3D printing. 3D printing will provide the most accessible results, and will allow the user to customize more easily if desired.
