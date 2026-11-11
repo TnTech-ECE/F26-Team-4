@@ -8,6 +8,12 @@ This project aims to provide a solution to this issue, via a more secure and rob
 
 Off-the-shelf solutions, while available, do not provide the same functionality relative to our expected cost, often featuring less robust servers or being prohibitively expensive. Additionally, due to our design being intended to be disseminated to the public, there will theoretically exist space within the project for the individual to make changes, and add or remove elements as they need. 
 
+#### Stakeholder
+This project was created at the request of our primary stakeholder, Dr. Jeffrey Austen, who requested a resilient GPS-disciplined time source using NTP.  He requested this time source to be resilient particularly against GPS signal loss, while maintaining accuracy and precision over time.  Additionally, he requested that this design be accessible to those with limited budgets and resources.  
+
+This has affected several design choices, such as the prioritization of GPS or the use of Chrony software to handle NTP, as well as our commitment to using as easily accessible parts and procedures as reasonably possible.
+
+
 ## Fully Formulated Problem
 The Primary objective of this project is to build a low cost, accessible, and effective Network Timer Server that provides accurate timestamps by using time references like satellite constellations and online servers. The system shall also be secure from attempts of subversion such as DDOS and Man in the Middle attacks.
 
@@ -826,7 +832,7 @@ High-Level Requirements:
 
 ## Clock Synchronization
 
-The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [^5]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [^4]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
+The system will receive various signals and, using the data received, output one unified time signal.  GPS will be ordinarily taken as standard, and thus used as the primary time source.  However, if GPS signal is lost, or falls outside of acceptable tolerance, then other sources will be brought to the foreground. [5]  The first to be used after GPS fails will be the alternate GNSS constellations, such as Galileo or BeiDou.  Should those also fail, the internet sources, such as NIST, will be taken.  Finally, the WWVB Radio signal will be taken.  [4]   All of these will be compared against the oscillator's holdover system, which, in the event of total signal loss, will act as the last clock source remaining.  
 The output will be the time code received of the most reliable signal, which will be passed on to the client communication subsystem. 
 
 
@@ -848,7 +854,7 @@ Should a jump in real-time output occur, the output will be slewed into accuracy
 
 The reliability check will work as such: each received signal will be taken, with an expected tolerance (transmission/propagation delay, jitter, etc), and compared against each other and the oscillator, weighted in terms of priority.  If a signal is an outlier, it will be momentarily flagged until it comes back into agreement. 
 
-This subsystem will be developed in accordance with the standards foynd in RFC 5905. [2]
+This subsystem will be developed in accordance with the standards found in RFC 5905. [2]
 
 
 Purpose:
@@ -861,12 +867,13 @@ Input:
 - WWVB Radio
 
 Output:
-- Accurate time signal upon client request
+- Accurate time signal to client communication system
 
 High Level
 - The system shall receive multiple signal inputs.
 - The system shall validate the received inputs and disregard those declared invalid.
 - The system shall output a validated time signal. 
+
 
 
 ## Enclosure
@@ -889,12 +896,11 @@ High Level:
 
 
 ## Ethical, Professional, and Standards Considerations
-
 This project will expand on the security and accuracy of currently available timing systems, which is a crucial part of PTN (positioning, timing, navigation). Timing, due to its broad use and necessity in critical systems, has a great need for improvements to security. This project will aim to provide these needed improvements for an affordable cost.
 
 Additionally, the design and dissemination of this project will contribute to greater time server independence, meaning that this project will likely provide timing more precise and resilient than standard, default internet based timing, while also no longer being so overly reliant on the internet.  Thus increasing broader access to secure timing sources. 
 
-Finally, the project will be released publicly, thus reducing the barriers for any who may be interested in following this design. This improves accessibility and inclusivity of the project, including to those such as independent citizens, universities and organizations, as well as businesses of varying sizes. Each should be fully capable, if desirous, to make use of this project.  
+Finally, the project will be released publicly, thus reducing the barriers for any who may be interested in following this design. This improves accessibility and inclusivity of the project, including to those such as independent citizens, universities and organizations, as well as businesses of varying sizes. Each person or group should be fully capable, if desirous, to make use of this project, with as few barriers as reasonably possible.
 
 #### Risk to Network Security
 This project will involve network connections from various sources, including international sources. These, along with communications between the server and the client, leave the potential open for malicious activity. 
@@ -909,13 +915,47 @@ This project may impact the environment due to waste products, especially if the
 Mitigation: We plan to mitigate this issue by having precise documentation, including detailed replication instructions and warning concerning ways to reduce debris, thus allowing any who come after us to create this design without wasting or destroying any components. 
 
 #### Cost and Skill to implement
-This project, despite its reduced cost compared to the current market, may still be prohibitively expensive for those creating it, or too challenging to implement.
+This project, despite its reduced cost compared to the current market, may still be prohibitively expensive for those creating it, or too challenging to implement, particularly for those who are underprivileged or of lower socio-economic status.
 Mitigation: While there is only so much that may be done for the cost of this project, we intend to reduce necessary costs as much as reasonably possible, thus making the design as accessible as can be helped. Additionally, we may mitigate the skill requirement by being precise and explanatory in our design documents so that the skill requirements may be as low as reasonably possible.
 
 #### Ethics:
 While this project is designed for the individual to have a secure time server, this does not come without ethical considerations. First of all, we as engineers must clearly communicate to both our client and any who come after us that this project will not be a perfectly secure system, as none is. Additionally, our project will employ a number of open source software, as well as off-the-shelf components, and thus will be vulnerable to any issues inherent to them. We must therefore keep expectations clear and precise regarding the exact elements of this project. Honesty, integrity, transparency, and safety must be core pillars of our design process. 
 
-The engineers involved must hold themselves to the IEEE Code of Ethics. [^6]
+The engineers involved must hold themselves to the IEEE Code of Ethics. [6]
+
+#### A brief explanation of the IEEE Code of Ethics:
+
+I.1
+This means that we will strive to ensure that this time server project will only be capable of benefiting the public rather than harming it. As such we will carefully consider the impacts of every design decision.
+
+I.2
+This means that we will be bound to have documentation that not only explains how this can be implemented, but why it may be, and what that would mean for those implementing it.
+
+I.3
+This means that our documentation must also disclose any conflicts of interest that ma arise, of which, thus far, there have been none.
+
+I.4
+This means that we will act lawfully in all ways, including honesty concerning citations so as to avoid plagiarism or theft of intellectual property.
+
+I.5 
+This means that we will be willing and able to correct our work when given feedback and criticism.
+
+I.6
+This mkeans that we will disclose our own limitations, including the fact that this team is comprised of undergraduate students.
+
+II.7
+This means that both our personal conduct in this project as well as the final design will not be discriminatory against any group.
+
+II.8
+This means that our team will not engage in any harassment, and work to ensure that no harassment may be performed with help of this design.
+
+II.9
+This means that the team will avoid slander and libel of all persons and groups, as well as ensuring that no such actions would be enabled by the design.
+
+III.10
+This means that each team member is expected to hold each other accountable, while respecting those that do so. 
+
+
 
 #### Ethics in Design Decisions:
 Additionally, teams must consider relevant standards organizations that will inform the design process. A comprehensive discussion should be included on how these considerations have influenced the design. This includes detailing constraints, specifications, and practices implemented as a result, and how these address the identified considerations. 
@@ -928,9 +968,12 @@ In keeping with our ethical commitments to clarity and functionality, the projec
 	Title 47 CFR Part 15 regulation for Radio Frequency Devices 
 	RFC 5905 Network Time Protocol Version 4 
 
-Also, our decision to use off-the-shelf components and software, rather than designing the entire system from the ground up, was for the sake of ease of use and implementation, so as to not unduly burden those with smaller budgets or limited skillsets.
+Also, our decision to use off-the-shelf components and software, rather than designing the entire system from the ground up, was for the sake of ease of use and implementation, so as to not unduly burden those with limited resources or skillsets, or other generally underprivileged groups.
 
 Finally, our design features many network security features so that malicious activity may be limited and restrained, insofar as reason and our available technology permits. These include a firewall and interface monitoring.  Additionally, our own software will not contain malicious elements. 
+
+
+
 
 
 ## Budget and Resources
