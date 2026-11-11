@@ -311,7 +311,6 @@ or a hot start is attempted. Lastly it will transmitt the timestamp to the main 
 
 
 The main sources of uncertainty introduced when the signal is transmitted from the satellite are the ionosphere, troposphere, multipathing, and hardware delays. However, it’s hard to calculate the effects from many of these sources, so we will use the simplified model of pseudo-range.
-
 Pseudo-range is the apparent (not absolute geometric distance due to phenomena that affects propogation) distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times. 
 
 It is defined as:
@@ -365,13 +364,11 @@ $$
 \
 $$
 
-
+These equations show how the geometric relationship between the satellites and the receiver corresponds to a total timing offset. In reality, it takes multiple satellites to actually solve the above equation. 
 
 [1]“One Way GNSS Time Transfer | NIST,” NIST, May 17, 2016. https://www.nist.gov/pml/time-and-frequency-division/time-services/one-way-gnss-time-transfer (accessed Nov. 10, 2026).
 
-
-In practice, one satellite cannot solve the above equations accurately, which is why modern GNSS systems us multiple satellites to solve the above equations. For our purposes, we can used established sources and we can estimate that the time delay from the satellites to our receiver will be roughly 3 to 6 ns if we know the location of the receiver within a few meters, which works as that is around the accuracy of most satellites[1].
-
+Since our system is stationary, we can approximate this geometric uncertainty to around 3-6ns if we know the position of our receiver within an accuracy of a few meters. As for ionosphere, during nighttime, it can add 10s of ns in uncertainty and in the daytime, can add 100s of ns in uncertainty. Another source of uncertainty is the relativistic Sagnac effect, which can add around 200ns of delay[1].    
 
 ## Processor
 
