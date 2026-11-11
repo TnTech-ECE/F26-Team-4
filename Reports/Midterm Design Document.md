@@ -653,7 +653,7 @@ The GNSS Module is the main source for retrieving the timestamps that our system
 
 
 The main sources of uncertainty introduced when the signal is transmitted from the satellite are the ionosphere, troposphere, multipathing, and hardware delays. However, it’s hard to calculate the effects from many of these sources, so we will use the simplified model of pseudo-range.
-Pseudo-range is the apparent (not absolute geometric distance due to phenomena that affects propogation) distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times. 
+Pseudo-range is the apparent (not absolute geometric distance due to phenomena that affects propogation) distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times[1]. 
 
 It is defined as:
 
@@ -708,9 +708,9 @@ $$
 
 These equations show how the geometric relationship between the satellites and the receiver corresponds to a total timing offset. In reality, it takes multiple satellites to actually solve the above equation. 
 
-[1]“One Way GNSS Time Transfer | NIST,” NIST, May 17, 2016. https://www.nist.gov/pml/time-and-frequency-division/time-services/one-way-gnss-time-transfer (accessed Nov. 10, 2026).
+[2]“One Way GNSS Time Transfer | NIST,” NIST, May 17, 2016. https://www.nist.gov/pml/time-and-frequency-division/time-services/one-way-gnss-time-transfer (accessed Nov. 10, 2026).
 
-Since our system is stationary, we can approximate this geometric uncertainty to around 3-6ns if we know the position of our receiver within an accuracy of a few meters. As for ionosphere, during nighttime, it can add 10s of ns in uncertainty and in the daytime, can add 100s of ns in uncertainty. Another source of uncertainty is the relativistic Sagnac effect, which can add around 200ns of delay[1].   
+Since our system is stationary, we can approximate this geometric uncertainty to around 3-6ns if we know the position of our receiver within an accuracy of a few meters. As for ionosphere, during nighttime, it can add 10s of ns in uncertainty and in the daytime, can add 100s of ns in uncertainty. Another source of uncertainty is the relativistic Sagnac effect, which can add around 200ns of delay[2].   
 
 
 ## Processor
