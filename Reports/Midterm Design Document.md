@@ -363,6 +363,44 @@ After considering the advantages and disadvantages of each configuration, the AC
 | Battery-Only Power Supply | Independent of wall power, allows operation during electrical outages. | Limited operating time, requires charging and battery monitoring. |
 | AC/DC Power Supply with Battery Backup | Provides a primary power source and backup power, improves system availability during outages. | Higher cost, additional components, requires verification of power compatibility and switchover behavior. |
 
+
+
+### Antenna
+
+
+[1]Novatech, “What is Circular Polarization and Its Impact on GNSS/GPS Antennas?,” Novatech.com, 2026. https://novotech.com/pages/circular-polarization (accessed Nov. 10, 2026).
+
+[2]“GNSS Antennas RF Design Considerations for U-Blox GNSS Receivers Application Note.” Accessed: Nov. 10, 2026. [Online]. Available: https://content.u-blox.com/sites/default/files/products/documents/GNSS-Antennas_AppNote_%28UBX-15030289%29.pdf
+
+The antenna is the backbone of the entire system. It is what receives timestamps from the satellite constellations and therefore is of vital importance. From research, the antenna must be able to receive Right-Hand Circular Polarization (RHCP) signals as it's what most GNSS satellites use. RHCP signals have these advantages: reduced signal obstruction, as RHCP maintains the integrity of signals through buildings, trees ect, Enhanced Multipath Rejection, as RHCP favors direct line of sight, and improved reception quality as RHCP maintains signals quality across various orientations[1]. To utilize these qualities, the system will acquire a RHCP antenna of one of these types: Patch Antenna, Helix Antenna, and Choke Ring Antenna.
+
+
+Comparison[2]:
+
+- **Patch Antenna**:
+This is the cheapest and most common type of antenna. They usually boast a decent gain in a very compact shape, which makes it very portable and useful. They also have a very high-quality factor due to their high radiation efficiency, but this causes a narrower bandwidth. Lastly, they come in a range of prices from 6$ to 100$s. They are very customizable and affordable.
+
+- **Helix Antenna**:
+The Helical Antenna has several advantages that would make it palatable. It is directional antenna with a higher gain then a patch antenna, and works very well with CP. It also has a wideband, making it suitable for GNSS, as it is able to cover most bands that satellites use. However, they usually have a larger size and cost more. Thus, making them unpalatable for our project as size and cost are major considerations
+
+- **Choke Ring Antenna**: 
+The Choke Ring Antennas are very high-quality. They have very good multipath suppression due to its geometry inherently forming filters. It is also an omnidirectional antenna, which would make reception from multiple constellations much easier. Unfortunately, these types of antennas are very expensive, starting at 500$. This immediately disqualifies it.
+
+
+| Antenna Type | Advantages | Disadvantages |
+|---|---|---|
+| **Patch Antenna** | - Cheapest and most common antenna type<br>- Decent gain in a compact form factor<br>- Portable and easy to integrate<br>- High radiation efficiency<br>- Highly customizable<br>- Affordable, with prices ranging from approximately $6 to $100+ | - Narrower bandwidth due to its high quality factor<br>- Performance can depend heavily on ground-plane design and antenna orientation |
+| **Helical Antenna** | - Directional antenna with potentially higher gain than a patch antenna<br>- Works well with circular polarization (CP)<br>- Wide bandwidth, allowing coverage of multiple GNSS frequency bands | - Larger physical size<br>- Generally more expensive than patch antennas<br>- Less suitable for the project's size and cost constraints |
+| **Choke Ring Antenna** | - Excellent multipath suppression<br>- Geometry reduces signals arriving from unwanted directions<br>- Omnidirectional azimuth coverage<br>- Suitable for high-precision GNSS applications | - Very expensive, with prices often starting around $500<br>- Large and bulky<br>- Excessive performance for the project's requirements |
+
+
+Taking all these factors into consideration, our project will be using a patch antenna. It is cheap enough to fit in our budget, and its size can easily fit in a server room. There are also many options so we can find the best option for our system. 
+
+
+
+
+
+
 ### GNSS Module
 The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts. There are two main approaches to processing the data received from the antenna which are using a dedicated GNSS Module or using a Software Defined Radio (SDR).  
 
