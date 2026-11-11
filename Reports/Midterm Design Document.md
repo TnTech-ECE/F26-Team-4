@@ -364,7 +364,32 @@ After considering the advantages and disadvantages of each configuration, the AC
 | AC/DC Power Supply with Battery Backup | Provides a primary power source and backup power, improves system availability during outages. | Higher cost, additional components, requires verification of power compatibility and switchover behavior. |
 
 ### GNSS Module
-The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts
+The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts. There are two main approaches to processing the data received from the antenna which are using a dedicated GNSS Module or using a Software Defined Radio (SDR).  
+
+The SDR approach is viable but has severe disadvantages that prevent it from being practicable. Firstly, it requires the user to have experience in the broad field of Digital Signal Processing. They must know how to properly set of filters, handle IQ manually, and understand modulation schemes. They also must be generally skilled in embedded system development. They must have knowledge of GNSS operation and how to account for them. They need to be able to account for timing delay incurred by the distance the signal will travel, and effects caused by the atmosphere. Another consideration is that to acquire an SDR capable of receiving and processing GNSS signal, the cost is usually much greater than what a dedicated GNSS Module would cost. With these considerations, the SDR approach introduces unnecessary complications and cost.
+
+The GNSS approach is the preferred approach for our project. They are completely self-contained boards, which require little to no knowledge of the underlying mechanics of GNSS and signal processing. They are capable of filtering and extracting useful information like timestamps and positioning data with just configuring the board, and letting it do all the work. Its also capable of delivering UART, SPI, and I2C to communicate with external modules and it's able to emit PPS to transmit accurate timing events. The last consideration is cost. We can acquire a board that can perform all these functions for around 100$, which is well within budget.
+
+With these considerations, the project will move forward with a dedicated GNSS Module.
+
+| Approach | Advantages | Disadvantages |
+|---|---|---|
+| **Dedicated GNSS Receiver** | Integrated RF and signal-processing components | Less flexible than an SDR |
+| **Dedicated GNSS Receiver** | Requires minimal GNSS signal-processing expertise | Limited access to raw GNSS signal data |
+| **Dedicated GNSS Receiver** | Provides timestamps, positioning data, and receiver status | Limited control over internal processing algorithms |
+| **Dedicated GNSS Receiver** | Supports UART, SPI, and I²C communication | Dependent on manufacturer-provided functionality |
+| **Dedicated GNSS Receiver** | Provides precise PPS timing output | Spoofing and jamming detection capabilities vary |
+| **Dedicated GNSS Receiver** | Lower development and integration complexity | Performance can be affected by interference, obstruction, and multipath |
+| **Dedicated GNSS Receiver** | Relatively low cost (approximately $100) | |
+| **SDR** | Highly configurable and flexible | Requires knowledge of DSP, RF engineering, and GNSS |
+| **SDR** | Provides access to raw I/Q signal samples | Requires software development for signal acquisition and tracking |
+| **SDR** | Allows custom GNSS signal-processing implementations | Additional effort required to generate and validate accurate PPS output |
+| **SDR** | Supports experimentation with different GNSS signals | May require additional RF hardware and processing resources |
+| **SDR** | Greater control over signal acquisition and tracking | Greater development and integration complexity |
+| **SDR** | Can be adapted for custom interference detection and analysis | Potentially higher overall system cost |
+| **SDR** | Flexible for future signal-processing applications | Requires extensive testing to establish timing accuracy and reliability |
+
+
 
 ### Processor
 This is the brains of the system. It coordinates the operation of the GNSS Module, external oscillator, and transmission of timestamps to clients. It will be able to change the settings of the system to the user's desired settings. It will also coordinate security and quality checks.
