@@ -351,15 +351,6 @@ To meet the criterion proposed above, the system will be composed of:
 
 
 ## Comparative Analysis of Potential Solutions
-The biggest consideration within this project was deciding our solution for NTP communication; our two proposed solutions were to either use a SoC running Linux with an open-source solution such as Chrony or some microcontroller with bare-metal implementation. There are advantages and disadvantages for each approach:
-
-|       | SoC Implementation                                                                                                                                                                                                                   | Microcontroller Implementation                                                                   |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| Pros: | - Ease of implementation<br>- Built-in NTS and other security protocols<br>- Simple Multiple Time Source integration<br>- Easy time source metric tracking, such as drift of individual sources<br>- Simpler Networking capabilities | - Lower Cost<br>- More Compact                                                                   |
-| Cons: | -May increase the total cost of the project                                                                                                                                                                                          | - Harder overall implementation<br>- Requires more time to develop<br>-  Potentially less secure |
-Given the options proposed, we decided that the marginally lower cost wasn't worth the difficulties involving implementation and potential security issues of a bare-metal solution. With the advantages that an SoC provides, it's the clear choice for this project.
-
-Once we decided our system type, the next item of consideration was our time sources. Our client specifications required a GPS source, so that made it non-negotiable. The additional sources (Radio, Oscillator, and Internet Time Servers) we consider adding are to improve the robustness of the system.
 
 ### Power Supply
 The Power Supply subsystem is responsible for providing consistent electrical power to the Network Time Server and its connected components. Reliable power is important to ensure the server can maintain accurate time and continue distributing timestamps to clients. Because interruptions in electrical power could cause the server to lose operation, several potential power configurations were considered.
