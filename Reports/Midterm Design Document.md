@@ -883,7 +883,7 @@ I.5
 This means that we will be willing and able to correct our work when given feedback and criticism.
 
 I.6
-This mkeans that we will disclose our own limitations, including the fact that this team is comprised of undergraduate students.
+This means that we will disclose our own limitations, including the fact that this team is comprised of undergraduate students.
 
 II.7
 This means that both our personal conduct in this project as well as the final design will not be discriminatory against any group.
