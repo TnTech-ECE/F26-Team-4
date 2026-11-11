@@ -263,29 +263,29 @@ The GNSS Module is the main source for retrieveing the timestamps that our syste
 timestamp from a satellite constallation. Second, it will run a check to attempt to detect spoofing, and it will then log ephemermis imformation if power is lost
 or a hot start is attempted. Lastly it will transmitt the timestamp to the main processing unit for further use.
 
-Functions:
+**Functions**:
 - Recieve Timestamps
 - Perform Security Checks
 
-Inputs:
+**Inputs**:
 - Timestamps from satellites
 - Programming from processor using USB
 - Power from power supply
 
-Outputs:
+**Outputs**:
 - Timestamp sent to processor using I2C/UART/PPS
 - Current Status sent to processor using I2C/UART
 
-Interfaces:
+**Interfaces**:
 - Settings Control from processor 
 - Data echange with processor
 - Power from power supply
 
-High-Level Requirements:
+**High-Level Requirements**:
 - Shall Retrieve accurate timestamps
 - Shall be secure from attempts to spoof or attack it
 
-Sources of uncertainty:
+**Sources of uncertainty**:
 
 [1]“ITU-T Technical Report GSTR-GNSS Considerations on the Use of GNSS as a Primary Time Reference in Telecommunications,” 2020. Accessed: Nov. 09, 2026. [Online]. Available: https://www.itu.int/dms_pub/itu-t/opb/tut/T-TUT-HOME-2020-PDF-E.pdf
 
@@ -361,29 +361,29 @@ to clients downstream. It will also tune an oscillator to timestamps recieved, w
 The processor will also be used to program external modules like the GNSS module to achieve the desired settings the user wants. Lastly, the processor will transmit
 the secure timestamps to clients, and will display its current settings and status to the user.
 
-Functions:
+**Functions**:
 - Recieve and process timestamps
 - Tune the holdover system
 - Enforce rigorous security measures
 - Transmit timestamps to clients
 
-Inputs:
+**Inputs**:
 - Commands to change system settings
 - Timestamps from GNSS via UART/I2C
 - Status from peripherials
 - Power from Power Supply
 
-Outputs:
+**Outputs**:
 - Timestamps to clients over wifi or ethernet cable.
 - Commands to peripherials over I2C/UART
 - Current status and settings
 
-Interfaces:
+**Interfaces**:
 - Information from external modules (GNSS, Oscillator)
 - Transmission of timestamps to clients
 - Power from power supply
 
-High-Level Requirements:
+**High-Level Requirements**:
 - The system shall recieve accurate timestamps from satellite constellations
 - The system will ensure the timestamps are secure and that the system is resistant from attempts to subvert it
 - The system will be able properly control peripherials and transmitt accurate timestamps to clients
@@ -414,36 +414,36 @@ $$
 $$
 
 
-Functions: 
+**Functions**: 
 - Supply accurate NTP data to the clients on its network  
 - Maintain high levels of security using NTS to ensure the accuracy of the data  
 
-Inputs:  
+**Inputs**:  
 - Clock disciplined system time determined by the clock synchronization system.   
 
-Outputs:  
+**Outputs**:  
 - NTP signals, secured by NTS, carrying the data to clients
 
-High-Level Requirements:
+**High-Level Requirements**:
 - The system shall relay secure NTS protected signals  
 - The system shall relay accurate information to connected clients
 
 ## Device Security  
 Device security encapsulates the measures needed to protect the server from cybersecurity threats beyond incorrect timing data. It will allow the device to be safe from bad actors on its network. To ensure a secure server, we will implement a firewall to lock down the ports and allow only the ones needed for basic server function. This includes port 123 for NTP, port 4460 for NTS and port 22 for SSH (A secure network protocol used to remotely access systems)[6][7]. To allow for secure administrator control SSH key authentication will be implemented to prevent potentially faulty passwords that can be compromised[8]. We will restrict Chrony to a non-root user to ensure that if Chrony is compromised, the attacker cannot gain access to the entire server. Monitoring will also be used to ensure important configuration files are secure and unchanged and noting any NTP synchronization anomalies.  
 
-Functions:  
+**Functions**:  
 - Protect the NTP server from unauthorized access and attempted compromise.
 - Safely monitor the NTP server to allow for secure admin access.
 - Log suspicious activity for administrator review.
 
-Inputs: 
+**Inputs**: 
 - Incoming internet communication and signals of any kind
 - Information from connected physical devices such as USB interfaces
 
-Outputs: 
+**Outputs**: 
 - Security-authorized inputs to be passed onto the Clock Synchronization subsystem
 
-High-Level Requirements:
+**High-Level Requirements**:
 - The system shall remain secure and protected from intentional interference using firewalls and software quarantining. 
 - The system shall block all incoming signals except those needed for device functionaility. 
 - The system shall provide secure access for administrators using SSH.
@@ -451,13 +451,13 @@ High-Level Requirements:
 ## The Holdover Oscillator   
 The Oscillator provides a consistent periodic signal as a time reference for the system to use when all other methods fail, or to use between periods of incoming reference signals for a more accurate device output. Depending on the type of oscillator used, if it is not an enclosed unit, we may need to implement a control loop to output a signal suitable for the SoC. 
 
-Functions:
+**Functions**:
 - Providing a known time reference signal
-Inputs:
+**Inputs**:
 - Power from power supply
-Outputs:
+**Outputs**:
 - A known reference frequency sent to the SoC
-High-Level Requirements:
+**High-Level Requirements**:
 - The system shall keep a holdover with at most a 1 s/day drift
 - The system shall maintain a consistent and predictable pulse frequency
 
@@ -470,19 +470,19 @@ Should a jump in real-time output occur, the output will be slewed into accuracy
 
 The reliability check will work as such: each received signal will be taken, with an expected tolerance (transmission/propagation delay, jitter, etc), and compared against each other and the oscillator, weighted in terms of priority.  If a signal is an outlier, it will be momentarily flagged until it comes back into agreement. 
 
-Purpose:
+**Purpose**:
 - Validate the accuracy of received time signals and determine output signal.
 
-Input:
+**Input**:
 - Internet Sources
 - Oscillator and PPS
 - GPS + GNSS
 - WWVB Radio
 
-Output:
+**Output**:
 - Accurate time signal upon client request
 
-High Level
+**High Level**
 - The system shall receive multiple signal inputs.
 - The system shall validate the received inputs and disregard those declared invalid.
 - The system shall output a valid time signal. 
@@ -500,10 +500,10 @@ Additionally, ports are to be included so that the power supply and any other ex
 
 Finally, our electrical systems need to be connected with wiring to facilitate the needed communication between systems.
 
-Purpose:
+**Purpose**:
 - House the electrical and internal components securely.
 
-High Level:
+**High Level**:
 - The system shall regulate the design's temperature.
 - The system shall maintain the device's integrity.
 
