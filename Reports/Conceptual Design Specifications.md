@@ -42,7 +42,7 @@ The Power Supply subsystem is responsible for providing consistent electrical po
 
 After considering the advantages and disadvantages of each configuration, the AC/DC power supply with battery backup was selected for the project. This configuration provides a reliable primary power source while also allowing the server to continue operating during power interruptions, provided the backup system supports the complete system load. Before final implementation, the voltage and current requirements of the Raspberry Pi, GNSS receiver, OCXO, and other connected components must be verified to ensure compatibility with the selected equipment.
 
-| **Power Configuration** | **Pros** | **Cons** |
+| **Power Configuration** | **Advantages** | **Disadvantages** |
 | ------------ | ------------ | ------------ |
 | External AC/DC Power Supply | Simple implementation, relatively inexpensive, provides consistent power during normal operation. | No backup power during an electrical outage. |
 | Battery-Only Power Supply | Independent of wall power, allows operation during electrical outages. | Limited operating time, requires charging and battery monitoring. |
