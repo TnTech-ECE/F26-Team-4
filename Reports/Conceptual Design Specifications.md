@@ -69,6 +69,14 @@ The Helical Antenna has several advantages that would make it palatable. It is d
 - **Choke Ring Antenna**: 
 The Choke Ring Antennas are very high-quality. They have very good multipath suppression due to its geometry inherently forming filters. It is also an omnidirectional antenna, which would make reception from multiple constellations much easier. Unfortunately, these types of antennas are very expensive, starting at 500$. This immediately disqualifies it.
 
+
+| Antenna Type | Advantages | Disadvantages |
+|---|---|---|
+| **Patch Antenna** | - Cheapest and most common antenna type<br>- Decent gain in a compact form factor<br>- Portable and easy to integrate<br>- High radiation efficiency<br>- Highly customizable<br>- Affordable, with prices ranging from approximately $6 to $100+ | - Narrower bandwidth due to its high quality factor<br>- Performance can depend heavily on ground-plane design and antenna orientation |
+| **Helical Antenna** | - Directional antenna with potentially higher gain than a patch antenna<br>- Works well with circular polarization (CP)<br>- Wide bandwidth, allowing coverage of multiple GNSS frequency bands | - Larger physical size<br>- Generally more expensive than patch antennas<br>- Less suitable for the project's size and cost constraints |
+| **Choke Ring Antenna** | - Excellent multipath suppression<br>- Geometry reduces signals arriving from unwanted directions<br>- Omnidirectional azimuth coverage<br>- Suitable for high-precision GNSS applications | - Very expensive, with prices often starting around $500<br>- Large and bulky<br>- Excessive performance for the project's requirements |
+
+
 Taking all these factors into consideration, our project will be using a patch antenna. It is cheap enough to fit in our budget, and its size can easily fit in a server room. There are also many options so we can find the best option for our system. 
 
 
