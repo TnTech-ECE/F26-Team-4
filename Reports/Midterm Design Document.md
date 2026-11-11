@@ -874,7 +874,7 @@ I.2
 This means that we will be bound to have documentation that not only explains how this can be implemented, but why it may be, and what that would mean for those implementing it.
 
 I.3
-This means that our documentation must also disclose any conflicts of interest that ma arise, of which, thus far, there have been none.
+This means that our documentation must also disclose any conflicts of interest that may arise, of which, thus far, there have been none.
 
 I.4
 This means that we will act lawfully in all ways, including honesty concerning citations so as to avoid plagiarism or theft of intellectual property.
