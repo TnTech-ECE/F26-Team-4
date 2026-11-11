@@ -269,11 +269,11 @@ The Antennas job is to receive signals from satellite constellations, and output
 - If active, power from power supply
 
 **Outputs:**
-- A voltage signal
+- A voltage signal containing the timestamp to GNSS Module
 
 **High-Level Requirements:**
 - The antenna shall be able to receive signal from multiple constellations
-- It shall be able to output a signal while maintaining its integrity  
+- It shall be able to output a signal while maintaining its integrity the signals integrity
 
 
 
