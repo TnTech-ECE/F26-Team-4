@@ -630,7 +630,7 @@ The Antennas job is to receive signals from satellite constellations, and output
 
 **High-Level Requirements:**
 - The antenna shall be able to receive signal from multiple constellations
-- It shall be able to output a signal while maintaining its integrity the signals integrity
+- It shall be able to output a signal while maintaining the signal's integrity 
 
 
 
