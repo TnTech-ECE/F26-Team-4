@@ -414,11 +414,6 @@ The Choke Ring Antennas are very high-quality. They have very good multipath sup
 
 Taking all these factors into consideration, our project will be using a patch antenna. It is cheap enough to fit in our budget, and its size can easily fit in a server room. There are also many options so we can find the best option for our system. 
 
-
-
-
-
-
 ### GNSS Module
 The GNSS Module is the main source of timestamps of the system. It should be able provide accurate timestamps even in nonideal conditions such as cloudy skies, or bad atmospheric conditions. It will also be able to detect spoofing and jamming attempts. There are two main approaches to processing the data received from the antenna which are using a dedicated GNSS Module or using a Software Defined Radio (SDR).  
 
@@ -620,6 +615,25 @@ The Power System is responsible for supplying stable and continuous electrical p
 - The Power System shall return the system to primary power operation when the primary power source is restored.
 - The Power System shall provide sufficient power to support the maximum expected electrical load during normal operation.
   
+## Antenna
+The Antennas job is to receive signals from satellite constellations, and output them to the GNSS Module. 
+
+**Functions:**
+- Receive signal from satellites
+- Output to GNSS Module
+
+**Inputs:**
+- If active, power from power supply
+
+**Outputs:**
+- A voltage signal containing the timestamp to GNSS Module
+
+**High-Level Requirements:**
+- The antenna shall be able to receive signal from multiple constellations
+- It shall be able to output a signal while maintaining its integrity the signals integrity
+
+
+
 ## GNSS Module
 The GNSS Module is the main source for retrieving the timestamps that our system will be distributing downstream. First, it receives a signal containing the timestamp from a satellite constellation. Second, it will run a check to attempt to detect spoofing, and it will then log ephemeris information if power is lost or a hot start is attempted. Lastly, it will transmit the timestamp to the main processing unit for further use.
 
