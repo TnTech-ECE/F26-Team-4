@@ -76,10 +76,7 @@ $$
 
 These equations show how the geometric relationship between the satellites and the receiver corresponds to a total timing offset. In reality, it takes multiple satellites to actually solve the above equation. 
 
-Since our system is stationary, we can approximate this geometric uncertainty to around 3-6ns if we know the position of our receiver within an accuracy of a few meters. As for ionosphere, during nighttime, it can add 10s of ns in uncertainty and in the daytime, can add 100s of ns in uncertainty. Another source of uncertainty is the relativistic Sagnac effect, which can add around 200ns of delay[^26].  
-
-
-
+Since our system is stationary, we can approximate this geometric uncertainty to around 3-6ns if we know the position of our receiver within an accuracy of a few meters[^26].  
 
 
 ## **Overview of Solution**
