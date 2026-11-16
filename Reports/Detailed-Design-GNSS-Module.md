@@ -13,6 +13,7 @@ The Function of the subsystem is to retrieve signals from satellite constellatio
 - Signal Monitoring: The module should be able to report the current integrity of the signal
 - Spoofing Detection: The module should be able to warn the user of potential attacks
 - Interface Compatibility: The module should be able to seamlessly integrate with the SoC and Antenna
+- The Antenna and GNSS Module shall not cost more than 300$.
 - Standard: The module shall follow Title 47 CFR Part 15 Subpart B for unintentional radiators[1]. 
 
 
@@ -21,7 +22,7 @@ The Function of the subsystem is to retrieve signals from satellite constellatio
 ### **Pseudorange**
 
 The main sources of uncertainty introduced when the signal is transmitted from the satellite are the ionosphere, troposphere, multipathing, and hardware delays. However, it’s hard to calculate the effects from many of these sources, so we will use the simplified model of pseudo-range.
-Pseudo-range is the apparent (not absolute geometric distance due to phenomena that affects propogation) distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times[^25]. 
+Pseudo-range is the apparent (not absolute geometric distance due to phenomena that affects propogation) distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times[2]. 
 
 It is defined as:
 
@@ -76,11 +77,24 @@ $$
 
 These equations show how the geometric relationship between the satellites and the receiver corresponds to a total timing offset. In reality, it takes multiple satellites to actually solve the above equation. 
 
-Since our system is stationary, we can approximate this geometric uncertainty to around 3-6ns if we know the position of our receiver within an accuracy of a few meters[2].  
+Since our system is stationary, we can approximate this geometric uncertainty to around 3-6ns if we know the position of our receiver within an accuracy of a few meters[2].
+
+### **Troposphere**
+
+The troposphere is the densest part of the atmosphere, where life and weather occur. It is hard to quantify the uncertainty caused from this band of the atmosphere as it depends and the satellite's elevation and current conditions[3].
+
+### **Ionosphere**
+
+The ionosphere is the ionized portion of earth's atmosphere exists. Ultraviolet and X-ray radiation are very prevalent. This region of the atmosphere introduces uncertainty in the range of a few ns at night to hundreds of ns during the day[3].
+
+
+
 
 
 ## **Overview of Solution**
 To meet the proposed criteria above, the NEO-M8T GNSS was picked.
+
+![GNSS MODULE](https://m.media-amazon.com/images/I/71y5AwOZCgL._AC_SX679_.jpg)
 
 
 
