@@ -13,7 +13,7 @@ The Function of the subsystem is to retrieve signals from satellite constellatio
 - Signal Monitoring: The module should be able to report the current integrity of the signal
 - Spoofing Detection: The module should be able to warn the user of potential attacks
 - Interface Compatibility: The module should be able to seamlessly integrate with the SoC and Antenna
-- Standard: The module shall follow the Title 47 CFR Part 15 Subpart B[1]. 
+- Standard: The module shall follow Title 47 CFR Part 15 Subpart B for unintentional radiators[1]. 
 
 ## **Overview of Solution**
 
