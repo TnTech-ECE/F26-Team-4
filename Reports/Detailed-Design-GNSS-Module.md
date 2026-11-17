@@ -115,7 +115,10 @@ The module can[4]:
 
 The antenna chosen is the Waveshare GNSS L1+L5 Dual-Frequency Active Antenna.
 
-![Antenna](https://m.media-amazon.com/images/I/61750qZ5iWL._AC_SX679_.jpg)
+![Antenna](https://m.media-amazon.com/images/I/61750qZ5iWL._AC_SX679_.jpg) 
+
+Antenna Specifications:
+- 
 
 
 
