@@ -108,8 +108,16 @@ The module can[4]:
 
 - **Connect to up to 3 constellations at one time, such as GPS, Beidou, Galileo, and Glonass**
 - **Includes UART, I2C, and PPS for data tranfer to external processors**
-- **Has built in security measures to improve riliability**
+- **Has built in security measures to improve riliability by detecting spoofing attempts**
 - **Has a stationary mode to improve accuracy, which is usefull as the server will be in a server room**
 - **Has a built in battery holder to store information in case power is lost**
+- **The module costs 133$**
+
+The antenna chosen is the Waveshare GNSS L1+L5 Dual-Frequency Active Antenna.
+
+![Antenna](https://m.media-amazon.com/images/I/61750qZ5iWL._AC_SX679_.jpg)
+
+
+
 
 
