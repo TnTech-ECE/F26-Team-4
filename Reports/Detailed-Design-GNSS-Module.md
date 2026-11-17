@@ -90,8 +90,8 @@ The troposphere is the densest part of the atmosphere, where life and weather oc
 
 The ionosphere is the ionized portion of earth's atmosphere exists. Ultraviolet and X-ray radiation are very prevalent. This region of the atmosphere introduces uncertainty in the range of a few ns at night to hundreds of ns during the day[3].
 
-
-
+### **Overall Uncertainty**
+With a well-designed receiver, the overall uncertainty will reach about +/- 10ns of uncertainty, with is negligible for most systems.
 
 
 ## **Overview of Solution**
