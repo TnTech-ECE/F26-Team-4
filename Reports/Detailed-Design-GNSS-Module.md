@@ -91,7 +91,7 @@ The troposphere is the densest part of the atmosphere, where life and weather oc
 The ionosphere is the ionized portion of earth's atmosphere exists. Ultraviolet and X-ray radiation are very prevalent. This region of the atmosphere introduces uncertainty in the range of a few ns at night to hundreds of ns during the day[3].
 
 ### **Overall Uncertainty**
-With a well-designed receiver, the overall uncertainty will reach about +/- 10ns of uncertainty, with is negligible for most systems.
+With a well-designed receiver, the overall uncertainty will reach about +/- 10ns of uncertainty, with is negligible for most systems[3].
 
 
 ## **Overview of Solution**
@@ -99,5 +99,17 @@ To meet the proposed criteria above, the NEO-M8T GNSS was picked.
 
 ![GNSS MODULE](https://m.media-amazon.com/images/I/71y5AwOZCgL._AC_SX679_.jpg)
 
+
+[1]“U-Blox 8 / U-Blox M8 Receiver Description Including Protocol Specification.” Accessed: Nov. 17, 2026. [Online]. Available: https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf
+
+
+The module shown above meets all the criteria proposed in the specifications and constraints section.
+The module can[4]:
+
+- **Connect to up to 3 constellations at one time, such as GPS, Beidou, Galileo, and Glonass**
+- **Includes UART, I2C, and PPS for data tranfer to external processors**
+- **Has built in security measures to improve riliability**
+- **Has a stationary mode to improve accuracy, which is usefull as the server will be in a server room**
+- **Has a built in battery holder to store information in case power is lost**
 
 
