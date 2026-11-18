@@ -100,9 +100,9 @@ To meet the proposed criteria above, the NEO-M8T GNSS was picked.
 ![GNSS MODULE](https://m.media-amazon.com/images/I/71y5AwOZCgL._AC_SX679_.jpg)
 
 
-[1]“U-Blox 8 / U-Blox M8 Receiver Description Including Protocol Specification.” Accessed: Nov. 17, 2026. [Online]. Available: https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf
+[4]“U-Blox 8 / U-Blox M8 Receiver Description Including Protocol Specification.” Accessed: Nov. 17, 2026. [Online]. Available: https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf
 
-
+## **GNSS Module Specifications**:
 The module shown above meets all the criteria proposed in the specifications and constraints section.
 The module can[4]:
 
@@ -113,12 +113,36 @@ The module can[4]:
 - **Has a built in battery holder to store information in case power is lost**
 - **The module costs 133$**
 
+## **NEO-M8T Power and Connection Requirements**[4]:
+- Operating Voltage: 2.7 V to 3.6 V
+- Minimum Gain at RF Input: 5 dB
+- Maximum Gain at RF Input: 40 dB
+- Maximum Noise Figure: 1.5 dB
+- SMA Cable Needed
+
 The antenna chosen is the Waveshare GNSS L1+L5 Dual-Frequency Active Antenna.
 
 ![Antenna](https://m.media-amazon.com/images/I/61750qZ5iWL._AC_SX679_.jpg) 
 
-Antenna Specifications:
-- 
+Needs source other than amazon ):{
+
+
+## **Antenna Specifications**:
+- Operating Voltage: 3 V to 18 V
+- Gain: 28 +/- 2 dB
+- SMA Cable
+- Capable of receiving multiple Satellite Constellations
+
+
+## **Compatibility and Analysis**:
+
+Both antenna and GNSS Module have compatible connectors and specifications and therefore should be able to seamlessly integrate. The only issue is that from the datasheet of the NEO-M8T, is that it would barely be able to power the antenna, however, since we are using an external power supply, we can power the antenna with it.
+
+The GNSS Module is capable of receiving multiple signals from constellations at the same time, has built in detection of spoofing attempts, dedicated stationary modes for increased accuracy, and has configurations specifically to increase timing accuracy[4].
+
+The antenna is also capable of receiving multiple signals at the same time time, and its gain and connectors are compatible with the GNSS Module. 
+
+   
 
 
 
