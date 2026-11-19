@@ -148,6 +148,10 @@ Therefore, the Waveshare Antenna and NEO-M8T should be capable of achieving our 
 
 ### **UART**
 
+[5]S. Campbell, “Basics of UART Communication,” Circuit Basics, Feb. 13, 2016. https://www.circuitbasics.com/basics-uart-communication/ (accessed Nov. 19, 2026).
+
+UART, Universal Asynchronous Receiver/Transmitter, will be the main method of communication between the GNSS Module and the SoC. It works like this:The transmitting UART converts parallel data from a controlling device like a CPU into serial form, transmits it in serial to the receiving UART, which then converts the serial data back into parallel data for the receiving device. Only two wires are needed to transmit data between two UARTs. Data flows from the Tx pin of the transmitting UART to the Rx pin of the receiving UART[5]. 
+
    
 
 
