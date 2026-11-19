@@ -142,6 +142,8 @@ The GNSS Module is capable of receiving multiple signals from constellations at 
 
 The antenna is also capable of receiving multiple signals at the same time time, and its gain and connectors are compatible with the GNSS Module. 
 
+Therefore, the Waveshare Antenna and NEO-M8T should be capable of achieving our specifications.
+
    
 
 
