@@ -162,6 +162,12 @@ The NEO-M8T uses a specialized UART protocol made by the board's manufacturer. U
 
 <img width="535" height="447" alt="image" src="https://github.com/user-attachments/assets/828e6a31-c993-46c5-b453-e382347c854e" />
 
+With proper configuration of the GNSS Module, we can configure the payload to contain UBX-NAV-PVT:
+
+<img width="529" height="566" alt="image" src="https://github.com/user-attachments/assets/391e09ac-060b-49c7-8f95-118be1dc3e23" />
+<img width="500" height="394" alt="image" src="https://github.com/user-attachments/assets/e7635c38-bb3b-4eb5-9fc2-5398bd67f173" />
+
+
 
    
 
