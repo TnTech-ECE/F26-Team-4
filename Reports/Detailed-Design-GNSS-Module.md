@@ -167,6 +167,17 @@ With proper configuration of the GNSS Module, we can configure the payload to co
 <img width="529" height="566" alt="image" src="https://github.com/user-attachments/assets/391e09ac-060b-49c7-8f95-118be1dc3e23" />
 <img width="500" height="394" alt="image" src="https://github.com/user-attachments/assets/e7635c38-bb3b-4eb5-9fc2-5398bd67f173" />
 
+This configuration not only gives us the universal time, but also has quantified error that we can use to correct any error.
+
+
+### **PPS**
+
+[1]GNSS Metrics, “PPS Output and Disciplined Oscillators | GNSS Metrics,” GNSS Metrics. https://gnssmetrics.com/learn/timing/pps-output (accessed Nov. 19, 2026).
+
+
+A Pulse Per Second (PPS) signal is a periodic electrical pulse output by a GNSS receiver or timing device. The rising edge of each pulse is precisely synchronised to GNSS time — typically GPS time or UTC — with nanosecond accuracy. The pulse width is usually 100 ms or 500 ms, but the timing reference point is always the rising edge[7].
+
+
 
 
    
