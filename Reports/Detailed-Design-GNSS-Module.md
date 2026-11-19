@@ -156,7 +156,9 @@ UART allows our project to achieve two major goals of our project. It will allow
 
 ### **UART: UBX **
 
-The NEO-M8T uses a specialized UART protocol made by the board's manufacturer. Using this protocol, the massage transmitted will consist of:
+https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf?utm_content=UBX-13003221 [6]
+
+The NEO-M8T uses a specialized UART protocol made by the board's manufacturer. Using this protocol, the massage transmitted will consist of[6]:
 
 <img width="535" height="447" alt="image" src="https://github.com/user-attachments/assets/828e6a31-c993-46c5-b453-e382347c854e" />
 
