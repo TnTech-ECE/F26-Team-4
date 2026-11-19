@@ -172,7 +172,7 @@ This configuration not only gives us the universal time, but also has quantified
 
 ### **PPS**
 
-[1]GNSS Metrics, “PPS Output and Disciplined Oscillators | GNSS Metrics,” GNSS Metrics. https://gnssmetrics.com/learn/timing/pps-output (accessed Nov. 19, 2026).
+[7]GNSS Metrics, “PPS Output and Disciplined Oscillators | GNSS Metrics,” GNSS Metrics. https://gnssmetrics.com/learn/timing/pps-output (accessed Nov. 19, 2026).
 
 
 A Pulse Per Second (PPS) signal is a periodic electrical pulse output by a GNSS receiver or timing device. The rising edge of each pulse is precisely synchronised to GNSS time — typically GPS time or UTC — with nanosecond accuracy. The pulse width is usually 100 ms or 500 ms, but the timing reference point is always the rising edge[7].
@@ -180,6 +180,8 @@ A Pulse Per Second (PPS) signal is a periodic electrical pulse output by a GNSS 
 PPS is of extraordinary importance to precision timing. It allows us to associate the current UART message to the past received signal as there will be a small amount of time difference between them due to hardware delays. This association will be handled by the software in the SoC.
 
 ### **Operation**
+
+
 
 
 
