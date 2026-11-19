@@ -5,16 +5,16 @@ The Function of the subsystem is to retrieve signals from satellite constellatio
 
 ## **Specifications and Constraints**
 
-[1]“Federal Register :: Request Access,” unblock.federalregister.gov. https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15/subpart-B (accessed Nov. 15, 2026).
+[1]“Federal Register :: Request Access,” unblock.federalregister.gov. https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15/subpart-B (accessed Nov. 15, 2026)
 
 
-- Multiple GNSS Constellations: In order for the system to be more reliable and accurate, the module shall be able to receive from multiple satellite constellations.
-- Timing Accuracy: Provide accurate timestamps and have PPS for better precision.
-- Signal Monitoring: The module should be able to report the current integrity of the signal
-- Spoofing Detection: The module should be able to warn the user of potential attacks
-- Interface Compatibility: The module should be able to seamlessly integrate with the SoC and Antenna
-- The Antenna and GNSS Module shall not cost more than 300$.
-- Standard: The module shall follow Title 47 CFR Part 15 Subpart B for unintentional radiators[1]. 
+- **Multiple GNSS Constellations: In order for the system to be more reliable and accurate, the module shall be able to receive from multiple satellite constellations**
+- **Timing Accuracy: Provide accurate timestamps and have PPS for better precision**
+- **Signal Monitoring: The module should be able to report the current integrity of the signal**
+- **Spoofing Detection: The module should be able to warn the user of potential attacks**
+- **Interface Compatibility: The module should be able to seamlessly integrate with the SoC and Antenna**
+- **The Antenna and GNSS Module shall not cost more than 300$**
+- **Standard: The module shall follow Title 47 CFR Part 15 Subpart B for unintentional radiators[1]**
 
 
 ## **Governing Principles**
@@ -114,11 +114,11 @@ The module can[4]:
 - **The module costs 133$**
 
 ## **NEO-M8T Power and Connection Requirements**[4]:
-- Operating Voltage: 2.7 V to 3.6 V
-- Minimum Gain at RF Input: 5 dB
-- Maximum Gain at RF Input: 40 dB
-- Maximum Noise Figure: 1.5 dB
-- SMA Cable Needed
+- **Operating Voltage: 2.7 V to 3.6 V**
+- **Minimum Gain at RF Input: 5 dB**
+- **Maximum Gain at RF Input: 40 dB**
+- **Maximum Noise Figure: 1.5 dB**
+- **SMA Cable Needed**
 
 The antenna chosen is the Waveshare GNSS L1+L5 Dual-Frequency Active Antenna.
 
@@ -128,10 +128,10 @@ Needs source other than amazon ):{
 
 
 ## **Antenna Specifications**:
-- Operating Voltage: 3 V to 18 V
-- Gain: 28 +/- 2 dB
-- SMA Cable
-- Capable of receiving multiple Satellite Constellations
+- **Operating Voltage: 3 V to 18 V**
+- **Gain: 28 +/- 2 dB**
+- **SMA Cable**
+- **Capable of receiving multiple Satellite Constellations**
 
 
 ## **Compatibility and Analysis**:
@@ -143,6 +143,8 @@ The GNSS Module is capable of receiving multiple signals from constellations at 
 The antenna is also capable of receiving multiple signals at the same time time, and its gain and connectors are compatible with the GNSS Module. 
 
 Therefore, the Waveshare Antenna and NEO-M8T should be capable of achieving our specifications.
+
+## **Interfaces**
 
    
 
