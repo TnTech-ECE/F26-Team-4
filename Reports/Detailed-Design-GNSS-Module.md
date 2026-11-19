@@ -146,6 +146,8 @@ Therefore, the Waveshare Antenna and NEO-M8T should be capable of achieving our 
 
 ## **Interfaces**
 
+### **UART**
+
    
 
 
