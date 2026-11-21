@@ -146,7 +146,7 @@ Therefore, the Waveshare Antenna and NEO-M8T should be capable of achieving our 
 
 ## **Interfaces**
 
-### **UART**
+## **UART**
 
 [5]S. Campbell, “Basics of UART Communication,” Circuit Basics, Feb. 13, 2016. https://www.circuitbasics.com/basics-uart-communication/ (accessed Nov. 19, 2026).
 
@@ -154,7 +154,7 @@ UART, Universal Asynchronous Receiver/Transmitter, will be the main method of co
 
 UART allows our project to achieve two major goals of our project. It will allow us to configure the GNSS Module to our desired specifications, and it will allow us transmit the timestamps recieved from the satellite constellations to the SoC.
 
-### **UART: UBX Protcol**
+## **UART: UBX Protcol**
 
 https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf?utm_content=UBX-13003221 [6]
 
@@ -170,7 +170,7 @@ With proper configuration of the GNSS Module, we can configure the payload to co
 This configuration not only gives us the universal time, but also has quantified error that we can use to correct any error.
 
 
-### **PPS:**
+## **PPS:**
 
 [7]GNSS Metrics, “PPS Output and Disciplined Oscillators | GNSS Metrics,” GNSS Metrics. https://gnssmetrics.com/learn/timing/pps-output (accessed Nov. 19, 2026).
 
@@ -179,13 +179,13 @@ A Pulse Per Second (PPS) signal is a periodic electrical pulse output by a GNSS 
 
 PPS is of extraordinary importance to precision timing. It allows us to associate the current UART message to the past received signal as there will be a small amount of time difference between them due to hardware delays. This association will be handled by the software in the SoC.
 
-### **Operation:**
+## **Operation:**
 
 <img width="568" height="285" alt="image" src="https://github.com/user-attachments/assets/eeb239c7-f415-4adf-a98c-ce4e721c0aaf" />
 
 At the start of operation, the SoC will configure the GNSS Module. For example, we will tell the module what constellations we want it to lock on to, the messages in the payload that are delivered to the SoC, and how often they are delivered. If the module is not configured, or not properly configured, the module will return an error to the user. After proper configuration, the module will start to scan for the constellations. If it cannot detect any, it will send an error to the SoC, and the SoC will trigger the Holdover Subsystem until a lock is achieved. Then, when a lock is achieved, it will receive the signal, demodulate it, then send the payload with the timestamp, as well as a time pulse, to the SoC, which will then be distributed to clients. At the same time, the module will try to detect spoofing attempts and will alert the user if there is a possible spoofing event. It should be noted that it cannot guarantee that it will detect spoofing but adds an extra layer of security. Also, the module must be placed with a clear view of the sky, or accuracy will be severely reduced.
 
-### **Analysis:**
+## **Analysis:**
 
 
 
