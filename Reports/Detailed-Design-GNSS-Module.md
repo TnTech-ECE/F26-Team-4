@@ -201,11 +201,12 @@ The purpose of this subsystem is to be able to monitor multiple constellations s
 
 | Constraint | Design Fulfillment | Evidence / Justification |
 | --- | --- | --- |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+|Multiple Constellations | Waveshare Antenna and NEO-M8T are capable of receiving and processing multiple constellations | Confirmed in Datasheets[4][5]|
+|Detect Spoofing Attempts| NEO-M8T has built capabilities for spoofing detection | Confirmed in Datasheet[4]  |
+|Ecosystem Compatibility | NEO-M8T is specifically made with the Raspberry Pi Ecosystem | Confirmed in Datasheet[4] |
+|Easy Communication |The UART UBX Protocol with its payload properties makes delivering timestamps easy  | Confirmed in Datasheet[7] |
+| Cost |Is within the budget of 300$, Antenna + GNSS = 159$ | Established in Conceptual Design |
+|Title 47 CFR Part 15 Subpart B| Ensures Safety of the user |  Needs to be tested when the system is built |
 
 
 
