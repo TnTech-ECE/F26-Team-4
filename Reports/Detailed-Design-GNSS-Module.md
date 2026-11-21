@@ -181,6 +181,9 @@ PPS is of extraordinary importance to precision timing. It allows us to associat
 
 ### **Operation**
 
+<img width="568" height="285" alt="image" src="https://github.com/user-attachments/assets/eeb239c7-f415-4adf-a98c-ce4e721c0aaf" />
+
+
 
 
 
