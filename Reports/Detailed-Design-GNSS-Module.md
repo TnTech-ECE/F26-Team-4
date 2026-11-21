@@ -187,6 +187,14 @@ At the start of operation, the SoC will configure the GNSS Module. For example, 
 
 ## **Analysis:**
 
+| Constraint | Design Fulfillment | Evidence / Justification |
+| --- | --- | --- |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+
 
 
 
