@@ -5,9 +5,6 @@ The Function of the subsystem is to retrieve signals from satellite constellatio
 
 ## **Specifications and Constraints**
 
-[1]“Federal Register :: Request Access,” unblock.federalregister.gov. https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15/subpart-B (accessed Nov. 15, 2026)
-
-
 - **Multiple GNSS Constellations: In order for the system to be more reliable and accurate, the module shall be able to receive from multiple satellite constellations**
 - **Timing Accuracy: Provide accurate timestamps and have PPS for better precision**
 - **Signal Monitoring: The module should be able to report the current integrity of the signal**
@@ -20,9 +17,6 @@ The Function of the subsystem is to retrieve signals from satellite constellatio
 ## **Governing Principles**
 
 ### **Pseudorange**
-
-
-“ITU-T Technical Report GSTR-GNSS Considerations on the Use of GNSS as a Primary Time Reference in Telecommunications,” 2020. Accessed: Nov. 09, 2026. [Online]. Available: https://www.itu.int/dms_pub/itu-t/opb/tut/T-TUT-HOME-2020-PDF-E.pdf ↩
 
 The main sources of uncertainty introduced when the signal is transmitted from the satellite are the ionosphere, troposphere, multipathing, and hardware delays. However, it’s hard to calculate the effects from many of these sources, so we will use the simplified model of pseudo-range.
 Pseudo-range is the apparent (not absolute geometric distance due to phenomena that affects propogation) distance between a satellite and the receiver, which is calculated as the difference between transmission and reception times[2]. 
@@ -99,9 +93,6 @@ To meet the proposed criteria above, the NEO-M8T GNSS was picked.
 
 ![GNSS MODULE](https://m.media-amazon.com/images/I/71y5AwOZCgL._AC_SX679_.jpg)
 
-
-[4]“U-Blox 8 / U-Blox M8 Receiver Description Including Protocol Specification.” Accessed: Nov. 17, 2026. [Online]. Available: https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf
-
 ## **GNSS Module Specifications**:
 The module shown above meets all the criteria proposed in the specifications and constraints section.
 The module can[4]:
@@ -123,8 +114,6 @@ The module can[4]:
 The antenna chosen is the Waveshare GNSS L1+L5 Dual-Frequency Active Antenna.
 
 ![Antenna](https://m.media-amazon.com/images/I/61750qZ5iWL._AC_SX679_.jpg) 
-
-[5]Waveshare, “GNSS L1+L5 Dual-Frequency Active Antenna, SMA-J Connector, Supports Multi-GNSS Positioning Systems,” Waveshare. https://www.waveshare.com/gps-external-antenna-d.htm (accessed Nov. 21, 2026).
 
 
 ## **Antenna Specifications[5]**:
@@ -148,8 +137,6 @@ Therefore, the Waveshare Antenna and NEO-M8T should be capable of achieving our 
 
 ## **UART**
 
-[6]S. Campbell, “Basics of UART Communication,” Circuit Basics, Feb. 13, 2016. https://www.circuitbasics.com/basics-uart-communication/ (accessed Nov. 19, 2026).
-
 UART, Universal Asynchronous Receiver/Transmitter, will be the main method of communication between the GNSS Module and the SoC. It works like this:The transmitting UART converts parallel data from a controlling device like a CPU into serial form, transmits it in serial to the receiving UART, which then converts the serial data back into parallel data for the receiving device. Only two wires are needed to transmit data between two UARTs. Data flows from the Tx pin of the transmitting UART to the Rx pin of the receiving UART[6].
 
 UART allows our project to achieve two major goals of our project. It will allow us to configure the GNSS Module to our desired specifications, and it will allow us transmit the timestamps recieved from the satellite constellations to the SoC.
@@ -172,10 +159,7 @@ This configuration not only gives us the universal time, but also has quantified
 
 ## **PPS:**
 
-[8]GNSS Metrics, “PPS Output and Disciplined Oscillators | GNSS Metrics,” GNSS Metrics. https://gnssmetrics.com/learn/timing/pps-output (accessed Nov. 19, 2026).
-
-
-A Pulse Per Second (PPS) signal is a periodic electrical pulse output by a GNSS receiver or timing device. The rising edge of each pulse is precisely synchronised to GNSS time — typically GPS time or UTC — with nanosecond accuracy. The pulse width is usually 100 ms or 500 ms, but the timing reference point is always the rising edge[8].
+A Pulse Per Second (PPS) signal is a periodic electrical pulse output by a GNSS receiver or timing device. The rising edge of each pulse is precisely synchronised to GNSS time — typically GPS time or UTC — with nanosecond accuracy. The pulse width is usually 100 ms or 500 ms, but the timing reference point is always the rising edge[7].
 
 PPS is of extraordinary importance to precision timing. It allows us to associate the current UART message to the past received signal as there will be a small amount of time difference between them due to hardware delays. This association will be handled by the software in the SoC.
 
@@ -207,6 +191,30 @@ The purpose of this subsystem is to be able to monitor multiple constellations s
 |Easy Communication |The UART UBX Protocol with its payload properties makes delivering timestamps easy  | Confirmed in Datasheet[7] |
 | Cost |Is within the budget of 300$, Antenna + GNSS = 159$ | Established in Conceptual Design |
 |Title 47 CFR Part 15 Subpart B| Ensures Safety of the user |  Needs to be tested when the system is built |
+
+
+## **References**
+
+[1]“Federal Register :: Request Access,” unblock.federalregister.gov. https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15/subpart-B (accessed Nov. 15, 2026)
+
+[2]“ITU-T Technical Report GSTR-GNSS Considerations on the Use of GNSS as a Primary Time Reference in Telecommunications,” 2020. Accessed: Nov. 09, 2026. [Online]. Available: https://www.itu.int/dms_pub/itu-t/opb/tut/T-TUT-HOME-2020-PDF-E.pdf 
+
+[3]“One Way GNSS Time Transfer | NIST,” NIST, May 17, 2016. https://www.nist.gov/pml/time-and-frequency-division/time-services/one-way-gnss-time-transfer (accessed Nov. 10, 2026).
+
+[4]“U-Blox 8 / U-Blox M8 Receiver Description Including Protocol Specification.” Accessed: Nov. 17, 2026. [Online]. Available: https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf
+
+[5]Waveshare, “GNSS L1+L5 Dual-Frequency Active Antenna, SMA-J Connector, Supports Multi-GNSS Positioning Systems,” Waveshare. https://www.waveshare.com/gps-external-antenna-d.htm (accessed Nov. 21, 2026).
+
+[6]S. Campbell, “Basics of UART Communication,” Circuit Basics, Feb. 13, 2016. https://www.circuitbasics.com/basics-uart-communication/ (accessed Nov. 19, 2026).
+
+[7]GNSS Metrics, “PPS Output and Disciplined Oscillators | GNSS Metrics,” GNSS Metrics. https://gnssmetrics.com/learn/timing/pps-output (accessed Nov. 19, 2026).
+
+
+
+
+
+
+
 
 
 
