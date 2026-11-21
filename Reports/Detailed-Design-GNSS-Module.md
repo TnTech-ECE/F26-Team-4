@@ -154,7 +154,7 @@ UART, Universal Asynchronous Receiver/Transmitter, will be the main method of co
 
 UART allows our project to achieve two major goals of our project. It will allow us to configure the GNSS Module to our desired specifications, and it will allow us transmit the timestamps recieved from the satellite constellations to the SoC.
 
-### **UART: UBX:**
+### **UART: UBX Protcol**
 
 https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf?utm_content=UBX-13003221 [6]
 
