@@ -124,10 +124,10 @@ The antenna chosen is the Waveshare GNSS L1+L5 Dual-Frequency Active Antenna.
 
 ![Antenna](https://m.media-amazon.com/images/I/61750qZ5iWL._AC_SX679_.jpg) 
 
-Needs source other than amazon ):{
+[5]Waveshare, “GNSS L1+L5 Dual-Frequency Active Antenna, SMA-J Connector, Supports Multi-GNSS Positioning Systems,” Waveshare. https://www.waveshare.com/gps-external-antenna-d.htm (accessed Nov. 21, 2026).
 
 
-## **Antenna Specifications**:
+## **Antenna Specifications[5]**:
 - **Operating Voltage: 3 V to 18 V**
 - **Gain: 28 +/- 2 dB**
 - **SMA Cable**
@@ -148,17 +148,17 @@ Therefore, the Waveshare Antenna and NEO-M8T should be capable of achieving our 
 
 ## **UART**
 
-[5]S. Campbell, “Basics of UART Communication,” Circuit Basics, Feb. 13, 2016. https://www.circuitbasics.com/basics-uart-communication/ (accessed Nov. 19, 2026).
+[6]S. Campbell, “Basics of UART Communication,” Circuit Basics, Feb. 13, 2016. https://www.circuitbasics.com/basics-uart-communication/ (accessed Nov. 19, 2026).
 
-UART, Universal Asynchronous Receiver/Transmitter, will be the main method of communication between the GNSS Module and the SoC. It works like this:The transmitting UART converts parallel data from a controlling device like a CPU into serial form, transmits it in serial to the receiving UART, which then converts the serial data back into parallel data for the receiving device. Only two wires are needed to transmit data between two UARTs. Data flows from the Tx pin of the transmitting UART to the Rx pin of the receiving UART[5].
+UART, Universal Asynchronous Receiver/Transmitter, will be the main method of communication between the GNSS Module and the SoC. It works like this:The transmitting UART converts parallel data from a controlling device like a CPU into serial form, transmits it in serial to the receiving UART, which then converts the serial data back into parallel data for the receiving device. Only two wires are needed to transmit data between two UARTs. Data flows from the Tx pin of the transmitting UART to the Rx pin of the receiving UART[6].
 
 UART allows our project to achieve two major goals of our project. It will allow us to configure the GNSS Module to our desired specifications, and it will allow us transmit the timestamps recieved from the satellite constellations to the SoC.
 
 ## **UART: UBX Protcol**
 
-https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf?utm_content=UBX-13003221 [6]
+https://content.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_UBX-13003221.pdf?utm_content=UBX-13003221 [7]
 
-The NEO-M8T uses a specialized UART protocol made by the board's manufacturer. Using this protocol, the massage transmitted will consist of[6]:
+The NEO-M8T uses a specialized UART protocol made by the board's manufacturer. Using this protocol, the massage transmitted will consist of[7]:
 
 <img width="535" height="447" alt="image" src="https://github.com/user-attachments/assets/828e6a31-c993-46c5-b453-e382347c854e" />
 
@@ -172,10 +172,10 @@ This configuration not only gives us the universal time, but also has quantified
 
 ## **PPS:**
 
-[7]GNSS Metrics, “PPS Output and Disciplined Oscillators | GNSS Metrics,” GNSS Metrics. https://gnssmetrics.com/learn/timing/pps-output (accessed Nov. 19, 2026).
+[8]GNSS Metrics, “PPS Output and Disciplined Oscillators | GNSS Metrics,” GNSS Metrics. https://gnssmetrics.com/learn/timing/pps-output (accessed Nov. 19, 2026).
 
 
-A Pulse Per Second (PPS) signal is a periodic electrical pulse output by a GNSS receiver or timing device. The rising edge of each pulse is precisely synchronised to GNSS time — typically GPS time or UTC — with nanosecond accuracy. The pulse width is usually 100 ms or 500 ms, but the timing reference point is always the rising edge[7].
+A Pulse Per Second (PPS) signal is a periodic electrical pulse output by a GNSS receiver or timing device. The rising edge of each pulse is precisely synchronised to GNSS time — typically GPS time or UTC — with nanosecond accuracy. The pulse width is usually 100 ms or 500 ms, but the timing reference point is always the rising edge[8].
 
 PPS is of extraordinary importance to precision timing. It allows us to associate the current UART message to the past received signal as there will be a small amount of time difference between them due to hardware delays. This association will be handled by the software in the SoC.
 
@@ -188,10 +188,14 @@ At the start of operation, the SoC will configure the GNSS Module. For example, 
 ## **Analysis:**
 The purpose of this subsystem is to be able to monitor multiple constellations simultaneously, and acquire the Universal Timestamp, and then deliver said timestamp to the SoC. However, there are multiple constraints the subsystem must achieve in order for the subsystem to achieve the stakeholder's requirements. It must be reliable, which means it must be resilient in hostile conditions, like spoofing and loss of satellite lock. Must be easy to configure, and setup, so that someone without an engineering background can make use of the system. It also must be relatively inexpensive so that independent organizations and individuals can afford to buld the system.
 
+### **Requirements:**
 
-
-
-
+- **1. Able to receive signals from multiple constellations**
+- **2. Secure from Spoofing attempts**
+- **3. In the same ecosystems so that configuration and setup is easy**
+- **4. Easy communication between GNSS Module and SoC**
+- **5. Relatively Inxpensive**
+- **6. Follow Title 47 CFR Part 15 Subpart B**
 
 
 
