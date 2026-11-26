@@ -182,7 +182,11 @@ The NTPv4 Header contains the bulk of the NTP info and will be further discussed
 
 **Step 5**: The server will construct an NTP response. The server will use the current synchronized time provided by the Clock Synchronization Subsystem. Four total timestamps are needed to perform the synchronization. 
 
-(Grab this from conceptual)
+$T_1$ = The time the client originally sent the request  
+$T_2$ = The time the server initially received said request  
+$T_3$ = The time the server sends its response  
+$T_4$ = the time the client receives the response from the server  
+
 
 It creates an NTP response containing: 
 
@@ -193,9 +197,22 @@ T3 is a challenge due to the fact that a lot of cryptographic processing happens
 
 **Step 7**: The server authenticates and transmits its response. It follows the same AEAD algorithm agreed upon previously, and formats the packet in the same structure as step 2. However, instead of the C2S key, it uses the Server-to-Client (S2C) key instead. Once the packet has been authenticated it transmits it over UDP port 123. [RFC 8915]
 
-**Step 8**: The client receives the response and immediately calculates T4. It then follows the same verification process as step 4, this time retrieving and storing the returned cookies for future use. Once the packet has been accepted, it uses the 4 timestamps to calculate the clock offset. It uses the following formulas: 
+**Step 8**: The client receives the response and immediately calculates T4. It then follows the same verification process as step 4, this time retrieving and storing the returned cookies for future use. Once the packet has been accepted, it uses the 4 timestamps to calculate the clock offset and trip delay. 
 
-(Get 2 formulas from the doc) 
+It will then calculate the offset ($\theta$) and the round trip delay ($\delta$) with the following formulas
+
+
+Offset:  
+
+$$
+\boxed{\theta = \frac{(T_2 - T_1) + (T_3 - T_4)}{2}}
+$$
+
+Round Trip Delay:  
+
+$$
+\boxed{\delta = (T_4 - T_1) - (T_3 - T_2)}
+$$
 
 With the calculations complete and the timestamps acquired, the client is able to update its local clock according to any processes and algorithms it chooses. [RFC 8915]
 
