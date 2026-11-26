@@ -175,10 +175,10 @@ The NTPv4 Header contains the bulk of the NTP info and will be further discussed
 **Step 3**: The client transmits the packet over UDP port 123. The reason UDP is used over TCP was specified above. [RFC 5905]
 
 **Step 4**: The server receives the NTP request. This is the most important stage in the Client Communication Subsystem and happens in 4 stages: 
-	*4.1* - The server captures the time T2 that the packet arrived at its network interface. It captures this time before doing any analysis on the received packet.  
-	*4.2* - The server parses the NTP packet and verifies that it possesses all the required fields that satisfy both NTP and NTS protocols. If the packet is malformed it will reject it.  
-	*4.3* - Recover NTS credentials. The server will extract the cookie from the request, retrieve all necessary keys from it. This allows the server to know how to respond with the client without it needing to have a record of all past interactions.  
-	*4.4* - Verify the NTS authenticator. With the Client-to-Server (C2S) key and AEAD algorithm extracted from the cookie the server will verify the NTS authenticator sent with the request. If it succeeds, the packet will be accepted as an NTP request.[RFC 8915]  
+		*4.1* - The server captures the time T2 that the packet arrived at its network interface. It captures this time before doing any analysis on the received packet.  
+		*4.2* - The server parses the NTP packet and verifies that it possesses all the required fields that satisfy both NTP and NTS protocols. If the packet is malformed it will reject it.  
+		*4.3* - Recover NTS credentials. The server will extract the cookie from the request, retrieve all necessary keys from it. This allows the server to know how to respond with the client without it needing to have a record of all past interactions.  
+		*4.4* - Verify the NTS authenticator. With the Client-to-Server (C2S) key and AEAD algorithm extracted from the cookie the server will verify the NTS authenticator sent with the request. If it succeeds, the packet will be accepted as an NTP request.[RFC 8915]  
 
 **Step 5**: The server will construct an NTP response. The server will use the current synchronized time provided by the Clock Synchronization Subsystem. Four total timestamps are needed to perform the synchronization. 
 
