@@ -58,7 +58,7 @@ A large portion of this project is its Network Time Security (NTS) capabilities.
 	The first portion of this process is the Transport Layer Security (TLS) handshake. It’s the protocol that establishes an initial connection between a server and client and sets the ground rules for their interaction in future communications. The version of TLS we implemented is specified as TLS 1.3. The process is as follows: 
 
 
-## NTS-KE:
+### NTS-KE:
 **Step 1**: The client connects to the server via, commonly via TCP, and initiates first contact. TCP is a transfer protocol that prioritizes accuracy of transmitted data over speed, and is the counterpart to UDP. The TCP three way handshake occurs with the client sending a SYN, the server responding with a SYN-ACK to acknowledge the signal, and the server finally responding with an ACK to acknowledge its acknowledgement. At this point the server and client have established a connection but the connection is not yet secured by TLS. [RFC 9846]  
 
 **Step 2**: The client will begin TLS by sending the server a ClientHello message. This message contains multiple fields that communicate information to the server. The breakdown is as follows:  
@@ -132,7 +132,7 @@ This communication took place over TCP port 4460, however once the NTS-KE is com
 
 
 
-## NTS for NTP:
+### NTS for NTP:
 
 
 **Step 1**: The client creates a standard NTPv4 packet with the NTS extension fields determined in the NTS-KE section appended onto it. The structure of the packet is defined below 
@@ -147,12 +147,7 @@ This communication took place over TCP port 4460, however once the NTS-KE is com
 
 The NTPv4 Header contains the bulk of the NTP info and will be further discussed later. The Unique Identifier is a random value of at least 32 bytes. This random value is how each request is differentiated from others. The NTS Cookie was received in the NTS-KE section and is used to tell the server how to interpret the authentication tags, it does not act as the authenticator itself. The cookie is consumed after use. The NTS cookie placeholder is where the client can tell the server how many cookies it wants in return to then use in future communications. The NTS authenticator is the information that confirms to the server that the client is an authorized recipient. [RFC 8915]
 
-
-
-
-
 **Step 2**: This is when the client authenticates the NTP request. It uses Authenticated Encryption with Associated Data (AEAD) to protect the packet. [RFC 8915]
-
 
 **Step 3**: The client transmits the packet over UDP port 123. The reason UDP is used over TCP was specified above. [RFC 5905]
 
