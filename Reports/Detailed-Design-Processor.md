@@ -12,26 +12,29 @@ The function of this subsystem is to configure other subsystems such as the GNSS
 
 ## **Overview of Proposed Solution**
 
-[1]A. Negi, “Raspberry Pi 3 B+ Pinout With GPIO Functions, Schematic and Specs in Detail.” https://www.etechnophiles.com/raspberry-pi-3-b-pinout-with-gpio-functions-schematic-and-specs-in-detail/ (accessed Nov. 26, 2026).
-
-
-To meet the proposed criteria: running PiOS Lite, standard pin layout, have the requisite peripherals, be relatively inexpensive, the solution chosen is the Raspberry 3 Model B, paired with an 8 GB SD card.
+To meet the proposed criteria: running PiOS Lite, standard pin layout, have the requisite peripherals, be relatively inexpensive, the solution chosen is the Raspberry 3 Model B, paired with an 8 GB SD card[2].
 
 <img width="300" height="300" alt="raspberry-pi-github" src="https://github.com/user-attachments/assets/e46ac416-a83d-44e8-90f1-98510df198a9" />
 <img width="300" height="300" alt="sd-card-github" src="https://github.com/user-attachments/assets/2c6cd559-70a9-4681-9f6f-25f909f49a3f" />
 
-
-
-
-
-
 We chose the Raspberry Pi 3 Model B due to several factors. Firstly, it has the capabilities to receive UART through two dedicated pins, GPIO 14, and GPIO 15. Secondly, it natively supports PiOS Lite, which is meant to run in the Raspberry Pi ecosystem. PiOS Lite lets the system run our main Network Time Server software, Chrony. Lastly, it has pins that allow reception of Pulse Per Second (PPS), which is important for accurate timing[1].
 
-The 8 GB SD card is the minimum and cheapest option that the  
+The 8 GB SD card is the minimum and most inexpensive option that can run the PiOS Lite 
 
-### **Raspberry Pi Model B: Power Requirements**
+### **Raspberry Pi Model B: Power Requirements[3]**
 
-[2]Raspberry Pi, “Raspberry Pi Documentation - Raspberry Pi Hardware,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/raspberry-pi.html (accessed Nov. 26, 2026).
+- **Needs a 5.1 V Supply**
+- **Needs a 2.5 A Supply**
+- **Usses a Micro USB Connection**
 
 
 
+
+
+
+## **References**       
+[1]A. Negi, “Raspberry Pi 3 B+ Pinout With GPIO Functions, Schematic and Specs in Detail.” https://www.etechnophiles.com/raspberry-pi-3-b-pinout-with-gpio-functions-schematic-and-specs-in-detail/ (accessed Nov. 26, 2026).
+
+[2]Raspberry Pi, “Raspberry Pi Documentation - Getting Started,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/getting-started.html (accessed Nov. 27, 2026).
+
+[3]Raspberry Pi, “Raspberry Pi Documentation - Raspberry Pi Hardware,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/raspberry-pi.html (accessed Nov. 26, 2026).
