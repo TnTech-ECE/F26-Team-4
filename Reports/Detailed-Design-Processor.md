@@ -27,6 +27,8 @@ To meet the proposed criteria: running PiOS Lite, standard pin layout, have the 
 
 We chose the Raspberry Pi 3 Model B due to several factors. Firstly, it has the capabilities to receive UART through two dedicated pins, GPIO 14, and GPIO 15. Secondly, it natively supports PiOS Lite, which is meant to run in the Raspberry Pi ecosystem. PiOS Lite lets the system run our main Network Time Server software, Chrony. Lastly, it has pins that allow reception of Pulse Per Second (PPS), which is important for accurate timing[1].
 
+The 8 GB SD card is the minimum and cheapest option that the  
+
 ### **Raspberry Pi Model B: Power Requirements**
 
 [2]Raspberry Pi, “Raspberry Pi Documentation - Raspberry Pi Hardware,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/raspberry-pi.html (accessed Nov. 26, 2026).
