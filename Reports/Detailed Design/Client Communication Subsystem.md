@@ -121,7 +121,7 @@ This communication took place over TCP port 4460, however once the NTS-KE is com
 
 The process is displayed in the diagram below: 
 
-<img src="figures/TLS_Session_Diagram.svg" alt = "TLS Diagram" width="600">
+<img src="Reports/figures/TLS_Session_Diagram.svg" alt = "TLS Diagram" width="600">
 
 
 
