@@ -18,6 +18,8 @@ The function of this subsystem is to configure other subsystems such as the GNSS
 To meet the proposed criteria: running PiOS Lite, standard pin layout, have the requisite peripherals, be relatively inexpensive, the solution chosen is the Raspberry 3 Model B, paired with an 8 GB SD card.
 
 <img width="860" height="860" alt="image" src="https://github.com/user-attachments/assets/6dd1428e-dbc1-457f-b4b2-58a717834138" />
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/08e59b99-a829-4c07-9043-8e7aead1b1c5" />
+
 
 
 
