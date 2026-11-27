@@ -44,6 +44,9 @@ On its own, the processor cannot receive or generate the Universal Timestamps th
 
 The benefit of choosing the Raspberry Pi ecosystem is that the NEO-M8T seats directly on top the 40 pins on the board, which makes integration seamless[5].
 
+Pinout of the Raspberry Pi 3:
+
+
 
 
 
