@@ -12,12 +12,12 @@ The function of this subsystem is to configure other subsystems such as the GNSS
 
 ## **Overview of Proposed Solution**
 
-To meet the proposed criteria: running PiOS Lite, standard pin layout, have the requisite peripherals, be relatively inexpensive, the solution chosen is the Raspberry 3 Model B, paired with an 8 GB SD card[2].
+To meet the proposed criteria: running PiOS Lite, standard pin layout, have the requisite peripherals, be relatively inexpensive, the solution chosen is the Raspberry 3 Model B, paired with an 8 GB SD card[1].
 
 <img width="300" height="300" alt="raspberry-pi-github" src="https://github.com/user-attachments/assets/e46ac416-a83d-44e8-90f1-98510df198a9" />
 <img width="300" height="300" alt="sd-card-github" src="https://github.com/user-attachments/assets/2c6cd559-70a9-4681-9f6f-25f909f49a3f" />
 
-We chose the Raspberry Pi 3 Model B due to several factors. Firstly, it has the capabilities to receive UART through two dedicated pins, GPIO 14, and GPIO 15. Secondly, it natively supports PiOS Lite, which is meant to run in the Raspberry Pi ecosystem. PiOS Lite lets the system run our main Network Time Server software, Chrony. Lastly, it has pins that allow reception of Pulse Per Second (PPS), which is important for accurate timing[1].
+We chose the Raspberry Pi 3 Model B due to several factors. Firstly, it has the capabilities to receive UART through two dedicated pins, GPIO 14, and GPIO 15. Secondly, it natively supports PiOS Lite, which is meant to run in the Raspberry Pi ecosystem. PiOS Lite lets the system run our main Network Time Server software, Chrony. Lastly, it has pins that allow reception of Pulse Per Second (PPS), which is important for accurate timing[2].
 
 The 8 GB SD card is the minimum and most inexpensive option that can run the PiOS Lite.
 
@@ -38,6 +38,9 @@ These requirements will be discussed in the Power Supply Subsystem.
 To meet these requirements, the Enclosure Subsystem will have cooling mechanisms, and will be discussed more in-depth there.
 
 ## **Interfaces**
+
+### **GNSS Interface**
+On its own, the processor cannot receive or generate the Universal Timestamps that our system requires, and therefore, our system uses the NEO-M8T Hat, which retrieves and demodulates signals from satellite constellations, and then sends these timestamps to the to the Raspberry Pi via two signals, UART, which contains the actual time, and a pulse via Pulse Per Second (PPS) which allows our system to know when the timestamp was received, so the system knows what actual timestamp to use as there is a slight delay between the GNSS Module and the Processor.
 
 
 
