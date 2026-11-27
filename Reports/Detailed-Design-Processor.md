@@ -42,6 +42,8 @@ To meet these requirements, the Enclosure Subsystem will have cooling mechanisms
 ### **GNSS Interface**
 On its own, the processor cannot receive or generate the Universal Timestamps that our system requires, and therefore, our system uses the NEO-M8T Hat, which retrieves and demodulates signals from satellite constellations, and then sends these timestamps to the to the Raspberry Pi via two signals, UART, which contains the actual time, and a pulse via Pulse Per Second (PPS) which allows our system to know when the timestamp was received, so the system knows what actual timestamp to use as there is a slight delay between the GNSS Module and the Processor.
 
+The benefit of choosing the Raspberry Pi ecosystem is that the NEO-M8T seats directly on top the 40 pins on the board, which makes integration seamless[5].
+
 
 
 
@@ -55,3 +57,5 @@ On its own, the processor cannot receive or generate the Universal Timestamps th
 [3]Raspberry Pi, “Raspberry Pi Documentation - Raspberry Pi Hardware,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/raspberry-pi.html (accessed Nov. 26, 2026).
 
 [4]Raspberry Pi, “Raspberry Pi Documentation - Raspberry Pi Hardware,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/raspberry-pi.html (accessed Nov. 27, 2026).
+
+[5]Waveshare, “NEO-M8T GNSS TIMING HAT for Raspberry Pi,” Waveshare. https://www.waveshare.com/neo-m8t-gnss-timing-hat.htm (accessed Nov. 27, 2026).
