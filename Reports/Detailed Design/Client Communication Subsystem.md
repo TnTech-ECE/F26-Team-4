@@ -176,10 +176,28 @@ $T_3$ = The time the server sends its response
 $T_4$ = the time the client receives the response from the server  
 
 
-It creates an NTP response containing: 
+It creates an NTP response containing:  
 
 
-T3 is a challenge due to the fact that a lot of cryptographic processing happens after it is captured. To best counter this, T3 needs to be captured as one of the last things added to the packet to have the least possible amount of steps after it, before transmission. [RFC 5905]
+| Bits | Field Name | Description (in an S2C Packet) |
+| :--- | :--- | :--- |
+| 0–1 | **LI** (Leap Indicator) | Warns of a coming leap second (A +1s or -1s skip in system time). |
+| 2–4 | **VN** (Version Number) | NTP protocol version (typically 4 for NTPv4) |
+| 5–7 | **Mode** | Association mode. Set to "Server" for an S2C response. |
+| 8–15 | **Stratum** | Distance from the reference clock (1 = primary reference, 2–15 = secondary) |
+| 16–23 | **Poll** | Signed integer representing the max interval between messages in $log_2$ seconds. |
+| 24–31 | **Precision** | Signed integer representing the precision of the server's system clck in $log_2$ seconds. |
+| 32–63 | **Root Delay** | 32-bit signed fixed-point number indicating total round-trip delay to the primary reference clock (in seconds). |
+| 64–95 | **Root Dispersion** | 32-bit unsigned fixed-point number indicating max error relative to the primary reference clock (in seconds). |
+| 96–127 | **Reference ID** | Identifies the server's clock source). |
+| 128–191 | **Reference Timestamp** | 64-bit timestamp of when the server's system clock was last set or corrected. |
+| 192–255 | **Origin Timestamp** $(T_1)$ | 64-bit timestamp copied directly from the client's **Transmit Timestamp** ($T_1$) when the request was sent. |
+| 256–319 | **Receive Timestamp** $(T_2)$ | 64-bit timestamp of when the client's request arrived at the server. |
+| 320–383 | **Transmit Timestamp** $(T_3)$ | 64-bit timestamp of when this S2C reply departed the server. |
+
+The table was sourced from [https://www.ntp.org/reflib/brief/flow/flow.pdf]
+
+$T_3$ is a challenge due to the fact that a lot of cryptographic processing happens after it is captured. To best counter this, $T_3$ needs to be captured as one of the last things added to the packet to have the least possible amount of steps after it, before transmission. [RFC 5905]
 
 **Step 6**: The server generates replacement cookies according to the amount specified in the clients original request. [RFC 8915]
 
