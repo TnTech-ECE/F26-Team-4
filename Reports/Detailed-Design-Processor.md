@@ -29,7 +29,7 @@ The 8 GB SD card is the minimum and most inexpensive option that can run the PiO
 
 These requirements will be discussed in the Power Supply Subsystem.
 
-### **Raspberry Pu Model B: Thermal Requirements[4]**
+### **Raspberry Pi Model B: Thermal Requirements[4]**
 
 - **Maximum Temperature for Operation is 85 Degrees Celsius**
 - **Throttling of CPU and GPU start between 80 and 85 Degrees Celsius**
@@ -57,11 +57,12 @@ The NEO-M8T connects to the Processor as such:
 As can be seen, the corresponding Rx and Tx, and the pins for PPS emission and reception are directly aligned.
 
 The pins being used are:
-- GPIO 8 for Tx to the NEO-8MT
-- GPIO 10 for Rx from the NEO-8MT
-- GPIO 12 for PPS from the NEO-8MT
+- **GPIO 8 for UART Tx to the NEO-8MT**
+- **GPIO 10 for UART Rx from the NEO-8MT**
+- **GPIO 12 for PPS from the NEO-8MT**
 
-
+### UART Protocol
+The message received in the GPIO 10 pin will be 92 bytes long and will contain UTC Day, Hour, Minute, and Second. Along with error flags to represent possible issues. More detail on UART is available in the GNSS Subsystem. How the system uses the received timestamp will be in the clock Synch Subsystem.  
 
 
 
