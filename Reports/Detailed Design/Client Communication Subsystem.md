@@ -137,13 +137,14 @@ This communication took place over TCP port 4460, however once the NTS-KE is com
 
 **Step 1**: The client creates a standard NTPv4 packet with the NTS extension fields determined in the NTS-KE section appended onto it. The structure of the packet is defined below 
 
+| ~~ NTPv4 Packet Structure ~~      |
 |------------------------------|
-| NTPv4 Header|
-|Unique Identifier | 
-| NTS Cookie |
-| Cookie Placeholders |
-| NTS Authenticator | 
-|------------------------------|
+| NTPv4 Header                 |
+|Unique Identifier             | 
+| NTS Cookie                   |
+| Cookie Placeholders          |
+| NTS Authenticator            | 
+
 
 The NTPv4 Header contains the bulk of the NTP info and will be further discussed later. The Unique Identifier is a random value of at least 32 bytes. This random value is how each request is differentiated from others. The NTS Cookie was received in the NTS-KE section and is used to tell the server how to interpret the authentication tags, it does not act as the authenticator itself. The cookie is consumed after use. The NTS cookie placeholder is where the client can tell the server how many cookies it wants in return to then use in future communications. The NTS authenticator is the information that confirms to the server that the client is an authorized recipient. [RFC 8915]
 
