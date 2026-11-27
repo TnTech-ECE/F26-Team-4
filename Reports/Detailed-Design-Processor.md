@@ -8,7 +8,7 @@ The function of this subsystem is to configure other subsystems such as the GNSS
 - **Shall be in the Raspberry Ecosystem and have the Standard 40 Pin Layout for ease of Integration with the NEO-M8T**
 - **Shall be able to run the PiOS Lite**
 - **Shall have the ability to process and send UART,Serial,and PPS**
-- **Shall be relatively inexpensive so that the system is available to as many individuals and organizations as possible as per our stakeholder**
+- **Socioeconomic:Shall be relatively inexpensive so that the system is available to as many individuals and organizations as possible as per our stakeholder**
 
 ## **Overview of Proposed Solution**
 
