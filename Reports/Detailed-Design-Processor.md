@@ -52,6 +52,9 @@ Pinout of the Raspberry Pi 3:
 
 The NEO-M8T connects to the Processor as such:
 
+<img width="787" height="565" alt="image" src="https://github.com/user-attachments/assets/172d8f90-9de5-41e1-ad00-ff9f0cefcbfa" />
+
+
 
 
 
