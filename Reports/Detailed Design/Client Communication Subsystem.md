@@ -158,6 +158,7 @@ $K$ = The Client-to-Server Key.
 $N$ = The Nonce Required by the algorithm. It means "number-used-once" and is used to distinguish individual uses of the function.  
 $P$ = The only Value that gets encrypted. All other fields are authenticated, but not encrypted. This field can be left empty.  
 $A$ = The NTP Header and Extension Fields.  
+$C$ = The Authenticated Encryption Output.  
 
 **Step 3**: The client transmits the packet over UDP port 123. The reason UDP is used over TCP was specified above. [RFC 5905]
 
