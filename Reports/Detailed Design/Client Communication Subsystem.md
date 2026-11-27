@@ -40,7 +40,7 @@ Describe the solution and how it will fulfill the specifications and constraints
 
 ## Interface with Other Subsystems
 
-Provide detailed information about the inputs, outputs, and data transferred to other subsystems. Ensure specificity and thoroughness, clarifying the method of communication and the nature of the data transmitted.
+This subsystem interfaces directly with the Clock Synchronization (CS) subsystem. CS determines the system time using the GPS and various time sources that is then transmitted to clients through this Client Communication (CC) subsystem. Additionally CC interfaces with the Device Security subsystem through its firewall. Device Security employs NFTables, a secure firewall, to lock down unnecessary ports. CC uses ports 4460 and 123 both inbound and outbound, and as such, NFTables will allow that traffic to continue.  
 
 ## Analysis
 
