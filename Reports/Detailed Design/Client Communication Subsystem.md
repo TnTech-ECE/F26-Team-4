@@ -150,14 +150,14 @@ The NTPv4 Header contains the bulk of the NTP info and will be further discussed
 
 **Step 2**: This is when the client authenticates the NTP request. It uses Authenticated Encryption with Associated Data (AEAD) to protect the packet. The formula is described below: [RFC 8915]
 
-$$
-C = \text{AEAD\_Encrypt}(K, N, P, A)
-$$
+```math
+C = \mathrm{AEAD\_Encrypt}(K, N, P, A)
+```
 
-$K$ = The Client-to-Server Key
-$N$ = The Nonce Required by the algorithm
-$P$ = The Value that gets encrypted, can be left empty
-$A$ = The NTP Header and Extension Fields
+$K$ = The Client-to-Server Key.  
+$N$ = The Nonce Required by the algorithm. It means "number-used-once" and is used to distinguish individual uses of the function. 
+$P$ = The only Value that gets encrypted. All other fields are authenticated, but not encrypted. This field can be left empty. 
+$A$ = The NTP Header and Extension Fields. 
 
 **Step 3**: The client transmits the packet over UDP port 123. The reason UDP is used over TCP was specified above. [RFC 5905]
 
