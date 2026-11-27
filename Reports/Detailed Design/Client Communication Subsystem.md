@@ -121,7 +121,7 @@ This communication took place over TCP port 4460, however once the NTS-KE is com
 
 The process is displayed in the diagram below: 
 
-<img src="../figures/TLS_Session_Diagram.svg" alt = "TLS Diagram" width="1000">
+<img src="../figures/TLS_Session_Diagram.svg" alt = "TLS Diagram" width="900">
 
 
 
@@ -218,7 +218,12 @@ With the calculations complete and the timestamps acquired, the client is able t
 
 
 
-This process continues repeatedly every time the client wants its clock updated.
+This process continues repeatedly every time the client wants its clock updated.  
+
+
+The below diagram showcases this process: 
+
+<img src="../figures/NTP_Request.svg" alt = "NTP Diagram" width="900">
 
 
 ## References
