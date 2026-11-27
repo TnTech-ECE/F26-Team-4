@@ -146,7 +146,7 @@ This communication took place over TCP port 4460, however once the NTS-KE is com
 | NTS Authenticator            | 
 
 
-The NTPv4 Header contains the bulk of the NTP info and will be further discussed later. The Unique Identifier is a random value of at least 32 bytes. This random value is how each request is differentiated from others. The NTS Cookie was received in the NTS-KE section and is used to tell the server how to interpret the authentication tags, it does not act as the authenticator itself. The cookie is consumed after use. The NTS cookie placeholder is where the client can tell the server how many cookies it wants in return to then use in future communications. The NTS authenticator is the information that confirms to the server that the client is an authorized recipient. [RFC 8915]
+The NTPv4 Header contains the bulk of the NTP info and will be further discussed later. The *Unique Identifier* is a random value of at least 32 bytes. This random value is how each request is differentiated from others. The *NTS Cookie* was received in the NTS-KE section and is used to tell the server how to interpret the authentication tags, it does not act as the authenticator itself. The cookie is consumed after use. The *NTS cookie placeholder* is where the client can tell the server how many cookies it wants in return to then use in future communications. The *NTS authenticator* is the information that confirms to the server that the client is an authorized recipient. [RFC 8915]
 
 **Step 2**: This is when the client authenticates the NTP request. It uses Authenticated Encryption with Associated Data (AEAD) to protect the packet. [RFC 8915]
 
