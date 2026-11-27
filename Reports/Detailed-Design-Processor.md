@@ -54,6 +54,13 @@ The NEO-M8T connects to the Processor as such:
 
 <img width="787" height="565" alt="image" src="https://github.com/user-attachments/assets/172d8f90-9de5-41e1-ad00-ff9f0cefcbfa" />
 
+As can be seen, the corresponding Rx and Tx, and the pins for PPS emission and reception are directly aligned.
+
+The pins being used are:
+- GPIO 8 for Tx to the NEO-8MT
+- GPIO 10 for Rx from the NEO-8MT
+- GPIO 12 for PPS from the NEO-8MT
+
 
 
 
