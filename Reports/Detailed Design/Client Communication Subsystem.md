@@ -148,7 +148,16 @@ This communication took place over TCP port 4460, however once the NTS-KE is com
 
 The NTPv4 Header contains the bulk of the NTP info and will be further discussed later. The *Unique Identifier* is a random value of at least 32 bytes. This random value is how each request is differentiated from others. The *NTS Cookie* was received in the NTS-KE section and is used to tell the server how to interpret the authentication tags, it does not act as the authenticator itself. The cookie is consumed after use. The *NTS cookie placeholder* is where the client can tell the server how many cookies it wants in return to then use in future communications. The *NTS authenticator* is the information that confirms to the server that the client is an authorized recipient. [RFC 8915]
 
-**Step 2**: This is when the client authenticates the NTP request. It uses Authenticated Encryption with Associated Data (AEAD) to protect the packet. [RFC 8915]
+**Step 2**: This is when the client authenticates the NTP request. It uses Authenticated Encryption with Associated Data (AEAD) to protect the packet. The formula is described below: [RFC 8915]
+
+$$
+C = \text{AEAD\_Encrypt}(K, N, P, A)
+$$
+
+$K$ = The Client-to-Server Key
+$N$ = The Nonce Required by the algorithm
+$P$ = The Value that gets encrypted, can be left empty
+$A$ = The NTP Header and Extension Fields
 
 **Step 3**: The client transmits the packet over UDP port 123. The reason UDP is used over TCP was specified above. [RFC 5905]
 
