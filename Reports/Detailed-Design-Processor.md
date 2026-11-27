@@ -62,7 +62,10 @@ The pins being used are:
 - **GPIO 12 for PPS from the NEO-8MT**
 
 ### UART Protocol
-The message received in the GPIO 10 pin will be 92 bytes long and will contain UTC Day, Hour, Minute, and Second. Along with error flags to represent possible issues. More detail on UART is available in the GNSS Subsystem. How the system uses the received timestamp will be in the clock Synch Subsystem.  
+The message received in the GPIO 10 pin will be 92 bytes long and will contain UTC Day, Hour, Minute, and Second. Along with error flags to represent possible issues. More detail on UART is available in the GNSS Subsystem. How the system uses the received timestamp will be in the Clock Synch Subsystem.  
+
+### PPS
+The pulse from the PPS from the NEO-M8T is an interrupt that the pin will receive, and then the Clock Synch Subsystem will correlate the timestamp from the UART pins. More detail can be found in the Clock Synch Subsystem.
 
 
 
