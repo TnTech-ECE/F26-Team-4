@@ -42,15 +42,6 @@ Describe the solution and how it will fulfill the specifications and constraints
 
 Provide detailed information about the inputs, outputs, and data transferred to other subsystems. Ensure specificity and thoroughness, clarifying the method of communication and the nature of the data transmitted.
 
-## Flowchart
-
-For sections including a software component, produce a chart that demonstrates the decision-making process of the microcontroller. It should provide an overview of the device's function without exhaustive detail.
-
-
-## BOM
-
-Provide a comprehensive list of all necessary components along with their prices and the total cost of the subsystem. This information should be presented in a tabular format, complete with the manufacturer, part number, distributor, distributor part number, quantity, price, and purchasing website URL. If the component is included in your schematic diagram, ensure inclusion of the component name on the BOM (i.e R1, C45, U4).
-
 ## Analysis
 
 **NTS and TLS Security**  
@@ -126,8 +117,11 @@ With the keys acquired, the server and client encrypt the remaining steps in the
 
 **Step 9**: With the handshake completed, the server and client exchange secret application data. The client sends a NTS-KE request. The server processes it and responds with the negotiated parameters and the initial cookies for NTS communications. The purpose of this step is to allow the different devices to communicate with the various applications running on the respective machines. Examples of such applications are: Web Browsing (HTTPS), APIs and Mobile Apps, Email, Messaging, and Database connections. Of course, for the NTP server, none of these applications will be used.  [RFC 9846]
 
-This communication took place over TCP port 4460, however once the NTS-KE is complete, that connection ends and the NTP communications happen over UDP port 123. This is because the TCP and the TLS tunnel add much overhead that slows down the rate the devices can communicate. UDP requires much less overhead as it avoids retransmission and ordered-delivery behavior that can introduce variability in timing. [RFC 8915][RFC 5905]
+This communication took place over TCP port 4460, however once the NTS-KE is complete, that connection ends and the NTP communications happen over UDP port 123. This is because the TCP and the TLS tunnel add much overhead that slows down the rate the devices can communicate. UDP requires much less overhead as it avoids retransmission and ordered-delivery behavior that can introduce variability in timing. [RFC 8915][RFC 5905]  
 
+The process is displayed in the diagram below: 
+
+<img src="figures/TLS_Session_Diagram.svg" alt = "TLS Diagram" width="600">
 
 
 
