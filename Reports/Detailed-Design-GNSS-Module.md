@@ -167,6 +167,20 @@ PPS is of extraordinary importance to precision timing. It allows us to associat
 
 At the start of operation, the SoC will configure the GNSS Module. For example, we will tell the module what constellations we want it to lock on to, the messages in the payload that are delivered to the SoC, and how often they are delivered. If the module is not configured, or not properly configured, the module will return an error to the user. After proper configuration, the module will start to scan for the constellations. If it cannot detect any, it will send an error to the SoC, and the SoC will trigger the Holdover Subsystem until a lock is achieved. Then, when a lock is achieved, it will receive the signal, demodulate it, then send the payload with the timestamp, as well as a time pulse, to the SoC, which will then be distributed to clients. At the same time, the module will try to detect spoofing attempts and will alert the user if there is a possible spoofing event. It should be noted that it cannot guarantee that it will detect spoofing but adds an extra layer of security. Also, the module must be placed with a clear view of the sky, or accuracy will be severely reduced.
 
+## **BOM (Bill of Materials)**
+
+| Component |  |  |
+| --- | --- | --- |
+| Manufacturer |  |  |
+|  |  |  |
+| Distributor |  |  |
+| Dist. Part # |  |  |
+| Quantity | x1  | x1  |
+| Price |  |  |
+| URL |  |  |
+| Total Cost: |     |  |
+
+
 ## **Analysis:**
 The purpose of this subsystem is to be able to monitor multiple constellations simultaneously, and acquire the Universal Timestamp, and then deliver said timestamp to the SoC. However, there are multiple constraints the subsystem must achieve in order for the subsystem to achieve the stakeholder's requirements. It must be reliable, which means it must be resilient in hostile conditions, like spoofing and loss of satellite lock. Must be easy to configure, and setup, so that someone without an engineering background can make use of the system. It also must be relatively inexpensive so that independent organizations and individuals can afford to buld the system.
 
