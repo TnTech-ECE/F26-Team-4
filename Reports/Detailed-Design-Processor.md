@@ -3,7 +3,7 @@
 ## **Function of Subsystem**
 The function of this subsystem is to configure other subsystems such as the GNSS Module and Holdover Subsystem. It will also be responsible for hosting the software that runs the cybersecurity and disciplines the Holdover subsystem. Lastly, it will send the timestamps to clients.
 
-## **Specifications and Constraints**
+## **Specifications and Constraints**Soft wrap
 
 - **Shall be in the Raspberry Ecosystem and have the Standard 40 Pin Layout for ease of Integration with the NEO-M8T**
 - **Shall be able to run the PiOS Lite**
@@ -65,15 +65,20 @@ The pins being used are:
 The message received in the GPIO 10 pin will be 92 bytes long and will contain UTC Day, Hour, Minute, and Second. Along with error flags to represent possible issues. More detail on UART is available in the GNSS Subsystem. How the system uses the received timestamp will be in the Clock Synch Subsystem.  
 
 ### PPS
-The pulse from the PPS from the NEO-M8T is an interrupt that the pin will receive, and then the Clock Synch Subsystem will correlate the timestamp from the UART pins. More detail can be found in the Clock Synch Subsystem.
+The pulse from the PPS from the NEO-M8T is an interrupt that the pin will receive, and then the Clock Synch Subsystem will correlate the timestamp from the UART pins. More detail can be found in the Clock Synch Subsystem. More Detail on PPS can be found in the GNSS Subsystem.
+
+### **Oscillator Interface**
+
+### **Power Supply Interface**
+
+### **Buildable Schematic**
+
+### **BOM (Bill of Materials)**
+
+### **Analysis**
 
 
-
-
-
-
-
-## **References**       
+### **References**       
 [1]A. Negi, “Raspberry Pi 3 B+ Pinout With GPIO Functions, Schematic and Specs in Detail.” https://www.etechnophiles.com/raspberry-pi-3-b-pinout-with-gpio-functions-schematic-and-specs-in-detail/ (accessed Nov. 26, 2026).
 
 [2]Raspberry Pi, “Raspberry Pi Documentation - Getting Started,” www.raspberrypi.com. https://www.raspberrypi.com/documentation/computers/getting-started.html (accessed Nov. 27, 2026).
